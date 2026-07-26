@@ -137,9 +137,9 @@ public partial class SteamIntegration : Node
 
         // bool unlocked = false;
         // SteamUserStats.GetAchievement(achievementId, out unlocked);
-        bool unlocked = false; // Stub
-        _achievementCache[achievementId] = unlocked;
-        return unlocked;
+        bool isUnlocked = false; // Stub
+        _achievementCache[achievementId] = isUnlocked;
+        return isUnlocked;
     }
 
     public void ClearAchievement(string achievementId)

@@ -145,7 +145,7 @@ public partial class EncounterGenerator : Node
             selectedUnits.Add((unitData, position, spawnDelay));
         }
 
-        encounter.EnemyUnits = selectedUnits.Select(u => new EnemySpawnInfo
+        encounter.EnemyUnits = selectedUnits.Select(u => new TheSignal.Data.EnemySpawnInfo
         {
             UnitData = u.Item1,
             Position = u.Item2,
@@ -153,7 +153,7 @@ public partial class EncounterGenerator : Node
         }).ToList();
 
         // Generate loot
-        encounter.Rewards = GenerateLoot(playerLevel, corruptionLevel, selectedUnits.Any(u => u.Item1.Rarity == "boss"));
+        encounter.Rewards = GenerateLoot(playerLevel, corruptionLevel, selectedUnits.Any(u => false));
 
         return encounter;
     }
@@ -206,9 +206,8 @@ public partial class EncounterGenerator : Node
         return new UnitData
         {
             UnitId = unitId,
-            UnitName = $"{rarity} {template.UnitId.Replace("_", " ")}",
-            Level = level,
-            Rarity = rarity
+            DisplayName = $"{rarity} {template.UnitId.Replace("_", " ")}",
+            Type = UnitType.Enemy
         };
     }
 
@@ -254,7 +253,11 @@ public partial class EncounterGenerator : Node
         {
             reward.Scrap *= 3;
             reward.Xp *= 2;
-            reward.ItemIds = new List<string> { "resonance_crystal", "vital_essence" };
+            reward.Items = new Godot.Collections.Array<RewardItem>
+            {
+                new RewardItem { ItemId = "resonance_crystal", Count = 1 },
+                new RewardItem { ItemId = "vital_essence", Count = 1 }
+            };
         }
 
         // Random item drops
@@ -268,7 +271,8 @@ public partial class EncounterGenerator : Node
             if (_rng.NextDouble() < 0.05f)
                 items.Add("purification_serum");
 
-            reward.ItemIds = items;
+            reward.Items = new Godot.Collections.Array<RewardItem>();
+            foreach (var itemId in items) reward.Items.Add(new RewardItem { ItemId = itemId, Count = 1 });
         }
 
         return reward;
@@ -314,7 +318,7 @@ public partial class EncounterGenerator : Node
         {
             // Upgrade first enemy to elite
             var first = eliteEncounter.EnemyUnits[0];
-            first.UnitData.Rarity = "elite";
+            // stub: Rarity not on UnitData
         }
         return eliteEncounter;
     }

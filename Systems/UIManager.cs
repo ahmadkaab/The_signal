@@ -194,7 +194,7 @@ public partial class UIManager : Node
     {
         foreach (Node child in GetChildren())
         {
-            if (child.Name.Contains("LoadingScreen"))
+            if (((string)child.Name).Contains("LoadingScreen"))
                 child.QueueFree();
         }
     }

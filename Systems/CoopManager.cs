@@ -510,8 +510,8 @@ public class ProgressionDelta
             if (kv.Length < 2) continue;
             switch (kv[0])
             {
-                case "xp": int.TryParse(kv[1], out delta.XpGained); break;
-                case "scrap": int.TryParse(kv[1], out delta.ScrapGained); break;
+                case "xp": int.TryParse(kv[1], out int xpVal); delta.XpGained = xpVal; break;
+                case "scrap": int.TryParse(kv[1], out int scrapVal); delta.ScrapGained = scrapVal; break;
                 case "cmp": delta.CompanionRecruited = kv[1]; break;
                 case "q": delta.QuestCompleted = kv[1]; break;
                 case "z": delta.ZoneDiscovered = kv[1]; break;

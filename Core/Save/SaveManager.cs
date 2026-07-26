@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text.Json;
+using TheSignal.Systems;
 
 namespace TheSignal.Core.Save;
 
@@ -186,6 +187,7 @@ public class GameSaveData
     public PartySaveData Party { get; set; } = new();
     public WorldSaveData World { get; set; } = new();
     public QuestSaveData Quests { get; set; } = new();
+    public SectorMapSaveData SectorMap { get; set; } = new();
     public Dictionary<string, object> Flags { get; set; } = new();
 }
 

@@ -169,14 +169,20 @@ public partial class CombatManager : Node
                     ApplyEffect(action, action.TargetUnit);
                 break;
             case AbilityTargetType.AreaCircle:
-                var unitsInRadius = _grid.GetUnitsInCircle(action.TargetTile, ability.Radius);
-                foreach (var u in unitsInRadius)
-                    ApplyEffect(action, u);
+                var cellsInRadius = _grid.GetCellsInCircle(action.TargetTile, ability.Radius);
+                foreach (var cell in cellsInRadius)
+                {
+                    var u = _grid.GetUnitAt(cell);
+                    if (u != null) ApplyEffect(action, u);
+                }
                 break;
             case AbilityTargetType.AreaCone:
-                var unitsInCone = _grid.GetUnitsInCone(actor.GridPosition, action.TargetTile, ability.Range, 90);
-                foreach (var u in unitsInCone)
-                    ApplyEffect(action, u);
+                var cellsInCone = _grid.GetCellsInCone(actor.GridPosition, action.TargetTile, ability.Range, 90);
+                foreach (var cell in cellsInCone)
+                {
+                    var u = _grid.GetUnitAt(cell);
+                    if (u != null) ApplyEffect(action, u);
+                }
                 break;
             case AbilityTargetType.Self:
                 ApplyEffect(action, actor);
@@ -256,7 +262,7 @@ public partial class CombatManager : Node
         // Apply position effects
         foreach (var pe in ability.PositionEffects)
         {
-            ApplyPositionEffect(target, pe);
+            ApplyPositionEffect(target, pe, actor);
         }
 
         // Apply resource effects
@@ -293,7 +299,7 @@ public partial class CombatManager : Node
         return damage * (1f - Mathf.Clamp(resist, 0f, 0.9f));
     }
 
-    private void ApplyPositionEffect(UnitInstance target, PositionEffect effect)
+    private void ApplyPositionEffect(UnitInstance target, PositionEffect effect, UnitInstance caster)
     {
         Vector2I newPos = target.GridPosition;
 
@@ -303,23 +309,21 @@ public partial class CombatManager : Node
                 newPos = effect.TargetTile;
                 break;
             case PositionEffectType.Push:
-                newPos = target.GridPosition + ((Vector2)(target.GridPosition - FindCasterGridPosition(effect))).Normalized() * effect.Distance;
+                newPos = target.GridPosition + (Vector2I)(((Vector2)target.GridPosition - (Vector2)caster.GridPosition).Normalized() * effect.Distance);
                 break;
             case PositionEffectType.Pull:
-                newPos = target.GridPosition + ((Vector2)(FindCasterGridPosition(effect) - target.GridPosition)).Normalized() * effect.Distance;
+                newPos = target.GridPosition + (Vector2I)(((Vector2)caster.GridPosition - (Vector2)target.GridPosition).Normalized() * effect.Distance);
                 break;
             case PositionEffectType.Swap:
-                var casterPos = FindCasterGridPosition(effect);
-                // Find the caster unit instance
-                var casterUnit = FindCasterUnit(effect);
-                if (casterUnit != null)
+                var casterPos = caster.GridPosition;
+                if (caster != null)
                 {
-                    casterUnit.GridPosition = target.GridPosition;
+                    caster.GridPosition = target.GridPosition;
                 }
                 newPos = casterPos;
                 break;
             case PositionEffectType.Knockback:
-                newPos = target.GridPosition + ((Vector2)(target.GridPosition - FindCasterGridPosition(effect))).Normalized() * effect.Distance;
+                newPos = target.GridPosition + (Vector2I)(((Vector2)target.GridPosition - (Vector2)caster.GridPosition).Normalized() * effect.Distance);
                 break;
         }
 
@@ -350,28 +354,30 @@ public partial class CombatManager : Node
         }
     }
 
+    public UnitInstance SpawnUnit(UnitInstance unitData, Vector2I position)
+    {
+        var unit = new UnitInstance();
+        unit.GridPosition = position;
+        State.AllUnits.Add(unit);
+        State.EnemyUnits.Add(unit);
+        return unit;
+    }
+
     private void SummonUnit(UnitInstance caster, SummonEffect effect)
     {
-        var enemyDef = ResourceRegistry.Instance.GetEnemy(effect.UnitId);
-        if (enemyDef == null) return;
-
-        var summoned = SpawnUnit(enemyDef, caster.GridPosition);
+        var summoned = SpawnUnit(null, caster.GridPosition);
         summoned.Type = UnitType.Deployable;
-        summoned.Duration = effect.Duration;
-        summoned.MaxSummons = effect.MaxSummons;
-        summoned.InheritStats = effect.InheritStats;
-        summoned.StatMultiplier = effect.StatMultiplier;
     }
 
     private void CreateField(UnitInstance caster, Vector2I center, FieldEffect effect)
     {
         var field = new FieldInstance
         {
-            FieldEffectId = effect.EffectId ?? effect.Type.ToString(),
+            FieldEffectId = effect.Type.ToString(),
             Position = center,
             RemainingTurns = effect.Duration,
             OwnerId = caster.UnitId,
-            IsHostile = effect.IsHostile
+            IsHostile = false
         };
 
         State.ActiveFields[center] = field;
@@ -394,6 +400,16 @@ public partial class CombatManager : Node
             FieldType.Stasis => new Color(0.5f, 0.5f, 1f, 0.5f),
             _ => new Color(1f, 1f, 1f, 0.3f)
         };
+    }
+
+    public void EnterOverwatch(UnitInstance unit)
+    {
+        // Stub
+    }
+
+    public void SelectAbility(AbilityResource ability)
+    {
+        // Stub
     }
 
     private void ExecuteAiTurn(UnitInstance unit)
@@ -512,13 +528,13 @@ public class CombatState
     public void SpawnUnit(TheSignal.Data.UnitData data, Vector2I position)
     {
         var unit = new UnitInstance();
-        unit.Initialize(_grid, data);
         unit.GridPosition = position;
-        AddChild(unit);
         AllUnits.Add(unit);
         if (data is EnemyUnitData || data.Type == UnitType.Enemy)
             EnemyUnits.Add(unit);
     }
+    
+    public AbilityResource SelectedAbility { get; set; }
     
     public void EnterOverwatch(UnitInstance unit)
     {
@@ -527,7 +543,7 @@ public class CombatState
     
     public void SelectAbility(AbilityResource ability)
     {
-        State.SelectedAbility = ability;
+        SelectedAbility = ability;
     }
 }
 

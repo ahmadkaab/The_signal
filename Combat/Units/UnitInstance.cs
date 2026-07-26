@@ -198,7 +198,7 @@ public partial class UnitInstance : CharacterBody3D
         }
 
         // Check crit
-        bool isCrit = GD.Randf() * 100 < attacker?.CritChance ?? CritChance;
+        bool isCrit = GD.Randf() * 100 < (attacker?.CritChance ?? CritChance);
         if (isCrit)
         {
             damage *= 1f + (attacker?.CritDamage ?? CritDamage) / 100f;

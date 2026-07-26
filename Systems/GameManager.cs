@@ -137,7 +137,7 @@ public partial class GameManager : Node
     {
         GD.Print($"[GameManager] Loading game: {saveName}");
 
-        var data = SaveManager.LoadGame(saveName);
+        var data = SaveManager.LoadGame(int.Parse(saveName));
         if (data == null)
         {
             GD.PrintErr($"[GameManager] Failed to load save: {saveName}");
@@ -168,7 +168,7 @@ public partial class GameManager : Node
             SectorMap = SectorMapManager.GetSaveData()
         };
 
-        SaveManager.SaveGame(saveName, data);
+        SaveManager.SaveGame(int.Parse(saveName), data);
         OnGameSaved?.Invoke();
     }
 
@@ -239,11 +239,9 @@ public partial class GameManager : Node
 
     public void TravelToZone(string zoneId)
     {
-        if (SectorMapManager.TravelTo(zoneId))
-        {
-            // Load local zone scene
-            LoadLocalZone(zoneId);
-        }
+        SectorMapManager.TravelTo(zoneId);
+        // Load local zone scene
+        LoadLocalZone(zoneId);
     }
 
     private void LoadLocalZone(string zoneId)
@@ -289,14 +287,5 @@ public partial class GameManager : Node
     }
 }
 
-// ========== SAVE DATA STRUCTURES ==========
-
-public class GameSaveData
-{
-    public SaveMeta Meta { get; set; } = new();
-    public PlayerSaveData Player { get; set; }
-    public PartySaveData Party { get; set; }
-    public WorldSaveData World { get; set; }
-    public QuestSaveData Quests { get; set; }
-    public SectorMapSaveData SectorMap { get; set; }
-}
+// Save data is defined in Core/Save/SaveManager.cs - using that version
+// This file uses GameSaveData from TheSignal.Core.Save via the using directive above

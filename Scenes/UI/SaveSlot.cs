@@ -13,11 +13,11 @@ public partial class SaveSlot : PanelContainer
     [Export] public Button LoadButton { get; set; }
     [Export] public Button DeleteButton { get; set; }
 
-    public event Action<SaveInfo> LoadRequested;
+    public event Action<TheSignal.Scenes.UI.SaveInfo> LoadRequested;
 
-    public SaveInfo SaveInfo { get; private set; }
+    public TheSignal.Scenes.UI.SaveInfo SaveInfo { get; private set; }
 
-    public void Initialize(SaveInfo info)
+    public void Initialize(TheSignal.Scenes.UI.SaveInfo info)
     {
         SaveInfo = info;
         SaveName.Text = info.DisplayName;
@@ -31,7 +31,7 @@ public partial class SaveSlot : PanelContainer
 
     private void OnDelete()
     {
-        SaveManager.DeleteSave(SaveInfo.FileName);
+        SaveManager.DeleteSave(int.TryParse(SaveInfo.FileName.Replace("save_", "").Replace(".json", ""), out int slot) ? slot : 0);
         QueueFree();
     }
 

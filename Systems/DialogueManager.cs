@@ -12,6 +12,8 @@ public partial class DialogueManager : Node
     public VariableStorage VarStorage { get; private set; }
     public LineProvider LineProvider { get; private set; }
 
+    public string CurrentNodeName { get; private set; } = string.Empty;
+
     public event Action<string> OnDialogueStarted;
     public event Action<string> OnDialogueEnded;
     public event Action<string, string[]> OnChoicesPresented;
@@ -32,17 +34,18 @@ public partial class DialogueManager : Node
 
     private void OnDialogueStart()
     {
-        OnDialogueStarted?.Invoke(Runner.CurrentNodeName);
+        OnDialogueStarted?.Invoke(CurrentNodeName);
     }
 
     private void OnDialogueComplete()
     {
         GameManager.Instance.ReturnToPreviousState();
-        OnDialogueEnded?.Invoke(Runner.CurrentNodeName);
+        OnDialogueEnded?.Invoke(CurrentNodeName);
     }
 
     private void OnNodeStart(string nodeName)
     {
+        CurrentNodeName = nodeName;
         OnDialogueStarted?.Invoke(nodeName);
     }
 
@@ -56,6 +59,7 @@ public partial class DialogueManager : Node
         if (Runner.IsDialogueRunning) return;
 
         GameManager.Instance.ChangeState(GameState.Dialogue);
+        CurrentNodeName = yarnNode;
         Runner.StartDialogue(yarnNode);
         OnDialogueStarted?.Invoke(yarnNode);
     }
@@ -69,12 +73,22 @@ public partial class DialogueManager : Node
 
     public void SetVariable(string name, Variant value)
     {
-        VarStorage.SetValue($"${name}", value);
+        // InMemoryVariableStorage.SetValue accepts string/float/bool, not Variant
+        string varName = $"${name}";
+        switch (value.VariantType)
+        {
+            case Variant.Type.Bool:
+                VarStorage.SetValue(varName, value.AsBool());
+                break;
+            default:
+                VarStorage.SetValue(varName, value.AsString());
+                break;
+        }
     }
 
     public Variant GetVariable(string name)
     {
-        return VarStorage.GetValue($"${name}");
+        return VarStorage.GetVariantValue($"${name}");
     }
 }
 
@@ -83,12 +97,21 @@ public partial class VariableStorage : InMemoryVariableStorage
 {
     public void SetGameVariable(string key, Variant value)
     {
-        SetValue($"${key}", value);
+        string varName = $"${key}";
+        switch (value.VariantType)
+        {
+            case Variant.Type.Bool:
+                SetValue(varName, value.AsBool());
+                break;
+            default:
+                SetValue(varName, value.AsString());
+                break;
+        }
     }
 
     public Variant GetGameVariable(string key)
     {
-        return GetValue($"${key}");
+        return GetVariantValue($"${key}");
     }
 }
 

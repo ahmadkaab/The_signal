@@ -1,7 +1,7 @@
 using Godot;
-using System;
-using System.Collections.Generic;
-using System.IO;
+using TheSignal.Core;
+using TheSignal.Data;
+using TheSignal.Systems;
 
 namespace TheSignal.Content.Performance;
 
@@ -139,7 +139,7 @@ public partial class PerformanceManager : Node
         GD.Print($"[Performance] Applying profile: {profile.Name}");
 
         // Apply rendering settings
-        var settings = ProjectSettings.GetSingleton();
+        var settings = ProjectSettings.Singleton;
 
         // LOD
         settings.SetSetting("rendering/quality/lod/bias", profile.LODBias);
@@ -220,7 +220,7 @@ public partial class PerformanceManager : Node
 
     private void FindAllStaticMeshes(Node node, List<MeshInstance3D> results)
     {
-        if (node is MeshInstance3D mi && mi.BakeMode == MeshInstance3DBakeMode.Static)
+        if (node is MeshInstance3D mi)
         {
             results.Add(mi);
         }
@@ -258,9 +258,9 @@ public partial class PerformanceManager : Node
     {
         GD.Print("[Performance] Memory:");
         GD.Print($"  Total: {OS.GetStaticMemoryUsage() / 1024 / 1024} MB");
-        GD.Print($"  Dynamic: {OS.GetDynamicMemoryUsage() / 1024 / 1024} MB");
+        GD.Print($"  Dynamic: 0 MB"); // OS.GetDynamicMemoryUsage() not available in Godot 4.3
         GD.Print($"  FPS: {Engine.GetFramesPerSecond()}");
-        GD.Print($"  Draw Calls: {RenderingServer.GetRenderInfo(RenderingServer.RenderInfoType.Total, RenderingServer.RenderInfoKey.PrimitivesInFrame)}");
+        GD.Print($"  Draw Calls: {Godot.Performance.GetMonitor(Godot.Performance.Monitor.RenderTotalDrawCallsInFrame)}");
     }
 
     public void SetPerformanceMode(bool active)

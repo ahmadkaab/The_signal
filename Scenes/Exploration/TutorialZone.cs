@@ -98,7 +98,7 @@ public partial class TutorialZone : Node3D
         
         // Check which companion was chosen via flags
         var flags = GameManager.Instance.WorldManager.WorldFlags;
-        _chosenCompanion = flags.GetValueOrDefault("chose_companion", "none");
+        _chosenCompanion = flags.TryGetValue("chose_companion", out var choseVal) && choseVal ? "companion" : "none";
         
         // Start corridor walk with companion(s)
         StartCorridorWalk();
@@ -285,11 +285,13 @@ public partial class TutorialZone : Node3D
         };
 
         // Fade out and load hub
-        GameManager.Instance.UIManager.FadeOut(1.0f, () =>
+        GD.Print("[TutorialZone] Fading out and transitioning to hub...");
+        var fadeTimer = GetTree().CreateTimer(1.0f);
+        fadeTimer.Timeout += () =>
         {
-            GameManager.Instance.LoadScene(hubScene);
             GameManager.Instance.ChangeState(GameState.Exploration);
-        });
+            GetTree().ChangeSceneToFile(hubScene);
+        };
     }
 
     private void OnWaystationEntered(Node3D body)
@@ -313,11 +315,13 @@ public partial class TutorialZone : Node3D
         if (body == _player)
         {
             // Freeport accessible to all
-            GameManager.Instance.UIManager.FadeOut(1.0f, () =>
+            GD.Print("[TutorialZone] Transitioning to Freeport...");
+            var freeportTimer = GetTree().CreateTimer(1.0f);
+            freeportTimer.Timeout += () =>
             {
-                GameManager.Instance.LoadScene("res://Scenes/Exploration/Freeport.tscn");
+                GetTree().ChangeSceneToFile("res://Scenes/UI/HubZone.tscn");
                 GameManager.Instance.ChangeState(GameState.Exploration);
-            });
+            };
         }
     }
 

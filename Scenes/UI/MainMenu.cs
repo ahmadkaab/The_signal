@@ -59,7 +59,15 @@ public partial class MainMenu : Control
         foreach (var save in saves)
         {
             var slot = SaveSlotScene.Instantiate<SaveSlot>();
-            slot.Initialize(save);
+            slot.Initialize(new TheSignal.Scenes.UI.SaveInfo
+            {
+                FileName = $"save_{save.SlotName.Replace("Slot ", "")}",
+                DisplayName = save.SlotName,
+                PlaytimeSeconds = save.PlayTimeMinutes * 60,
+                PlayerLevel = save.PlayerLevel,
+                CurrentZone = save.ZoneId ?? "Unknown",
+                Timestamp = save.Timestamp
+            });
             slot.LoadRequested += OnLoadSave;
             SaveSlotsContainer.AddChild(slot);
         }

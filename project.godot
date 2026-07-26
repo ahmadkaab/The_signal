@@ -1,109 +1,20 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
 [application]
 
 config/name="The Signal"
 config/description="Post-apocalyptic sci-fantasy tactical RPG"
-config/icon="res://Assets/Art/Icons/app_icon.svg"
 run/main_scene="res://Scenes/Menus/MainMenu.tscn"
-
-[display]
-
-window/size/viewport_width=1920
-window/size/viewport_height=1080
-window/size/resizable=true
-window/size/fullscreen_mode=2
-window/vsync/vsync_mode=1
-rendering/quality/filters/anisotropic_filter_level=16
-
-[input]
-
-ui_up = {
-"deadzone": 0.5,
-"events": [{"type": "Key", "keycode": 82, "pressed": true}, {"type": "JoyButton", "button_index": 11, "device": -1}]
-}
-ui_down = {
-"deadzone": 0.5,
-"events": [{"type": "Key", "keycode": 81, "pressed": true}, {"type": "JoyButton", "button_index": 12, "device": -1}]
-}
-ui_left = {
-"deadzone": 0.5,
-"events": [{"type": "Key", "keycode": 80, "pressed": true}, {"type": "JoyButton", "button_index": 13, "device": -1}]
-}
-ui_right = {
-"deadzone": 0.5,
-"events": [{"type": "Key", "keycode": 79, "pressed": true}, {"type": "JoyButton", "button_index": 14, "device": -1}]
-}
-ui_select = {
-"deadzone": 0.5,
-"events": [{"type": "Key", "keycode": 40, "pressed": true}, {"type": "JoyButton", "button_index": 0, "device": -1}]
-}
-ui_cancel = {
-"deadzone": 0.5,
-"events": [{"type": "Key", "keycode": 41, "pressed": true}, {"type": "JoyButton", "button_index": 1, "device": -1}]
-}
-tactical_move = {
-"deadzone": 0.5,
-"events": [{"type": "Key", "keycode": 87, "pressed": true}, {"type": "Key", "keycode": 83, "pressed": true}, {"type": "Key", "keycode": 65, "pressed": true}, {"type": "Key", "keycode": 68, "pressed": true}]
-}
-tactical_confirm = {
-"deadzone": 0.5,
-"events": [{"type": "Key", "keycode": 32, "pressed": true}, {"type": "JoyButton", "button_index": 0, "device": -1}]
-}
-tactical_cancel = {
-"deadzone": 0.5,
-"events": [{"type": "Key", "keycode": 41, "pressed": true}, {"type": "JoyButton", "button_index": 1, "device": -1}]
-}
-tactical_ability_1 = {
-"deadzone": 0.5,
-"events": [{"type": "Key", "keycode": 49, "pressed": true}]
-}
-tactical_ability_2 = {
-"deadzone": 0.5,
-"events": [{"type": "Key", "keycode": 50, "pressed": true}]
-}
-tactical_ability_3 = {
-"deadzone": 0.5,
-"events": [{"type": "Key", "keycode": 51, "pressed": true}]
-}
-tactical_ability_4 = {
-"deadzone": 0.5,
-"events": [{"type": "Key", "keycode": 52, "pressed": true}]
-}
-tactical_end_turn = {
-"deadzone": 0.5,
-"events": [{"type": "Key", "keycode": 9, "pressed": true}, {"type": "JoyButton", "button_index": 7, "device": -1}]
-}
-explore_interact = {
-"deadzone": 0.5,
-"events": [{"type": "Key", "keycode": 69, "pressed": true}, {"type": "JoyButton", "button_index": 0, "device": -1}]
-}
-explore_dodge = {
-"deadzone": 0.5,
-"events": [{"type": "Key", "keycode": 32, "pressed": true}, {"type": "JoyButton", "button_index": 1, "device": -1}]
-}
-menu_journal = {
-"deadzone": 0.5,
-"events": [{"type": "Key", "keycode": 74, "pressed": true}]
-}
-menu_inventory = {
-"deadzone": 0.5,
-"events": [{"type": "Key", "keycode": 73, "pressed": true}]
-}
-menu_character = {
-"deadzone": 0.5,
-"events": [{"type": "Key", "keycode": 67, "pressed": true}]
-}
-
-[rendering]
-
-rendering/renderer/rendering_method="forward_plus"
-rendering/environment/defaults/default_clear_color="0.05, 0.05, 0.08, 1"
-rendering/quality/shadows/quality=2
-rendering/quality/reflections/screen_space_roughness_limiter=true
-rendering/quality/anti_aliasing/msaa=2
-
-[physics]
-
-physics/common/physics_fps=60
+config/features=PackedStringArray("4.7", "C#")
+config/icon="res://Assets/Art/Icons/app_icon.svg"
 
 [autoload]
 
@@ -126,37 +37,271 @@ BaseBuildingManager="*res://Systems/BaseBuildingManager.cs"
 NewGamePlusManager="*res://Systems/NewGamePlusManager.cs"
 CoopManager="*res://Systems/CoopManager.cs"
 
-[localization]
+[display]
 
-locale/fallback="en"
-locale/test="en"
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/size/fullscreen_mode=2
+rendering/quality/filters/anisotropic_filter_level=16
 
-[script]
+[dotnet]
 
-debug/print_stack_trace_on_error=true
+project/assembly_name="The Signal"
 
 [editor]
 
 editor/main_run_args=""
 
-[plugins]
+[input]
 
-enabled=["GodotSharp"]
+ui_select={
+"deadzone": 0.5,
+"events": [{
+"keycode": 40,
+"pressed": true,
+"type": "Key"
+}, {
+"button_index": 0,
+"device": -1,
+"type": "JoyButton"
+}]
+}
+ui_cancel={
+"deadzone": 0.5,
+"events": [{
+"keycode": 41,
+"pressed": true,
+"type": "Key"
+}, {
+"button_index": 1,
+"device": -1,
+"type": "JoyButton"
+}]
+}
+ui_left={
+"deadzone": 0.5,
+"events": [{
+"keycode": 80,
+"pressed": true,
+"type": "Key"
+}, {
+"button_index": 13,
+"device": -1,
+"type": "JoyButton"
+}]
+}
+ui_right={
+"deadzone": 0.5,
+"events": [{
+"keycode": 79,
+"pressed": true,
+"type": "Key"
+}, {
+"button_index": 14,
+"device": -1,
+"type": "JoyButton"
+}]
+}
+ui_up={
+"deadzone": 0.5,
+"events": [{
+"keycode": 82,
+"pressed": true,
+"type": "Key"
+}, {
+"button_index": 11,
+"device": -1,
+"type": "JoyButton"
+}]
+}
+ui_down={
+"deadzone": 0.5,
+"events": [{
+"keycode": 81,
+"pressed": true,
+"type": "Key"
+}, {
+"button_index": 12,
+"device": -1,
+"type": "JoyButton"
+}]
+}
+tactical_move={
+"deadzone": 0.5,
+"events": [{
+"keycode": 87,
+"pressed": true,
+"type": "Key"
+}, {
+"keycode": 83,
+"pressed": true,
+"type": "Key"
+}, {
+"keycode": 65,
+"pressed": true,
+"type": "Key"
+}, {
+"keycode": 68,
+"pressed": true,
+"type": "Key"
+}]
+}
+tactical_confirm={
+"deadzone": 0.5,
+"events": [{
+"keycode": 32,
+"pressed": true,
+"type": "Key"
+}, {
+"button_index": 0,
+"device": -1,
+"type": "JoyButton"
+}]
+}
+tactical_cancel={
+"deadzone": 0.5,
+"events": [{
+"keycode": 41,
+"pressed": true,
+"type": "Key"
+}, {
+"button_index": 1,
+"device": -1,
+"type": "JoyButton"
+}]
+}
+tactical_ability_1={
+"deadzone": 0.5,
+"events": [{
+"keycode": 49,
+"pressed": true,
+"type": "Key"
+}]
+}
+tactical_ability_2={
+"deadzone": 0.5,
+"events": [{
+"keycode": 50,
+"pressed": true,
+"type": "Key"
+}]
+}
+tactical_ability_3={
+"deadzone": 0.5,
+"events": [{
+"keycode": 51,
+"pressed": true,
+"type": "Key"
+}]
+}
+tactical_ability_4={
+"deadzone": 0.5,
+"events": [{
+"keycode": 52,
+"pressed": true,
+"type": "Key"
+}]
+}
+tactical_end_turn={
+"deadzone": 0.5,
+"events": [{
+"keycode": 9,
+"pressed": true,
+"type": "Key"
+}, {
+"button_index": 7,
+"device": -1,
+"type": "JoyButton"
+}]
+}
+explore_interact={
+"deadzone": 0.5,
+"events": [{
+"keycode": 69,
+"pressed": true,
+"type": "Key"
+}, {
+"button_index": 0,
+"device": -1,
+"type": "JoyButton"
+}]
+}
+explore_dodge={
+"deadzone": 0.5,
+"events": [{
+"keycode": 32,
+"pressed": true,
+"type": "Key"
+}, {
+"button_index": 1,
+"device": -1,
+"type": "JoyButton"
+}]
+}
+menu_journal={
+"deadzone": 0.5,
+"events": [{
+"keycode": 74,
+"pressed": true,
+"type": "Key"
+}]
+}
+menu_inventory={
+"deadzone": 0.5,
+"events": [{
+"keycode": 73,
+"pressed": true,
+"type": "Key"
+}]
+}
+menu_character={
+"deadzone": 0.5,
+"events": [{
+"keycode": 67,
+"pressed": true,
+"type": "Key"
+}]
+}
+
+[input_map_joystick]
+
+deadzone=0.2
 
 [layer_names]
 
 2d_physics/layer_1="Player"
-2d_physics/layer_2="Enemy"
-2d_physics/layer_3="Ally"
-2d_physics/layer_4="Neutral"
-2d_physics/layer_5="Environment"
-2d_physics/layer_6="Trigger"
 3d_physics/layer_1="Player"
+2d_physics/layer_2="Enemy"
 3d_physics/layer_2="Enemy"
+2d_physics/layer_3="Ally"
 3d_physics/layer_3="Ally"
+2d_physics/layer_4="Neutral"
 3d_physics/layer_4="Neutral"
+2d_physics/layer_5="Environment"
 3d_physics/layer_5="Environment"
+2d_physics/layer_6="Trigger"
 3d_physics/layer_6="Trigger"
+
+[localization]
+
+locale/fallback="en"
+locale/test="en"
+
+[physics]
+
+physics/common/physics_fps=60
+
+[plugins]
+
+enabled=["GodotSharp"]
+
+[rendering]
+
+rendering/renderer/rendering_method="forward_plus"
+rendering/environment/defaults/default_clear_color="0.05, 0.05, 0.08, 1"
+rendering/quality/shadows/quality=2
+rendering/quality/reflections/screen_space_roughness_limiter=true
+rendering/quality/anti_aliasing/msaa=2
 
 [rendering_layer_names]
 
@@ -166,6 +311,6 @@ layer_3="Effects"
 layer_4="UI"
 layer_5="Debug"
 
-[input_map_joystick]
+[script]
 
-deadzone=0.2
+debug/print_stack_trace_on_error=true

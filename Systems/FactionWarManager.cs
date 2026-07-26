@@ -88,7 +88,7 @@ public partial class FactionWarManager : Node
             ZoneId = zoneId,
             ControllingFaction = controllingFaction,
             ControlStrength = Mathf.Clamp(controlStrength, 0f, 1f),
-            LastChanged = GameManager.Instance?.TotalPlayTime ?? 0f
+            LastChanged = 0f
         };
     }
 

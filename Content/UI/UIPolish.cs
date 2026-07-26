@@ -162,9 +162,10 @@ public partial class UIPolish : Node
         var result = new List<Control>();
         foreach (Node child in parent.GetChildren())
         {
-            if (child is Control ctrl && ctrl.FocusMode != Control.FocusModeEnum.None)
+            Control ctrl = child as Control;
+            if (ctrl != null && ctrl.FocusMode != Control.FocusModeEnum.None)
                 result.Add(ctrl);
-            if (child.GetChildCount() > 0)
+            if (child.GetChildCount() > 0 && ctrl != null)
                 result.AddRange(GetAllFocusable(ctrl));
         }
         return result;

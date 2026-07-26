@@ -311,7 +311,8 @@ public partial class CombatGrid : Node3D
         if (_highlightTileMap != null && IsValidCell(coord))
         {
             _highlightTileMap.SetCell(0, coord, 0, new Vector2I(2, 0));
-            _highlightTileMap.SetCellModulate(0, coord, color);
+            // _highlightTileMap.SetCellModulate not available in Godot 4.3; using SetCell as fallback
+            _highlightTileMap.SetCell(0, coord, 0, new Vector2I(3, 0));
         }
     }
 

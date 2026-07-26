@@ -158,14 +158,14 @@ public partial class EOSIntegration : Node
         if (!_isInitialized) return;
         // Epic UI is opened through the platform interface
         GD.Print("[EOS] Store overlay opened (stub)");
-        OnOverlayToggled?.Invoke();
+        OnOverlayToggled?.Invoke("");
     }
 
     public void OpenFriendsOverlay()
     {
         if (!_isInitialized) return;
         GD.Print("[EOS] Friends overlay opened (stub)");
-        OnOverlayToggled?.Invoke();
+        OnOverlayToggled?.Invoke("");
     }
 
     // ========== CROSS-PLATFORM ==========

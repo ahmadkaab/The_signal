@@ -117,7 +117,7 @@ public partial class NemesisSystem : Node
 
         if (candidates.Count == 0) return null;
 
-        var nemesis = candidates[GD.Randi() % candidates.Count];
+        var nemesis = candidates[(int)(GD.Randi() % candidates.Count)];
 
         // Update tracking
         nemesis.LastEncounterZone = zoneId;

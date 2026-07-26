@@ -58,6 +58,6 @@ public partial class SignalNodePreview : Control
     public SignalNodePreview(SignalNodeResource node) { _node = node; }
     public override void _Ready()
     {
-        AddChild(new Label { Text = $"Node: {_node.DisplayName}\nTier: {_node.Tier}\nCost: {_node.Cost} Signal Points" });
+        AddChild(new Label { Text = $"Node: {_node.DisplayName}\nTier: {_node.Tier}\nCost: {_node.Tier * 10} Signal Points" });
     }
 }

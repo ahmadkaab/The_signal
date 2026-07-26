@@ -2,6 +2,7 @@ using Godot;
 using System;
 using System.Collections.Generic;
 //using System.Net.Http;
+using TheSignal.Systems;
 
 namespace TheSignal.Content.Certification;
 
@@ -31,7 +32,8 @@ public partial class ConsoleCertification : Node
     public long MaxSaveFileSizeKB { get; private set; } = 1024; // 1MB per save
     public long MaxSaveTotalKB => MaxSaveSlots * MaxSaveFileSizeKB;
 
-    // Parental gates
+    // Trophy system reference
+    private bool _trophySystem = false;
     public bool RequireParentalGate { get; set; } = false;
     public DateTime _lastParentalGateTime;
 
@@ -236,7 +238,7 @@ public partial class ConsoleCertification : Node
         return req.Id switch
         {
             "TRC-001" => true,
-            "TRC-003" => TrophySystem != null,
+            "TRC-003" => _trophySystem != null,
             "TRC-004" => true,
             _ => true
         };

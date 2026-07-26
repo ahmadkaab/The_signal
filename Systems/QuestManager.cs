@@ -205,7 +205,7 @@ public class QuestInstance
     public string QuestId { get; set; }
     public string CurrentStage { get; set; }
     public QuestState State { get; set; } = QuestState.Active;
-    public Dictionary<string, int> ObjectiveProgress { get; } = new();
-    public Dictionary<string, bool> ObjectiveComplete { get; } = new();
-    public Dictionary<string, object> Variables { get; } = new();
+    public Dictionary<string, int> ObjectiveProgress { get; set; } = new();
+    public Dictionary<string, bool> ObjectiveComplete { get; set; } = new();
+    public Dictionary<string, object> Variables { get; set; } = new();
 }

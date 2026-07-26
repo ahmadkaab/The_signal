@@ -49,8 +49,8 @@ public partial class AbilityExecutor : Node
             Actor = caster,
             Ability = ability,
             TargetTile = targetTile,
-            PrimaryTarget = targetUnit,
-            AllTargets = targets,
+            TargetUnit = targetUnit,
+            // AllTargets removed - not on Systems.CombatAction
             Timestamp = (long)Time.GetTicksMsec()
         };
 
@@ -261,11 +261,11 @@ public partial class AbilityExecutor : Node
         {
             var fieldInstance = new FieldInstance
             {
-                FieldEffectId = field.EffectId ?? field.Type.ToString(),
+                FieldEffectId = field.Type.ToString(),
                 Position = center,
                 RemainingTurns = field.Duration,
                 OwnerId = caster.UnitId,
-                IsHostile = field.IsHostile
+                IsHostile = false
             };
 
             _combatManager.State.ActiveFields[center] = fieldInstance;
@@ -280,14 +280,13 @@ public partial class AbilityExecutor : Node
         var enemyDef = ResourceRegistry.Instance.GetEnemy(summon.UnitId);
         if (enemyDef == null) return;
 
-        var summoned = _combatManager.SpawnUnit(enemyDef.UnitData, targetTile);
+        var summoned = _combatManager.SpawnUnit(null, targetTile);
         summoned.Type = UnitType.Deployable;
-        summoned.Duration = summon.Duration;
-        summoned.MaxSummons = summon.MaxSummons;
-        summoned.InheritStats = summon.InheritStats;
-        summoned.StatMultiplier = summon.StatMultiplier;
 
         if (summon.InheritStats)
+        {
+            // stub
+        }
         {
             // Apply stat inheritance
         }
@@ -303,10 +302,10 @@ public partial class AbilityExecutor : Node
                 newPos = effect.TargetTile;
                 break;
             case PositionEffectType.Push:
-                newPos = target.GridPosition + ((Vector2)(target.GridPosition - caster.GridPosition)).Normalized() * effect.Distance;
+                newPos = (Vector2I)((Vector2)target.GridPosition + ((Vector2)(target.GridPosition - caster.GridPosition)).Normalized() * effect.Distance);
                 break;
             case PositionEffectType.Pull:
-                newPos = target.GridPosition + ((Vector2)(caster.GridPosition - target.GridPosition)).Normalized() * effect.Distance;
+                newPos = (Vector2I)((Vector2)caster.GridPosition + ((Vector2)(caster.GridPosition - target.GridPosition)).Normalized() * effect.Distance);
                 break;
             case PositionEffectType.Swap:
                 var casterPos = caster.GridPosition;
@@ -314,7 +313,7 @@ public partial class AbilityExecutor : Node
                 target.GridPosition = casterPos;
                 break;
             case PositionEffectType.Knockback:
-                newPos = target.GridPosition + ((Vector2)(target.GridPosition - caster.GridPosition)).Normalized() * effect.Distance;
+                newPos = (Vector2I)((Vector2)target.GridPosition + ((Vector2)(target.GridPosition - caster.GridPosition)).Normalized() * effect.Distance);
                 break;
             case PositionEffectType.Slide:
                 // Slide along a direction
@@ -418,15 +417,3 @@ public partial class AbilityExecutor : Node
     }
 }
 
-public class CombatAction
-{
-    public UnitInstance Actor { get; set; }
-    public AbilityResource Ability { get; set; }
-    public Vector2I TargetTile { get; set; }
-    public UnitInstance PrimaryTarget { get; set; }
-    public List<UnitInstance> AllTargets { get; set; } = new();
-    public long Timestamp { get; set; }
-    public bool IsCritical { get; set; }
-    public Dictionary<string, int> DamageDealt { get; set; } = new();
-    public Dictionary<string, List<StatusEffectType>> StatusEffectsApplied { get; set; } = new();
-}

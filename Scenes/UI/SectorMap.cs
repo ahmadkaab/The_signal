@@ -33,7 +33,7 @@ public partial class SectorMap : Control
         TravelButton.Pressed += OnTravelPressed;
         FastTravelButton.Pressed += OnFastTravelPressed;
         SectorMapManager.Instance.OnZoneChanged += OnZoneChanged;
-        SectorMapManager.Instance.OnZoneDiscovered += OnZoneDiscovered;
+        SectorMapManager.Instance.OnZoneDiscovered += (zoneId) => { OnZoneDiscovered(zoneId); };
         SectorMapManager.Instance.OnCorruptionChanged += OnCorruptionChanged;
         SectorMapManager.Instance.OnFuelChanged += OnFuelChanged;
         SectorMapManager.Instance.OnScrapChanged += OnScrapChanged;
@@ -45,7 +45,7 @@ public partial class SectorMap : Control
     public override void _ExitTree()
     {
         SectorMapManager.Instance.OnZoneChanged -= OnZoneChanged;
-        SectorMapManager.Instance.OnZoneDiscovered -= OnZoneDiscovered;
+        SectorMapManager.Instance.OnZoneDiscovered -= (zoneId) => { OnZoneDiscovered(zoneId); };
         SectorMapManager.Instance.OnCorruptionChanged -= OnCorruptionChanged;
         SectorMapManager.Instance.OnFuelChanged -= OnFuelChanged;
         SectorMapManager.Instance.OnScrapChanged -= OnScrapChanged;
@@ -67,11 +67,9 @@ public partial class SectorMap : Control
         {
             var zone = kvp.Value;
             var node = ZoneNodeScene.Instantiate<ZoneNode>();
-            node.Initialize(zone);
-            node.ZoneHovered += OnZoneHovered;
-            node.ZoneSelected += OnZoneSelected;
+            node.Initialize(kvp.Key, zone);
             ZoneNodesContainer.AddChild(node);
-            _zoneNodes[zone.ZoneId] = node;
+            _zoneNodes[kvp.Key] = node;
         }
 
         // Second pass: draw connections
@@ -125,11 +123,11 @@ public partial class SectorMap : Control
         // Corruption bar: -100 to 100, center at 0
         CorruptionBar.Value = state.CorruptionLevel;
         if (state.CorruptionLevel <= -50)
-            CorruptionBar.TintProgress = new Color(0.2f, 1f, 0.3f);
+            CorruptionBar.Modulate = new Color(0.2f, 1f, 0.3f);
         else if (state.CorruptionLevel >= 50)
-            CorruptionBar.TintProgress = new Color(1f, 0.3f, 0.2f);
+            CorruptionBar.Modulate = new Color(1f, 0.3f, 0.2f);
         else
-            CorruptionBar.TintProgress = new Color(1f, 0.8f, 0.2f);
+            CorruptionBar.Modulate = new Color(1f, 0.8f, 0.2f);
 
         UpdateTravelButton();
     }
@@ -158,12 +156,10 @@ public partial class SectorMap : Control
 
     private void OnTravelPressed()
     {
-        if (SectorMapManager.Instance.TravelTo(_selectedZoneId))
-        {
-            // Close sector map, enter local zone
-            GameManager.Instance.ChangeState(GameState.Exploration);
-            // Local zone loading handled by GameManager/WorldManager
-        }
+        SectorMapManager.Instance.TravelTo(_selectedZoneId);
+        // Close sector map, enter local zone
+        GameManager.Instance.ChangeState(GameState.Exploration);
+        // Local zone loading handled by GameManager/WorldManager
     }
 
     private void OnFastTravelPressed()
@@ -187,9 +183,9 @@ public partial class SectorMap : Control
         UpdateUI();
     }
 
-    private void OnZoneDiscovered(ZoneState state)
+    private void OnZoneDiscovered(string zoneId)
     {
-        if (_zoneNodes.TryGetValue(state.ZoneId, out var node))
+        if (_zoneNodes.TryGetValue(zoneId, out var node))
         {
             node.SetDiscovered(true);
         }

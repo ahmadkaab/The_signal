@@ -130,7 +130,7 @@ public static class SaveManager
                 {
                     string json = File.ReadAllText(path);
                     var data = JsonSerializer.Deserialize<GameSaveData>(json, SaveContext.Options);
-                    list.Add(data.Meta);
+                    list.Add(new SaveInfo { SlotName = $"Slot {data.Meta.Slot}", Timestamp = data.Meta.Timestamp, PlayTimeMinutes = data.Meta.PlaytimeSeconds / 60, PlayerLevel = data.Meta.Level, ZoneId = data.Meta.CurrentZone ?? "", Version = data.Meta.Version });
                 }
                 catch { }
             }

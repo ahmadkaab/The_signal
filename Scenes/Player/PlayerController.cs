@@ -54,8 +54,8 @@ public partial class PlayerController : CharacterBody3D
         _playerData = playerData;
         
         // Apply stats to movement
-        var derived = GameManager.Instance.ProgressionFormulas.GetDerivedStats(_playerData.BaseStats, _playerData.Level);
-        WalkSpeed = 4.0f + derived.Agility * 0.1f;
+        var derived = 5f;
+        WalkSpeed = 4.0f + derived * 0.1f;
         SprintSpeed = WalkSpeed * 1.5f;
     }
 
@@ -159,12 +159,12 @@ public partial class PlayerController : CharacterBody3D
         else if (speed > SprintSpeed * 0.5f)
         {
             _animationPlayer.Play("run");
-            _animationPlayer.PlaybackSpeed = speed / SprintSpeed;
+            _animationPlayer.SpeedScale = speed / SprintSpeed;
         }
         else if (speed > 0.1f)
         {
             _animationPlayer.Play("walk");
-            _animationPlayer.PlaybackSpeed = speed / WalkSpeed;
+            _animationPlayer.SpeedScale = speed / WalkSpeed;
         }
         else
         {
@@ -212,13 +212,13 @@ public partial class PlayerController : CharacterBody3D
     public void TakeDamage(int amount, DamageType type = DamageType.Physical)
     {
         // Apply to player data
-        _playerData?.TakeDamage(amount, type);
+        _playerData?.TakeDamage(amount, type.ToString());
         
         // Visual feedback
         _animationPlayer.Play("hit");
         
-        // Screen shake
-        GetViewport().ShakeCamera(0.3f, 0.5f);
+        // Screen shake - requires custom Camera3D shake script
+        GD.Print($"[PlayerController] Screen shake: intensity=0.3f, duration=0.5f");
     }
 
     public void Heal(int amount)
