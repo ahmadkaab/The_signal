@@ -9,7 +9,7 @@ public partial class DialogueManager : Node
     public static DialogueManager Instance { get; private set; }
 
     public DialogueRunner Runner { get; private set; }
-    public VariableStorage VariableStorage { get; private set; }
+    public VariableStorage VarStorage { get; private set; }
     public LineProvider LineProvider { get; private set; }
 
     public event Action<string> OnDialogueStarted;
@@ -21,11 +21,34 @@ public partial class DialogueManager : Node
     {
         Instance = this;
         Runner = GetNode<DialogueRunner>("DialogueRunner");
-        VariableStorage = GetNode<VariableStorage>("VariableStorage");
+        VarStorage = GetNode<VariableStorage>("VariableStorage");
         LineProvider = GetNode<LineProvider>("LineProvider");
 
-        Runner.OnDialogueComplete += OnDialogueComplete;
-        Runner.OnLineDeliveryComplete += OnLineDeliveryComplete;
+        Runner.onDialogueStart += OnDialogueStart;
+        Runner.onDialogueComplete += OnDialogueComplete;
+        Runner.onNodeStart += OnNodeStart;
+        Runner.onNodeComplete += OnNodeComplete;
+    }
+
+    private void OnDialogueStart()
+    {
+        OnDialogueStarted?.Invoke(Runner.CurrentNodeName);
+    }
+
+    private void OnDialogueComplete()
+    {
+        GameManager.Instance.ReturnToPreviousState();
+        OnDialogueEnded?.Invoke(Runner.CurrentNodeName);
+    }
+
+    private void OnNodeStart(string nodeName)
+    {
+        OnDialogueStarted?.Invoke(nodeName);
+    }
+
+    private void OnNodeComplete(string nodeName)
+    {
+        OnDialogueEnded?.Invoke(nodeName);
     }
 
     public void StartDialogue(string yarnNode)
@@ -44,30 +67,14 @@ public partial class DialogueManager : Node
         OnDialogueEnded?.Invoke("");
     }
 
-    private void OnDialogueComplete()
-    {
-        GameManager.Instance.ReturnToPreviousState();
-        OnDialogueEnded?.Invoke(Runner.CurrentNodeName);
-    }
-
-    private void OnLineDeliveryComplete(Line line)
-    {
-        OnLineDelivered?.Invoke(line.Text);
-    }
-
     public void SetVariable(string name, Variant value)
     {
-        VariableStorage.SetValue($"${name}", value);
+        VarStorage.SetValue($"${name}", value);
     }
 
     public Variant GetVariable(string name)
     {
-        return VariableStorage.GetValue($"${name}");
-    }
-
-    public void AddChoice(string text, string targetNode, string condition = "")
-    {
-        // Choices are handled by Yarn scripts
+        return VarStorage.GetValue($"${name}");
     }
 }
 
@@ -92,7 +99,6 @@ public partial class LineProvider : Node
 
     public string GetLocalizedLine(string lineId)
     {
-        // In production, load from CSV/JSON string tables
         return lineId;
     }
 }
