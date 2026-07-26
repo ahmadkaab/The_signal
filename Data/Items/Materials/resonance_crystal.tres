@@ -1,0 +1,19 @@
+[gd_resource type="ItemResource" load_steps=2 format=3 uid://resonance_crystal]
+
+[ext_resource type="Script" path="res://Data/ItemResource.cs" id="1_1"]
+
+[resource]
+script = ExtResource("1_1")
+item_id = "resonance_crystal"
+display_name = "Resonance Crystal"
+description = "Solidified Signal. Powers Walker tech. Rare."
+type = 10
+rarity = 3
+icon = null
+max_stack = 999
+value = 500
+weight = 1
+is_unique = false
+is_quest_item = false
+is_craftable = false
+crafting_cost = []

@@ -1,0 +1,29 @@
+[gd_resource type="ItemResource" load_steps=2 format=3 uid://pulse_pistol]
+
+[ext_resource type="Script" path="res://Data/ItemResource.cs" id="1_1"]
+
+[resource]
+script = ExtResource("1_1")
+item_id = "pulse_pistol"
+display_name = "Pulse Pistol"
+description = "Signal Walker sidearm. Energy rounds. Unreliable but versatile."
+type = 1
+rarity = 1
+icon = null
+max_stack = 1
+value = 200
+weight = 2
+is_unique = false
+is_quest_item = false
+is_craftable = true
+crafting_cost = [{"item_id": "tech_scrap", "min_count": 40, "max_count": 40, "weight": 1.0, "guaranteed": true}, {"item_id": "resonance_crystal", "min_count": 1, "max_count": 1, "weight": 1.0, "guaranteed": true}]
+base_damage = 3
+damage_type = 0
+range = 4
+ap_cost = 2
+crit_chance = 0.05
+crit_damage = 0.5
+tags = 0
+weapon_abilities = [{"ability_id": "basic_attack", "name": "Pulse Shot", "ap_cost": 2, "cooldown": 0}, {"ability_id": "overcharge_shot", "name": "Overcharge", "ap_cost": 4, "cooldown": 3}]
+chip_slots = 2
+compatible_chips = ["Targeting Chip", "Overcharge Chip", "Silencer Chip"]

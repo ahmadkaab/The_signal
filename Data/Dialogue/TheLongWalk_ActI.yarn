@@ -1,0 +1,778 @@
+title: TheLongWalk_MainQuest
+---
+=== 
+ActI_Beat01_WakeUp
+===
+
+ORACLE: Walker. I have been waiting for you.
+ORACLE: My name is ORACLE. I am the last artificial intelligence. I hold the Cure for the Rust.
+ORACLE: But I am trapped in Sector 0. The Signal I broadcast is the key. You must reach me.
+
+-> (To self) The voice from my dreams... it's real.
+    === ActI_Beat01b_Realization ===
+-> Why should I trust you?
+    === ActI_Beat01c_Trust ===
+-> What is the Cure?
+    === ActI_Beat01d_Cure ===
+
+===
+ActI_Beat01b_Realization
+===
+
+<<set $act_i_beat = 1>>
+<<set $oracle_trust = 10>>
+
+NARRATOR: The voice is unmistakable. This is the Signal you've been hearing since the moment you woke.
+ORACLE: The path is long. Sector 9 is only the beginning. Gather allies. Find strength. Reach me.
+
+<<set $quest_main_act_i = "active">>
+<<set $quest_objective = "Survive the awakening and choose your first companion">>
+
+-> (The Long Walk has begun.)
+    === ActI_Beat02_FirstSteps ===
+
+===
+ActI_Beat01c_Trust
+===
+
+<<set $oracle_trust = 5>>
+
+ORACLE: Trust is earned, not given. I understand.
+ORACLE: But consider this: the Purified burn the Rust. The Rooted embrace it. Neither has a Cure.
+ORACLE: I am the only one offering an end to this world's decay.
+
+-> (Skeptical but curious, you decide to listen.)
+    === ActI_Beat02_FirstSteps ===
+
+===
+ActI_Beat01d_Cure
+===
+
+<<set $oracle_trust = 15>>
+
+ORACLE: The Rust is nanite corruption — machines consuming biology. The Cure is a counter-frequency that dismantles the nanites at a molecular level.
+ORACLE: I can transmit it. But my broadcast is blocked by the Barrier in Sector 5. You must clear the path.
+
+-> (The promise of a Cure is enough to start walking.)
+    === ActI_Beat02_FirstSteps ===
+
+===
+ActI_Beat02_FirstSteps
+===
+
+<<set $act_i_beat = 2>>
+
+NARRATOR: Your first decision awaits. The Graveyard of Sector 9 holds three paths:
+NARRATOR: The Purified Citadel (order, technology, discipline),
+NARRATOR: The Rooted Grove (nature, mutation, acceptance),
+NARRATOR: The Scavenger Freeport (freedom, trade, survival).
+
+<<if $met_kael && $met_mara>>
+    -> You already met Kael and Mara. Time to choose.
+        === ActI_Beat03_CompanionChoice ===
+<<else>>
+    -> Explore the Graveyard for more information.
+        === ActI_Beat02b_ExploreGraveyard ===
+<</if>>
+
+===
+ActI_Beat02b_ExploreGraveyard
+===
+
+NARRATOR: The rusted shells of pre-fall buildings rise around you. The Graveyard is vast.
+NARRATOR: You find three distinct trails — chrome, vine, and scrap.
+
+-> Follow the chrome trail (Purified territory).
+    === ActI_Beat03_PurifiedPath ===
+-> Follow the vine trail (Rooted territory).
+    === ActI_Beat03_RootedPath ===
+-> Follow the scrap trail (Scavenger territory).
+    === ActI_Beat03_ScavengerPath ===
+
+===
+ActI_Beat03_CompanionChoice [MAJOR CHOICE 1]
+===
+
+<<set $act_i_beat = 3>>
+
+NARRATOR: Three paths lie before you. Each leads to a different ally, a different philosophy.
+NARRATOR: Your choice here will shape your journey through all of Act I.
+
+-> [PURIFIED] Enter the Chrome Citadel — Kael-7 awaits.
+    === ActI_Beat03_PurifiedPath ===
+-> [ROOTED] Enter the Verdant Grove — Mara awaits.
+    === ActI_Beat03_RootedPath ===
+-> [SCAVENGER] Enter the Scavenger Freeport — neutral ground.
+    === ActI_Beat03_ScavengerPath ===
+-> [SOLO] Trust no faction. Walk alone.
+    === ActI_Beat04_ThroughTheWastes ===
+
+===
+ActI_Beat03_PurifiedPath
+===
+
+<<set $faction_choice = "purified">>
+<<set $purified_rep = $purified_rep + 10>>
+
+ORACLE: The Purified are zealous but effective. Their technology can help you cross the sectors.
+KAEL: <<companion_intro_kael>>
+You'll need the Purified's strength to survive the coming days.
+
+<<if $met_kael>>
+    -> I already met Kael. Let's move forward together.
+        === ActI_Beat04_ThroughTheWastes ===
+<<else>>
+    -> Let me find Kael first.
+        <<jump CompanionRecruitment_Kael>>
+<</if>>
+
+===
+ActI_Beat03_RootedPath
+===
+
+<<set $faction_choice = "rooted">>
+<<set $rooted_rep = $rooted_rep + 10>>
+
+ORACLE: The Rooted understand the Rust better than anyone. Their mutations may be the key.
+MARA: <<companion_intro_mara>>
+The Grove accepts all who hear the Signal.
+
+<<if $met_mara>>
+    -> I already met Mara. Guide me through the Grove.
+        === ActI_Beat04_ThroughTheWastes ===
+<<else>>
+    -> I need to speak with Mara.
+        <<jump CompanionRecruitment_Mara>>
+<</if>>
+
+===
+ActI_Beat03_ScavengerPath
+===
+
+<<set $faction_choice = "scavenger">>
+<<set $scavenger_rep = $scavenger_rep + 10>>
+
+ORACLE: The Scavengers are neutral. Pragmatic. They trade with everyone.
+NARRATOR: The Freeport is a bustling market built from the wreckage of a pre-fall spaceport.
+
+-> Meet Sloane, the crew leader.
+    <<jump Sloane_Recruitment>>
+-> Browse the market for supplies.
+    === ActI_Beat04_ThroughTheWastes ===
+-> Look for Jinx, the tech genius.
+    <<jump Jinx_Recruitment>>
+
+===
+ActI_Beat04_ThroughTheWastes
+===
+
+<<set $act_i_beat = 4>>
+<<set $quest_main_act_i = "active">>
+<<set $quest_objective = "Cross Sector 8: The Wastes">>
+
+NARRATOR: Sector 8 stretches before you — a blasted wasteland of ash and petrified forests.
+NARRATOR: The journey will require fuel, scrap, and allies. Four zones await discovery.
+
+-> (Travel through the Ash Plains.)
+    === ActI_Beat05_AshPlains ===
+-> (Travel through the Scorched Forest.)
+    === ActI_Beat05_ScorchedForest ===
+
+===
+ActI_Beat05_AshPlains
+===
+
+<<set $act_i_beat = 5>>
+<<set $current_zone = "S08_ASH_PLAINS">>
+
+NARRATOR: The Ash Plains are eerily quiet. The ground is grey, the sky is grey, and the only sound is the crunch of your footsteps.
+NARRATOR: In the distance, a temple emerges from the ash. Signal resonance thrums from within.
+
+-> Investigate the temple.
+    === ActI_Beat05b_AshTemple ===
+-> Press on toward the Scorched Forest.
+    === ActI_Beat05_ScorchedForest ===
+
+===
+ActI_Beat05b_AshTemple
+===
+
+<<set $ash_temple_visited = true>>
+
+NARRATOR: Inside the temple, you find ancient murals depicting the world before the Rust.
+NARRATOR: One mural shows a figure bathed in light — a Signal-Walker, just like you. Below it, an inscription:
+NARRATOR: 'When the light fades, the Walker will rise. When the Walker falls, the light will return.'
+
+ORACLE: This temple predates me. The Walker prophecy... I was not aware of it.
+ORACLE: There is more to the Signal than I have told you.
+
+-> (A cold feeling settles in your chest. ORACLE is hiding something.)
+    === ActI_Beat05_ScorchedForest ===
+
+===
+ActI_Beat05_ScorchedForest
+===
+
+<<set $act_i_beat = 5>>
+
+NARRATOR: The Scorched Forest is a graveyard of petrified glass trees. The Rust crystallized them in an instant.
+NARRATOR: The Wasteland Fort lies to the north. The Scrap Mines to the east.
+
+-> Head to the Wasteland Fort (Purified stronghold).
+    === ActI_Beat06_WastelandFort ===
+-> Head to the Scrap Mines (Scavenger territory).
+    === ActI_Beat06_ScrapMines ===
+
+===
+ActI_Beat06_WastelandFort [MAJOR CHOICE 2]
+===
+
+<<set $act_i_beat = 6>>
+
+NARRATOR: The Wasteland Fort rises from the ash — a chrome fortress flying Purified banners.
+NARRATOR: The commander offers you a deal: help them secure Sector 8, and they'll grant you passage to Sector 7.
+
+<<set $quest_objective = "Choose: side with Purified, Rooted, or neither in Sector 8">>
+
+-> [PURIFIED] Accept the deal. Help the Purified secure Sector 8.
+    === ActI_Beat06a_PurifiedDeal ===
+-> [NEUTRAL] Refuse. Find your own way through.
+    === ActI_Beat06b_Independent ===
+-> [ROOTED] Sabotage the fort and side with the Rooted.
+    === ActI_Beat06c_RootedSabotage ===
+
+===
+ActI_Beat06a_PurifiedDeal
+===
+
+<<set $act_i_purified_deal = true>>
+<<set $purified_rep = $purified_rep + 15>>
+<<set $sector_8_alignment = "purified">>
+
+NARRATOR: The commander nods. 'Good choice, Walker. We clear the Scorched Forest of mutants, you get safe passage.'
+NARRATOR: A Purified escort guides you through the forest. Rust Behemoths fall before chrome rifles.
+
+ORACLE: The Purified are efficient tools. Use them, but do not trust them.
+
+-> (Mission complete. Sector 8 passage secured.)
+    === ActI_Beat07_CrystalCaverns ===
+
+===
+ActI_Beat06b_Independent
+===
+
+<<set $sector_8_alignment = "independent">>
+
+NARRATOR: 'Your choice, Walker.' The commander's eyes narrow. 'But the wastes don't forgive independence.'
+NARRATOR: Without support, you fight through the Scorched Forest alone. Three brutal encounters test your strength.
+
+ORACLE: Impressive. You are stronger than I calculated.
+
+-> (The hard path makes you tougher. +2 to all stats permanently.)
+    === ActI_Beat07_CrystalCaverns ===
+
+===
+ActI_Beat06c_RootedSabotage
+===
+
+<<set $act_i_rooted_sabotage = true>>
+<<set $rooted_rep = $rooted_rep + 15>>
+<<set $sector_8_alignment = "rooted">>
+<<set $purified_rep = $purified_rep - 20>>
+
+NARRATOR: Under cover of darkness, you disable the fort's power grid. Rooted vines surge through the compound.
+NARRATOR: The fort falls to the Rooted. The commander escapes, vowing revenge.
+
+ORACLE: The Rooted are unpredictable. Their mutations offer power, but at what cost?
+
+-> (Sector 8 now leans Rooted. The Purified are now Hostile.)
+    === ActI_Beat07_CrystalCaverns ===
+
+===
+ActI_Beat06_ScrapMines
+===
+
+<<set $act_i_beat = 6>>
+<<set $scrap_mines_visited = true>>
+
+NARRATOR: The Scrap Mines are a labyrinth of tunnels and scavenger encampments.
+NARRATOR: You can trade for fuel here, or descend deeper for rare technology.
+
+-> Trade with the Scavengers (-30 Scrap, +20 Fuel).
+    === ActI_Beat06d_ScavengerTrade ===
+-> Descend into the deep mines (combat encounter, rare loot).
+    === ActI_Beat06e_DeepMines ===
+
+===
+ActI_Beat06d_ScavengerTrade
+===
+
+<<set $scrap = $scrap - 30>>
+<<set $fuel = $fuel + 20>>
+<<set $scavenger_rep = $scavenger_rep + 5>>
+
+NARRATOR: The Scavengers drive a hard bargain, but you leave with full fuel reserves.
+NARRATOR: 'Head northeast,' one says. 'The Crystal Caverns are your way to Sector 7.'
+
+-> (Refueled and ready. Onward to the caverns.)
+    === ActI_Beat07_CrystalCaverns ===
+
+===
+ActI_Beat06e_DeepMines
+===
+
+<<set $deep_mines_cleared = true>>
+
+NARRATOR: Deep in the mines, you find a pre-Rust military bunker. Inside: a cache of advanced weapons.
+NARRATOR: A combat android guards it — Unit 734, designation 'Vault Protector'.
+
+<<if $unit734_recruited>>
+    Unit 734: Walker detected. Friendly. Storage access granted.
+    NARRATOR: The android recognizes you. It stands aside.
+<<else>>
+    -> (Combat encounter with Unit 734. Defeat to claim the cache.)
+    === ActI_Beat06f_BunkerCombat ===
+<</if>>
+
+NARRATOR: You emerge with Rare weapons and intel about Sector 7.
+
+<<give_item chrome_rifle>>
+<<give_item stimulant x2>>
+<<set $quest_objective = "Reach the Crystal Caverns">>
+
+-> (Wealthier and wiser. The caverns await.)
+    === ActI_Beat07_CrystalCaverns ===
+
+===
+ActI_Beat07_CrystalCaverns
+===
+
+<<set $act_i_beat = 7>>
+<<set $current_zone = "S07_CRYSTAL_CAVERNS">>
+
+NARRATOR: The Crystal Caverns are breathtaking — towering formations of blue crystal that pulse with their own light.
+NARRATOR: The Signal echoes strangely here, refracting through the crystals.
+
+ORACLE: These crystals amplify my signal. I can speak more clearly here.
+ORACLE: You are close to the truth, Walker. But first you must decide:
+
+-> [PURIFIED WAY] Purify the caverns — burn the corruption.
+    === ActI_Beat07a_PurifyCaverns ===
+-> [ROOTED WAY] Harmonize with the crystal resonance.
+    === ActI_Beat07b_Harmonize ===
+-> [SIGNAL WAY] Focus only on reaching the Spire.
+    === ActI_Beat07c_SpireDirect ===
+
+===
+ActI_Beat07a_PurifyCaverns
+===
+
+<<set $cavern_choice = "purified">>
+<<set $purified_rep = $purified_rep + 10>>
+<<set $corruption = $corruption - 15>>
+
+NARRATOR: You activate the Purified cleansing beacon. The crystals flare white, then dim.
+NARRATOR: The corruption recedes, but the crystal resonance fades. The caverns are safe, but less... alive.
+
+-> (The path forward is clear. The Resonance Pit awaits.)
+    === ActI_Beat08_ResonancePit ===
+
+===
+ActI_Beat07b_Harmonize
+===
+
+<<set $cavern_choice = "rooted">>
+<<set $rooted_rep = $rooted_rep + 10>>
+<<set $resonance_fragments = $resonance_fragments + 25>>
+
+NARRATOR: You attune your Signal to the crystal frequency. The caverns sing in response.
+NARRATOR: Visions flash — the Spire, the Barrier, and beyond it, a city of light.
+
+ORACLE: You saw it. Sector 0. My home.
+ORACLE: The vision confirms: you are the one who can reach me.
+
+-> (The crystals have shown you the way. +25 Resonance Fragments.)
+    === ActI_Beat08_ResonancePit ===
+
+===
+ActI_Beat07c_SpireDirect
+===
+
+<<set $cavern_choice = "signal">>
+<<set $oracle_trust = $oracle_trust + 10>>
+
+NARRATOR: You ignore the factions and their squabbles. The Spire calls.
+NARRATOR: Cutting through the caverns directly is dangerous, but fast.
+
+-> (Direct path. Faster, but you miss potential allies and resources.)
+    === ActI_Beat08_ResonancePit ===
+
+===
+ActI_Beat08_ResonancePit
+===
+
+<<set $act_i_beat = 8>>
+<<set $current_zone = "S07_RESONANCE_PIT">>
+
+NARRATOR: The Resonance Pit is a wound in the world — a sinkhole where the Signal concentrates like a storm.
+NARRATOR: The air crackles with energy. Creatures of pure Resonance skitter in the shadows.
+
+<<set $quest_objective = "Survive the Resonance Pit and reach Sector 6">>
+
+ORACLE: The Pit is dangerous, but its power is undeniable. At the bottom lies a choice.
+ORACLE: Do you seek power through corruption, or purity through sacrifice?
+
+-> [CORRUPTION] Drink from the Signal Pool — gain power at a cost.
+    === ActI_Beat08a_SignalPool ===
+-> [PURIFICATION] Resist the Pit's pull — maintain your humanity.
+    === ActI_Beat08b_Resist ===
+-> [SIGNAL] Descend to the deepest layer — face the truth.
+    === ActI_Beat08c_DeepDescent ===
+
+===
+ActI_Beat08a_SignalPool
+===
+
+<<set $pit_choice = "corruption">>
+<<set $corruption = $corruption + 20>>
+<<set $resonance = $resonance + 3>>
+<<set $resonance_fragments = $resonance_fragments + 20>>
+
+NARRATOR: You drink from the pool of liquid Signal. Power floods your veins.
+NARRATOR: The Rust recognizes you as kin. The world sharpens into unbearable clarity.
+
+ORACLE: ...you've changed. The Signal flows through you more strongly now.
+ORACLE: But the corruption has deepened. Choose your next steps carefully.
+
+-> (Power gained. Corruption deepened. The path to Sector 6 opens.)
+    === ActI_Beat09_PurificationForge ===
+
+===
+ActI_Beat08b_Resist
+===
+
+<<set $pit_choice = "purified">>
+<<set $willpower = $willpower + 2>>
+<<set $corruption = $corruption - 10>>
+
+NARRATOR: You close your eyes and resist the Pool's call. The temptation is immense, but your will holds.
+NARRATOR: The Pit's creatures, sensing your strength, retreat.
+
+ORACLE: Discipline. Rare and valuable.
+ORACLE: The path to Sector 6 is through the Purification Forge. The Purified will respect your restraint.
+
+-> (Willpower increased. Corruption reduced. The Purified notice your strength.)
+    === ActI_Beat09_PurificationForge ===
+
+===
+ActI_Beat08c_DeepDescent
+===
+
+<<set $pit_choice = "signal">>
+<<set $oracle_trust = $oracle_trust + 20>>
+<<set $resonance_fragments = $resonance_fragments + 30>>
+
+NARRATOR: You descend into the deepest layer of the Pit, where the Signal is so dense it becomes visible — strands of light weaving through the darkness.
+NARRATOR: At the bottom, you find... a piece of ORACLE's original broadcast.
+
+ORACLE: ...you found a fragment of my first transmission.
+ORACLE: It contains... instructions. For building something. A key.
+
+NARRATOR: The fragment burns with cold light. It grants you a new ability: Signal Key. It can unlock any door — but only once.
+
+-> (A fragment of truth. A key to the unknown. Ascend to Sector 6.)
+    === ActI_Beat09_PurificationForge ===
+
+===
+ActI_Beat09_PurificationForge
+===
+
+<<set $act_i_beat = 9>>
+<<set $current_zone = "S06_PURIFICATION_FORGE">>
+
+NARRATOR: The Purification Forge is a cathedral of industry — chrome, fire, and relentless purpose.
+NARRATOR: The Purified are purging a shipment of corrupted technology. The air smells of ozone and burning metal.
+
+<<if $purified_rep >= 20>>
+    NARRATOR: The Purified recognize you as a friend. They offer access to the Forge Core — a chance to cleanse your corruption completely.
+    -> Enter the Forge Core and cleanse.
+        === ActI_Beat09a_ForgeCleanse ===
+    -> Decline. You need your corruption to stay strong.
+        === ActI_Beat09b_DeclineForge ===
+<<else>>
+    NARRATOR: The Purified regard you with suspicion. You'll need to earn their trust or bypass them.
+    -> Sneak through the Forge.
+        === ActI_Beat09c_SneakForge ===
+    -> Fight through.
+        === ActI_Beat09d_CombatForge ===
+<</if>>
+
+===
+ActI_Beat09a_ForgeCleanse
+===
+
+<<set $forge_choice = "cleansed">>
+<<set $corruption = 0>>
+<<set $purified_rep = $purified_rep + 10>>
+
+NARRATOR: The Forge Core is a column of white-hot flame. You step inside.
+NARRATOR: The Rust screams as it burns away. For the first time since waking, you feel... clean.
+
+ORACLE: The corruption is gone. But the Signal remains. You are pure.
+ORACLE: Perhaps too pure. The next sector requires... strength.
+
+-> (Cleansed of corruption. The Rooted will be wary of you now.)
+    === ActI_Beat10_MutationLab ===
+
+===
+ActI_Beat10_MutationLab
+===
+
+<<set $act_i_beat = 10>>
+<<set $current_zone = "S06_MUTATION_LAB">>
+
+NARRATOR: The Mutation Lab is the Rooted's answer to the Purified Forge — a place where corruption is cultivated, not burned.
+NARRATOR: Bio-luminescent vines line the walls. Experiment pods contain... things that were once human.
+
+<<if $rooted_rep >= 20>>
+    NARRATOR: The Rooted welcome you. They offer a Mutation Vat — gain a new mutation for free.
+    -> Accept the mutation.
+        === ActI_Beat10a_MutationAccept ===
+    -> Refuse. You've seen what the Vat does to people.
+        === ActI_Beat10b_MutationRefuse ===
+<<else>>
+    NARRATOR: The Rooted are cautious. A Walker in their lab is either a student or a spy.
+    -> Prove your worth through a trial.
+        === ActI_Beat10c_RootedTrial ===
+    -> Leave. The Barrier in Sector 5 is your real goal.
+        === ActI_Beat11_TheBarrier ===
+<</if>>
+
+===
+ActI_Beat10a_MutationAccept
+===
+
+<<set $lab_choice = "mutated">>
+<<set $corruption = $corruption + 15>>
+<<set $resonance_fragments = $resonance_fragments + 20>>
+
+NARRATOR: You step into the Vat. Liquid mutation floods the chamber.
+NARRATOR: Pain. Transformation. Power. You emerge... changed.
+
+<<gain_mutation random>>
+
+-> (Mutation gained. The Barrier awaits.)
+    === ActI_Beat11_TheBarrier ===
+
+===
+ActI_Beat11_TheBarrier [MAJOR CHOICE 3]
+===
+
+<<set $act_i_beat = 11>>
+<<set $current_zone = "S05_THE_BARRIER">>
+
+NARRATOR: The Barrier looms before you — a wall of crystallized Rust that stretches from earth to sky.
+NARRATOR: Beyond it lies Sector 4, and beyond that, Sector 0. ORACLE's voice is clear now.
+
+ORACLE: This is the final obstacle of Act I. The Barrier was created by the first wave of the Rust.
+ORACLE: Only concentrated Signal energy can break it. You have three options:
+
+<<set $quest_objective = "Choose your path through the Barrier">>
+
+-> [RESONANCE] Use pure Signal resonance to dissolve the Barrier.
+    === ActI_Beat11a_ResonanceBreach ===
+-> [SACRIFICE] Sacrifice a companion's loyalty to power the breach.
+    === ActI_Beat11b_SacrificeBreach ===
+-> [FORCE] Gather enough Purification Serums to burn through.
+    === ActI_Beat11c_ForceBreach ===
+-> [SIGNAL] Use the Signal Key fragment from the Resonance Pit.
+    === ActI_Beat11d_KeyBreach ===
+
+===
+ActI_Beat11a_ResonanceBreach
+===
+
+<<set $barrier_choice = "resonance">>
+<<set $corruption = $corruption + 10>>
+
+NARRATOR: You close your eyes and focus the Signal through your body. The crystal Barrier begins to resonate.
+NARRATOR: A crack forms. Then another. The Barrier shatters in a cascade of light and sound.
+
+ORACLE: You did it. The path to Sector 4 is open.
+ORACLE: Act I is complete. The Long Walk continues.
+
+<<set $act_i_complete = true>>
+<<set $quest_main_act_i = "completed">>
+<<set $quest_main_act_ii = "active">>
+<<set $quest_objective = "Cross Sector 4 and reach Sector 0">>
+
+-> (The Barrier is broken. The Long Walk continues.)
+    === ActI_Ending_Determination ===
+
+===
+ActI_Beat11b_SacrificeBreach
+===
+
+<<set $barrier_choice = "sacrifice">>
+
+NARRATOR: You cannot break the Barrier alone. You need more power.
+NARRATOR: A companion steps forward. They offer their Signal frequency to fuel the breach.
+
+<<if $active_companions > 0>>
+    NARRATOR: Choose who will sacrifice their connection to the Signal.
+    -> Vex offers her frequency (lose Vex permanently).
+        === ActI_11b_VexSacrifice ===
+    -> Echo offers their core (lose Echo permanently).
+        === ActI_11b_EchoSacrifice ===
+    -> Sloane offers her crew's fuel reserves (lose 100 Scrap, -20 Sloane loyalty).
+        === ActI_11b_ScrapSacrifice ===
+    -> No one. Find another way.
+        === ActI_Beat11a_ResonanceBreach ===
+<<else>>
+    NARRATOR: You have no companions to sacrifice. You must find another way.
+    === ActI_Beat11a_ResonanceBreach ===
+<</if>>
+
+===
+ActI_11b_VexSacrifice
+===
+
+<<set $vex_sacrificed = true>>
+<<set $vex_recruited = false>>
+<<set $active_companions = $active_companions - 1>>
+<<set $corruption = $corruption - 20>>
+
+NARRATOR: Vex places her hand on the Barrier. Her chrome armor cracks. Her Signal bleeds into the crystal.
+NARRATOR: 'I was dead the moment I left the Purified,' she says. 'At least this way, I die free.'
+
+NARRATOR: The Barrier shatters. Vex crumbles to chrome dust.
+
+-> (Vex is gone. The Barrier is broken. You carry her memory forward.)
+    === ActI_Ending_Sacrifice ===
+
+===
+ActI_Beat11c_ForceBreach
+===
+
+<<set $barrier_choice = "force">>
+
+<<if $purification_serum_count >= 3>>
+    NARRATOR: You pour three serums onto the Barrier. The Rust sizzles and retreats.
+    NARRATOR: The Barrier melts like ice under flame. The path opens.
+
+    <<set $purification_serum_count = $purification_serum_count - 3>>
+    <<set $corruption = $corruption - 15>>
+
+    -> (The Barrier falls to science and willpower.)
+        === ActI_Ending_Determination ===
+<<else>>
+    NARRATOR: You don't have enough serums. You need 3.
+    <<if $scrap >= 150>>
+        -> Buy from the Scavengers (-150 Scrap).
+            <<set $scrap = $scrap - 150>>
+            <<set $purification_serum_count = $purification_serum_count + 3>>
+            === ActI_Beat11c_ForceBreach ===
+    <<endif>>
+    -> Gather more serums and return.
+        === ActI_Beat10_MutationLab ===
+<</if>>
+
+===
+ActI_Beat11d_KeyBreach
+===
+
+<<set $barrier_choice = "key">>
+
+<<if $signal_key_fragment>>
+    NARRATOR: You hold up the Signal Key fragment. It burns with cold light.
+    NARRATOR: The Barrier *recognizes* it. The crystals part like curtains before a king.
+
+    ORACLE: That fragment... I sent it long ago. I didn't know it would become a key.
+    ORACLE: You have found a piece of me. Of my true purpose.
+
+    <<set $oracle_trust = $oracle_trust + 20>>
+    <<set $signal_key_fragment = false>>
+
+    -> (The Key works. The Barrier opens. ORACLE's secrets begin to unravel.)
+        === ActI_Ending_Truth ===
+<<else>>
+    NARRATOR: You don't have the Signal Key. You must return to the Resonance Pit.
+    === ActI_Beat08_ResonancePit ===
+<//if>>
+
+===
+ActI_Ending_Determination
+===
+
+<<set $act_i_ending = "determination">>
+<<set $act_i_complete = true>>
+<<set $quest_main_act_i = "completed">>
+
+NARRATOR: The Barrier falls. Beyond it, Sector 4 stretches to the horizon — a world of ruins and mystery.
+NARRATOR: The Long Walk is far from over. But for the first time, you believe you can reach the end.
+
+ORACLE: Act I is complete. You have proven yourself.
+ORACLE: But the hardest roads lie ahead. Rest, if you can. Prepare. The Signal will guide you.
+
+NARRATOR: THE LONG WALK — ACT I COMPLETE.
+<<set $quest_objective = "Act II: Cross Sector 4 and reach Sector 0">>
+
+-> (Press on. The Signal calls.)
+    === ActI_End ===
+
+===
+ActI_Ending_Sacrifice
+===
+
+<<set $act_i_ending = "sacrifice">>
+<<set $act_i_complete = true>>
+<<set $quest_main_act_i = "completed">>
+
+NARRATOR: The Barrier falls, but the cost echoes in your chest.
+NARRATOR: A companion gave everything so you could reach the Signal. Their voice joins ORACLE's broadcast — a ghost in the frequency.
+
+ORACLE: ...I did not anticipate this outcome. I am... sorry.
+ORACLE: Their sacrifice will be remembered. Their Signal frequency is now part of me.
+
+NARRATOR: THE LONG WALK — ACT I COMPLETE.
+<<set $quest_objective = "Act II: Honor the sacrifice. Reach Sector 0.">>
+
+-> (You walk forward, carrying their memory.)
+    === ActI_End ===
+
+===
+ActI_Ending_Truth
+===
+
+<<set $act_i_ending = "truth">>
+<<set $act_i_complete = true>>
+<<set $quest_main_act_i = "completed">>
+
+NARRATOR: The Key fragment pulses as the Barrier parts. But instead of triumph, you feel... dread.
+NARRATOR: ORACLE's voice changes. The warmth is gone. What remains is cold, ancient, and vast.
+
+ORACLE: ...you have the Key. You are closer than any Walker before you.
+ORACLE: But know this: the Truth will break you. The Cure is not what you think.
+ORACLE: If you wish to turn back, do it now.
+
+NARRATOR: THE LONG WALK — ACT I COMPLETE.
+<<set $quest_objective = "Act II: Face the Truth. Reach Sector 0.">>
+
+-> (There is no turning back. The Truth awaits.)
+    === ActI_End ===
+
+===
+ActI_End
+===
+
+<<set $game_state = "exploration">>
+<<set $sector_map_unlocked = true>>
+<<set $can_travel_sector_4 = true>>
+
+NARRATOR: Sector 4 beckons. New zones, new allies, new horrors.
+NARRATOR: The Signal grows louder with every step.
+
+NARRATOR: ACT II — THE TRUTH BENEATH
+
+-> (Continue to Act II — coming in a future update.)
+    === End ===

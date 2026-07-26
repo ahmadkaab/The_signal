@@ -1,0 +1,117 @@
+[gd_resource type="ZoneResource" load_steps=2 format=3 uid://sector_9_purified_citadel]
+
+[ext_resource type="Script" path="res://Data/ZoneResource.cs" id="1_1"]
+
+[resource]
+script = ExtResource("1_1")
+zone_id = "sector_9_purified_citadel"
+display_name = "Purified Citadel"
+description = "A fortress of chrome and faith. The Purified have replaced flesh with steel to resist the Rust. Their leaders preach salvation through purification. Outsiders are tolerated... barely."
+type = 3
+sector = 9
+map_position = Vector2i(2, -1)
+first_discovery_xp = 200
+initially_discovered = false
+required_flags_for_discovery = []
+required_quests_completed = []
+connections = [
+{
+"to_zone_id": "sector_9_graveyard",
+"fuel_cost": 15,
+"scrap_cost": 0,
+"travel_type": 0,
+"initially_locked": false,
+"unlock_flags": [],
+"unlock_quests": [],
+"min_level": 1,
+"required_faction": 0,
+"min_faction_rep": 0,
+"one_way": false,
+"danger_level": 1.0
+},
+{
+"to_zone_id": "sector_8_purified_stronghold",
+"fuel_cost": 25,
+"scrap_cost": 5,
+"travel_type": 0,
+"initially_locked": true,
+"unlock_flags": ["purified_allied"],
+"unlock_quests": [],
+"min_level": 3,
+"required_faction": 0,
+"min_faction_rep": 25,
+"one_way": false,
+"danger_level": 1.3
+}
+]
+base_corruption_level = -30.0
+corruption_drift_per_hour = -0.1
+cleanse_rate = 1.5
+corrupt_rate = 0.5
+can_be_cleansed = true
+can_be_corrupted = false
+fixed_encounters = [
+{
+"encounter_id": "citadel_gate",
+"display_name": "Citadel Gate",
+"description": "Heavy blast doors. Purified guards demand identification.",
+"grid_position": Vector2i(1, 1),
+"enemy_ids": [],
+"enemy_count": 0,
+"min_level": 1,
+"max_level": 1,
+"once_only": true,
+"mandatory": true,
+"required_flags": [],
+"rewards": [],
+"pre_combat_dialogue": "citadel_gate_approach",
+"post_combat_dialogue": ""
+},
+{
+"encounter_id": "purification_chamber",
+"display_name": "Purification Chamber",
+"description": "Where flesh becomes chrome. The willing and unwilling alike.",
+"grid_position": Vector2i(3, 2),
+"enemy_ids": ["purified_inquisitor", "purified_zealot", "purified_zealot"],
+"enemy_count": 3,
+"min_level": 3,
+"max_level": 4,
+"once_only": true,
+"mandatory": false,
+"required_flags": ["purified_hostile"],
+"rewards": [
+{"item_id": "chrome_plating", "min_count": 1, "max_count": 2, "weight": 1.0, "guaranteed": false},
+{"item_id": "purified_essence", "min_count": 1, "max_count": 1, "weight": 0.5, "guaranteed": false}
+],
+"pre_combat_dialogue": "",
+"post_combat_dialogue": ""
+}
+]
+random_encounter_tables = [
+{
+"table_id": "citadel_patrols",
+"display_name": "Citadel Patrols",
+"possible_encounters": [
+{"encounter_id": "purified_patrol", "display_name": "Purified Patrol", "description": "Disciplined chrome warriors on patrol.", "grid_position": Vector2i(0, 0), "enemy_ids": ["purified_soldier", "purified_soldier", "purified_medic"], "enemy_count": 3, "min_level": 2, "max_level": 4, "once_only": false, "mandatory": false, "required_flags": [], "rewards": [], "pre_combat_dialogue": "", "post_combat_dialogue": ""},
+{"encounter_id": "penitent_squad", "display_name": "Penitent Squad", "description": "Sinners seeking redemption through combat.", "grid_position": Vector2i(0, 0), "enemy_ids": ["purified_penitent", "purified_penitent", "purified_penitent", "purified_penitent"], "enemy_count": 4, "min_level": 3, "max_level": 5, "once_only": false, "mandatory": false, "required_flags": [], "rewards": [], "pre_combat_dialogue": "", "post_combat_dialogue": ""}
+],
+"weights": [0.7, 0.3],
+"min_level": 2,
+"max_level": 5,
+"condition_modifiers": {"purified_hostile": 2.0, "purified_allied": 0.1}
+}
+]
+random_encounter_chance_per_hour = 0.1
+max_random_encounters_per_visit = 2
+events = []
+discovery_rewards = [
+{"item_id": "purified_badge", "count": 1, "type": 0}
+]
+clear_rewards = []
+local_zone_scene = null
+props = []
+npcs = []
+interactables = []
+ambient_music = "citadel_ambient"
+ambient_light = Color(0.2, 0.25, 0.3, 1)
+environment = null

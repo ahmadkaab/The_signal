@@ -1,0 +1,114 @@
+title: Sloane_Recruitment
+---
+===
+Sloane_Intro
+===
+
+Sloane: You're the Walker everyone's whispering about. Let's see if you're worth the scrap.
+
+-> I've heard you run the best crew in Sector 8.
+    === Sloane_Flattery ===
+-> I don't care about whispers. I care about results.
+    === Sloane_Results ===
+-> Who's asking?
+    === Sloane_Direct ===
+
+===
+Sloane_Flattery
+===
+
+Sloane: Flattery gets you nowhere, but honesty gets you everywhere.
+Sloane: I run this operation because I deliver. You need a crew, I have one.
+
+<<set $sloane_loyalty = $sloane_loyalty + 5>>
+
+-> Name your price.
+    === Sloane_Price ===
+-> I don't need a crew. I need you.
+    === Sloane_Surprised ===
+
+===
+Sloane_Results
+===
+
+Sloane: Good answer. I respect pragmatism.
+Sloane: The Purified have been muscling in on my territory. Help me push them back, and I'm yours.
+
+<<set $sloane_loyalty = $sloane_loyalty + 10>>
+
+-> Deal. What's the plan?
+    === Sloane_Trial ===
+
+===
+Sloane_Direct
+===
+
+Sloane: Sloane. Crew leader, Scavenger affiliate, and the person who decides whether you leave this mine breathing.
+Sloane: But I like your spine. Most people shrink when I stare.
+
+<<set $sloane_loyalty = $sloane_loyalty + 10>>
+
+-> I need someone with guts. You're hired.
+    === Sloane_Accepted ===
+-> Prove you're worth my time.
+    === Sloane_Trial ===
+
+===
+Sloane_Price
+===
+
+Sloane: My crew needs supplies. Medical, ammo, fuel. Get me enough to restock, and we can talk.
+
+<<if $scrap >= 100>>
+    -> I have 100 Scrap. Take it. (Recruit Sloane)
+        === Sloane_Accepted ===
+<<endif>>
+    -> I'll come back when I have more. (End)
+
+===
+Sloane_Surprised
+===
+
+Sloane: ...you're serious. Huh.
+Sloane: Most people want my crew. You want me. That's... different.
+
+<<set $sloane_loyalty = $sloane_loyalty + 15>>
+
+-> The best leaders fight at the front. I saw that in you.
+    === Sloane_Accepted ===
+
+===
+Sloane_Trial
+===
+
+Sloane: Scavengers raided a Purified supply convoy. Intel says they cached the goods in the Ash Plains.
+Sloane: Bring me something valuable. I'll know if you're worth following.
+
+-> Done. I'll be back with your prize.
+    === Sloane_Accepted ===
+
+===
+Sloane_Accepted
+===
+
+Sloane: Alright, Walker. You've got yourself a deal.
+Sloane: I run a tight ship. No heroics, no stupid risks. We work smart, we survive.
+
+<<set $sloane_loyalty = 30>>
+<<set $sloane_recruited = true>>
+<<set $active_companions += 1>>
+<<set $party: "Sloane" = true>>
+<<set $quest_sloane_payback = "active">>
+
+Sloane <<companion_join>>
+<<give_item chrome_rifle>>
+
+-> Welcome to the team, Sloane. (Recruitment Complete)
+    === Sloane_Joined ===
+
+===
+Sloane_Joined
+===
+
+Sloane: Let's get to work. <<signal>>
+    -> Let's move. (End)

@@ -1,0 +1,114 @@
+title: SignalEcho_First
+---
+<<declare $signal_echoes_found = 0>>
+<<declare $first_echo_complete = false>>
+
+=== signal_echo_first ===
+*Signal Resonance spikes. A coherent pulse in the noise. Not random. **Intentional**.*
+
+Your Scanner locks on. **WEST CORRIDOR. 400m. STRONG.**
+
+*   "Investigate." -> signal_echo_investigate
+*   "Mark for later." -> signal_echo_later
+*   "Signal Pulse to amplify." *Resonance 12+* -> signal_echo_pulse
+
+=== signal_echo_investigate ===
+You move through maintenance corridors. The Echo grows louder—a hum in your teeth, a pressure behind your eyes.
+
+The corridor opens into a **SERVER VAULT**. Ancient racks. One terminal still active. A drone husk sits before it—chrome frame, optics dark.
+
+*Signal Echo Source: **Oracle Relay Drone — Unit 734**.*
+
+The drone's chest cavity glows. A fractured Resonance Core.
+
+*   "Interface." -> signal_echo_interface
+*   "Salvage the core." -> signal_echo_salvage
+*   "Leave it." -> signal_echo_leave
+
+=== signal_echo_interface ===
+<<set $signal_echoes_found = $signal_echoes_found + 1>>
+<<set $resonance_fragments = $resonance_fragments + 3>>
+
+You place your hand on the drone's port. Data *floods* in—coordinates, protocols, a voice:
+
+**ORACLE: "Walker. *Awake*. Sector 9. *Good*. The Relay Tower in Sector 8... it *stirs*. Reach it. Transmit the code. The Cure *awaits*."**
+
+*Memory Fragment Acquired: **Oracle Protocol 7 — Relay Activation***
+*Gained: 3 Resonance Fragments, 100 XP*
+
+The drone's optics flicker—once. *Online?*
+
+UNIT 734: "Walker. Designation: **Echo**. Function: *Signal analysis, Oracle interface*. Loyalty protocol: *Activated*."
+
+*Acquired Companion: **Echo** (Oracle Drone — Support/Intel/Scan)*
+
+*   "Welcome, Echo." -> signal_echo_echo_joins
+*   "Stay in the vault." -> signal_echo_echo_stays
+
+=== signal_echo_salvage ===
+<<set $resonance_fragments = $resonance_fragments + 5>>
+<<set $signal_echoes_found = $signal_echoes_found + 1>>
+
+You extract the fractured core. It pulses in your palm—raw Signal energy.
+
+*Gained: **Fractured Resonance Core** (5 Fragments), **Data Fragment x3**, **Tech Scrap x10***
+*Memory Fragment: **Oracle Protocol 7 — Relay Activation** (Partial)*
+
+The drone remains dark. A resource, not an ally.
+
+-> signal_echo_leave
+
+=== signal_echo_leave ===
+You back away. The Echo fades behind you.
+
+*Signal Echo marked on map. Can return later.*
+
+-> signal_echo_end
+
+=== signal_echo_pulse ===
+<<set $signal_points = $signal_points + 1>>
+<<set $signal_echoes_found = $signal_echoes_found + 1>>
+
+A controlled pulse. The Echo *responds*—data structuring, coordinates resolving.
+
+**ORACLE: "Walker. *Awake*. Sector 9. *Good*..."**
+
+*Gained: 1 Signal Point, 2 Resonance Fragments, **Oracle Protocol 7 (Partial)***
+
+The drone remains dormant. But *marked*. Trackable.
+
+-> signal_echo_end
+
+=== signal_echo_later ===
+Marked on map: **Signal Echo — Server Vault (West Corridor)**.
+
+*Can return anytime. Echo strength: Strong.*
+
+-> signal_echo_end
+
+=== signal_echo_echo_joins ===
+ECHO: "Query: Destination? Recommendation: **Sector 8 Wastes — Oracle Relay Tower 3 operational**."
+
+*Unique Companion Acquired: **Echo** (Oracle Drone — Support/Intel/Scan)*
+*Abilities: **Deep Scan** (Reveal all enemies in zone), **Signal Relay** (Extend comms range), **Protocol Access** (Hack Oracle tech)*
+
+-> signal_echo_end
+
+=== signal_echo_echo_stays ===
+ECHO: "Acknowledged. Standby mode. *Awaiting directive*."
+
+*Echo remains at Server Vault. Can recruit later from Waystation/Grove/Freeport.*
+
+-> signal_echo_end
+
+=== signal_echo_end ===
+<<set $first_echo_complete = true>>
+
+*Signal Echo system unlocked. Find more Echoes to:*
+- *Recover Oracle memory fragments*
+- *Gain Resonance Fragments*
+- *Unlock Signal Nodes*
+- *Recruit unique companions*
+- *Reveal Sector Zero path*
+
+=== end ===

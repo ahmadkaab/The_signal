@@ -1,0 +1,19 @@
+[gd_resource type="ItemResource" load_steps=2 format=3 uid://vital_essence]
+
+[ext_resource type="Script" path="res://Data/ItemResource.cs" id="1_1"]
+
+[resource]
+script = ExtResource("1_1")
+item_id = "vital_essence"
+display_name = "Vital Essence"
+description = "Concentrated life force. Rooted crafting gem. Pulses with growth."
+type = 10
+rarity = 2
+icon = null
+max_stack = 999
+value = 200
+weight = 1
+is_unique = false
+is_quest_item = false
+is_craftable = false
+crafting_cost = []

@@ -1,0 +1,12 @@
+[gd_resource type="TrophyResource" load_steps=2 format=3 uid://trophy_combat_100]
+[ext_resource type="Script" path="res://Data/TrophyResource.cs" id="1_1"]
+[resource]
+script = ExtResource("1_1")
+trophy_id = "TROPHY_COMBAT_100"
+display_name = "The Unbroken"
+description = "Win 100 combat encounters"
+rarity = 2
+is_hidden = false
+has_progress = false
+progress_max = 1
+xbox_gamer_score = 60

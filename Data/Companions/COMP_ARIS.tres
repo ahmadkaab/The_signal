@@ -1,0 +1,26 @@
+[gd_resource type="CompanionResource" load_steps=2 format=3 uid://comp_aris]
+[ext_resource type="Script" path="res://Data/CompanionResource.cs" id="1_1"]
+
+[resource]
+script = ExtResource("1_1")
+companion_id = "COMP_ARIS"
+display_name = "Aris"
+description = "The Rooted's oldest living archivist. Remembers fragments of pre-Rust history that even ORACLE has lost. Physically frail but mentally unbreakable."
+archetype = "Lore-Keeper"
+faction = 1
+starting_zone = "S06_MUTATION_LAB"
+starting_level = 3
+base_might = 5
+base_agility = 8
+base_constitution = 6
+base_intelligence = 14
+base_willpower = 15
+base_resonance = 10
+starting_abilities = ["basic_attack",
+"purge_shot",
+"entangle"]
+starting_weapon = "bio_gel"
+personal_quest_id = "QUEST_ARIS_LIBRARY"
+synergy_partners = ["COMP_ECHO",
+"COMP_KAEL"]
+dialogue_start_node = "Aris_Recruitment" 

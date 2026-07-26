@@ -1,0 +1,21 @@
+[gd_resource type="ConsumableResource" load_steps=2 format=3 uid://mutagen]
+
+[ext_resource type="Script" path="res://Data/ItemResource.cs" id="1_1"]
+
+[resource]
+script = ExtResource("1_1")
+item_id = "mutagen"
+display_name = "Mutagen"
+description = "Rooted alchemy. Triggers controlled mutation. Unpredictable."
+type = 9
+rarity = 2
+icon = null
+max_stack = 5
+value = 300
+weight = 1
+is_unique = false
+is_quest_item = false
+is_craftable = true
+crafting_cost = [{"item_id": "vital_essence", "min_count": 1, "max_count": 2, "weight": 1.0, "guaranteed": true}, {"item_id": "spore_pod", "min_count": 2, "max_count": 3, "weight": 1.0, "guaranteed": true}, {"item_id": "bio_gel", "min_count": 1, "max_count": 1, "weight": 0.5, "guaranteed": false}]
+effect = 3
+cooldown_turns = 0

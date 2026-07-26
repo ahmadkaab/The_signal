@@ -1,0 +1,25 @@
+[gd_resource type="ProgressionFormulas" load_steps=2 format=3 uid="uid://progression_formulas"]
+
+[ext_resource type="Script" path="res://Core/Progression/ProgressionFormulas.cs" id="1_1"]
+
+[resource]
+script = ExtResource("1_1")
+xp_base = 100
+xp_curve_exponent = 2.0
+xp_curve_linear = 1.2
+sp_per_level = 1
+fragment_zone_cleanse = 3
+fragment_zone_corrupt = 5
+fragment_boss_kill = 10
+fragment_echo_found = 1
+mutation_slots = {
+5: 1,
+15: 2,
+25: 3
+}
+loyalty_ranks = [ 100, 300, 600, 1000, 1500 ]
+base_damage_mult = 1.0
+armor_reduction_flat = 0.5
+armor_reduction_pct = 0.01
+crit_damage_mult = 1.5
+crit_chance_base = 0.05

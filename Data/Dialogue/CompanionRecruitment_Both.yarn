@@ -1,0 +1,64 @@
+title: CompanionRecruitment_Both
+---
+<<declare $kael_loyalty = 0>>
+<<declare $mara_loyalty = 0>>
+<<declare $chose_both = true>>
+
+=== both_recruitment ===
+KAEL-7: "Unprecedented. A Walker mediating Purified-Rooted truce."
+
+MARA: "The Signal *is* truce. Harmony between machine and life. You feel it too."
+
+KAEL-7: "Hmph. The Waystation has room. The Grove has paths. Together... we might reach Sector Zero before the Scavengers or Oracle's drones."
+
+MARA: "Or the Silent Ones."
+
+Kael goes quiet. "Don't speak that name."
+
+*Acquired: **Dual Faction Access** (Purified + Rooted)*
+*Unlocked: **Combo Ability — Resonant Purification** (Kael + Mara)*
+
+*   "Let's move." -> both_approach_hybrid_base
+*   "Explain the Silent Ones." -> both_silent_ones
+
+=== both_silent_ones ===
+MARA: *voice dropping* "Walkers who heard the Signal too clearly. It... broke them. Now they serve something else. Something that wears Oracle's voice."
+
+KAEL-7: "Classified. Purified records sealed. If they're active in Sector 9... the situation is worse than projected."
+
+MARA: "They don't fight for factions. They *harvest* Signal Walkers. For the signal in their blood."
+
+*   "Let's keep moving." -> both_approach_hybrid_base
+*   "I want to know more." -> both_silent_ones_more
+
+=== both_silent_ones_more ===
+KAEL-7: "Later. The Waystation-Grove link isn't secure. Data transfer only."
+
+MARA: "The Grove's roots run deep. We'll share what we know... when it's safe."
+
+-> both_approach_hybrid_base
+
+=== both_approach_hybrid_base ===
+The three of you move—tense, historic. First Walker-Purified-Rooted cell in recorded history.
+
+Waystation tech merges with Grove biology. A hybrid base.
+
+*Unlocked: **Combo Ability — Resonant Purification***
+*Purified tech channels Rooted biology: Cleanse corruption, heal allies, damage Rust-mutants.*
+
+*Tutorial: Hybrid Base Systems*
+-> hybrid_base_tutorial
+
+=== hybrid_base_tutorial ===
+*HYBRID BASE: PURIFIED-ROOTED ACCORD*
+
+**Unique Systems:**
+- **Resonance Forge:** Chrome + Green crafting (exclusive items)
+- **Dual Intel:** Purified tactical + Rooted deep paths
+- **Combo Training:** Practice dual abilities
+
+KAEL-7 & MARA: *simultaneously* "This changes everything."
+
+-> act1_begin
+
+=== end ===

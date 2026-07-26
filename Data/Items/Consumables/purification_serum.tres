@@ -1,0 +1,21 @@
+[gd_resource type="ConsumableResource" load_steps=2 format=3 uid://purification_serum]
+
+[ext_resource type="Script" path="res://Data/ItemResource.cs" id="1_1"]
+
+[resource]
+script = ExtResource("1_1")
+item_id = "purification_serum"
+display_name = "Purification Serum"
+description = "Purified alchemy. Cleanses Rust corruption. Temporary immunity."
+type = 9
+rarity = 2
+icon = null
+max_stack = 5
+value = 200
+weight = 1
+is_unique = false
+is_quest_item = false
+is_craftable = true
+crafting_cost = [{"item_id": "purified_essence", "min_count": 1, "max_count": 1, "weight": 1.0, "guaranteed": true}, {"item_id": "clean_water", "min_count": 2, "max_count": 3, "weight": 1.0, "guaranteed": true}, {"item_id": "tech_scrap", "min_count": 5, "max_count": 10, "weight": 1.0, "guaranteed": false}]
+effect = 2
+cooldown_turns = 3

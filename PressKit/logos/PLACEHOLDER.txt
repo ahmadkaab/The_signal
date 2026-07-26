@@ -1,0 +1,4 @@
+[INFO] Placeholder — logo_the_signal_full.png
+Full logo: "THE SIGNAL" in rusted-metal typeface with Signal wave motif.
+Dimensions: 1920x1080, transparent BG.
+Color: Chrome/silver with orange Resonance glow.

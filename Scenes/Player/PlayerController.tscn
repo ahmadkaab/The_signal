@@ -1,0 +1,38 @@
+[gd_scene load_steps=4 format=3 uid://uid_playercontroller]
+
+[ext_resource type="Script" path="res://Scenes/Player/PlayerController.cs" id="1_1"]
+[ext_resource type="PackedScene" path="res://Assets/Models/Player/player_body.glb" id="1_2"]
+[ext_resource type="PackedScene" path="res://Assets/Animations/Player/player_anims.tres" id="1_3"]
+
+[node name="PlayerController" type="CharacterBody3D"]
+script = ExtResource("1_1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = ExtResource("2_1")
+
+[node name="BodyMesh" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_2")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/idle = ExtResource("1_3")
+anims/walk = ExtResource("1_3")
+anims/run = ExtResource("1_3")
+anims/jump = ExtResource("1_3")
+anims/dodge = ExtResource("1_3")
+anims/hit = ExtResource("1_3")
+autoplay = "idle"
+
+[node name="CameraPivot" type="Node3D" parent="."]
+position = Vector3(0, 1.5, 0)
+
+[node name="Camera3D" type="Camera3D" parent="CameraPivot"]
+position = Vector3(0, 0, 4)
+near = 0.1
+far = 1000
+fov = 75
+
+[node name="GroundRay" type="RayCast3D" parent="."]
+position = Vector3(0, 0.1, 0)
+target_position = Vector3(0, -1.2, 0)
+collision_mask = 1
+enabled = true

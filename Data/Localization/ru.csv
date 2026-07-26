@@ -1,0 +1,69 @@
+key,text
+DLG_GUARD_INTRO,Стражник преграждает путь.
+DLG_GUARD_BRIBED,Стражник прячет взятку и отходит в сторону.
+DLG_OPT_BRIBE,Предложить 50 золота
+DLG_OPT_LEAVE,Уйти
+DLG_KAEL_001,Я — Кэл-7. Седьмая итерация. Очищенный Паладин.
+DLG_KAEL_002,Подпись Сигнала... частота Странника. Невозможно.
+DLG_MARA_001,Я — Мара из Зелёного Хора.
+DLG_MARA_002,Сигнал... поёт внутри тебя.
+DLG_CHOOSE_COMPANION,Кому ты доверяешь?
+DLG_CHOOSE_KAEL,Кэлу. Мне нужны технологии, чтобы выжить.
+DLG_CHOOSE_MARA,Маре. Я должен понять, кем я стал.
+DLG_CHOOSE_BOTH,Обоим. Нам по пути.
+DLG_CHOOSE_NONE,Почему я должен доверять кому-то из вас?
+TUT_MOVE,WASD / Стрелки: Движение
+TUT_ABILITY,1-4: Способности
+TUT_END_TURN,Пробел: Завершить ход
+TUT_OVERWATCH,Tab: Дозор
+TUT_TARGET,Клик: Цель
+TUT_COMBAT_VICTORY,Победа! Получено опыта: %d
+TUT_COMBAT_DEFEAT,Ты пал. Сигнал угасает...
+ITEM_PULSE_PISTOL,Импульсный пистолет
+ITEM_STIMULANT,Стимулятор
+ITEM_CHROME_RIFLE,Очищенная хромовая винтовка
+ITEM_VINE_LASH,Плеть из лоз
+ABILITY_BASIC_ATTACK,Обычная атака
+ABILITY_RESONANCE_PULSE,Резонансный импульс
+ABILITY_ENTANGLE,Спутывающие лозы
+ABILITY_OVERWATCH,Дозор
+STAT_MIGHT,Сила
+STAT_AGILITY,Ловкость
+STAT_CONSTITUTION,Телосложение
+STAT_INTELLIGENCE,Интеллект
+STAT_WILLPOWER,Сила воли
+STAT_RESONANCE,Резонанс
+UI_HP,Зд: %d/%d
+UI_AP,ОД: %d/%d
+UI_LEVEL,Уровень %d
+UI_XP,Опыт: %d/%d
+UI_SCRAP,Металлолом: %d
+UI_FUEL,Топливо: %d/%d
+UI_SAVE,Сохранить
+UI_LOAD,Загрузить
+UI_SETTINGS,Настройки
+UI_QUIT,Выйти
+UI_NEW_GAME,Новая игра
+UI_RESUME,Продолжить
+UI_SAVE_SLOT,Слот %d
+UI_EMPTY_SLOT,Пустой слот
+UI_DELETE,Удалить
+UI_BACK,Назад
+UI_CONFIRM,Подтвердить
+UI_CANCEL,Отмена
+ZONE_GRAVEYARD,Сектор 9: Кладбище
+ZONE_CITADEL,Очищенная Цитадель
+ZONE_GROVE,Зелёная Роща
+ZONE_FREEPORT,Вольный Порт Мусорщиков
+ZONE_SECTOR_8,Сектор 8: Пустоши
+NOTIF_QUEST_STARTED,Задание начато: %s
+NOTIF_QUEST_UPDATED,Задание обновлено: %s
+NOTIF_QUEST_COMPLETED,Задание выполнено: %s
+NOTIF_ITEM_OBTAINED,Получено: %s x%d
+NOTIF_XP_GAINED,Получено опыта: +%d
+NOTIF_LEVEL_UP,Новый уровень! Теперь уровень %d
+NOTIF_SAVED,Игра сохранена
+NOTIF_LOADED,Игра загружена
+ERROR_LOAD_FAILED,Не удалось загрузить сохранение
+ERROR_SAVE_FAILED,Не удалось сохранить игру
+ERROR_NO_SAVE,Сохранения не найдены

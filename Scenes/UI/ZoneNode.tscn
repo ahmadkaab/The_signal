@@ -1,0 +1,45 @@
+[gd_scene load_steps=3 format=3 uid://zonenode]
+
+[ext_resource type="Script" path="res://Scenes/UI/ZoneNode.cs" id="1_1"]
+[ext_resource type="Texture2D" path="res://Assets/Art/UI/zone_node_base.png" id="1_2"]
+[ext_resource type="Texture2D" path="res://Assets/Art/UI/zone_node_cleansed.png" id="1_3"]
+[ext_resource type="Texture2D" path="res://Assets/Art/UI/zone_node_corrupted.png" id="1_4"]
+[ext_resource type="Texture2D" path="res://Assets/Art/UI/zone_node_current.png" id="1_5"]
+
+[node name="ZoneNode" type="PanelContainer"]
+script = ExtResource("1_1")
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 1
+anchors_preset = 0
+
+[node name="BaseIcon" type="TextureRect" parent="." anchor_right=1.0 anchor_bottom=1.0]
+texture = ExtResource("1_2")
+stretch_mode = 2
+
+[node name="StateIcon" type="TextureRect" parent="." anchor_right=1.0 anchor_bottom=1.0]
+visible = false
+stretch_mode = 2
+
+[node name="CurrentMarker" type="TextureRect" parent="." anchor_right=1.0 anchor_bottom=1.0]
+texture = ExtResource("1_5")
+visible = false
+stretch_mode = 2
+
+[node name="Label" type="Label" parent="." anchor_bottom=1.0 anchor_right=1.0 offset_top=-30 offset_bottom=0]
+horizontal_alignment = 2
+autowrap_mode = 2
+theme_override_font_sizes/font_size = 10
+modulate = Color(0.9, 0.9, 0.9, 1)
+
+[node name="EncounterMarker" type="TextureRect" parent="." anchor_left=0.0 anchor_top=0.0]
+visible = false
+custom_minimum_size = Vector2(12, 12)
+modulate = Color(1, 0.3, 0.2, 1)
+
+[node name="QuestMarker" type="TextureRect" parent="." anchor_right=1.0 anchor_top=0.0]
+visible = false
+custom_minimum_size = Vector2(12, 12)
+modulate = Color(1, 0.8, 0.2, 1)
+
+[node name="ZoneNodeAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_1")

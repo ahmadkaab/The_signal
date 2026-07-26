@@ -1,0 +1,177 @@
+title: CompanionRecruitment_Kael
+---
+<<declare $kael_loyalty = 0>>
+<<declare $kael_synergy_rank = 0>>
+<<declare $kael_personal_quest_stage = 0>>
+<<declare $kael_trust_earned = false>>
+
+=== kael_recruitment_immediate ===
+KAEL-7: "Walker. Designation?"
+
+*   "Signal Walker. No number." -> kael_no_number
+*   "I don't remember." -> kael_memory_loss
+*   "Classified." -> kael_classified
+
+=== kael_no_number ===
+KAEL-7: "No number. First Generation? Original Walkers were numbered. You predate the protocols."
+
+He logs something. <<set $kael_loyalty = $kael_loyalty + 5>>
+
+KAEL-7: "Come. The Waystation is three kilometers north. We have supplies. Intel. *And a lead on Oracle's relay tower.*"
+
+-> kael_waystation_walk
+
+=== kael_memory_loss ===
+KAEL-7: "Memory corruption. Cryo-sickness. Expected. We'll run diagnostics at the Waystation."
+
+<<set $kael_loyalty = $kael_loyalty + 3>>
+
+KAEL-7: "The Waystation is three kilometers north. Supplies. Intel. *And a lead on Oracle's relay tower.*"
+
+-> kael_waystation_walk
+
+=== kael_classified ===
+KAEL-7: *dryly* "Classified. Purified records are sealed too. We'll get along fine."
+
+<<set $kael_loyalty = $kael_loyalty + 2>>
+
+KAEL-7: "The Waystation is three kilometers north. We have supplies. Intel. *And a lead on Oracle's relay tower.*"
+
+-> kael_waystation_walk
+
+=== kael_waystation_walk ===
+The three of you move through the corridor. Kael leads, scanner sweeping. Mara follows, vines tasting the air.
+
+MARA: "The Chrome walks loud. The Rust hears."
+
+KAEL-7: "The Chrome walks *alive*. The Rust *feeds* on silence."
+
+MARA: "We'll see who survives the walk."
+
+*Choice: Respond to their bickering.*
+
+*   [Side with Kael] "Mara, he's got a point. Noise draws patrols." -> kael_side_kael
+*   [Side with Mara] "Kael, she's right. Stealth keeps us alive." -> kael_side_mara
+*   [Neutral] "Both of you. Quiet. We're not alone." -> kael_neutral_walk
+*   [Signal Pulse] *Resonance 10+* Send a pulse. Map the area. -> kael_signal_pulse
+
+=== kael_side_kael ===
+KAEL-7: "See? The Walker understands tactical reality."
+
+MARA: *vines bristling* "Tactical reality is *not* announcing your position to every stalker in Sector 9."
+
+<<set $kael_loyalty = $kael_loyalty + 5>>
+<<set $mara_loyalty = $mara_loyalty - 3>>
+
+-> kael_approach_waystation
+
+=== kael_side_mara ===
+MARA: "The Green sees truth. The Chrome sees only threats."
+
+KAEL-7: "And the Green sees only what it wants to see. Until it's too late."
+
+<<set $mara_loyalty = $mara_loyalty + 5>>
+<<set $kael_loyalty = $kael_loyalty - 3>>
+
+-> kael_approach_waystation
+
+=== kael_neutral_walk ===
+You hold up a hand. Both fall silent.
+
+KAEL-7: *grudging* "Discipline. Good."
+
+MARA: *impressed* "The Walker commands."
+
+<<set $kael_loyalty = $kael_loyalty + 2>>
+<<set $mara_loyalty = $mara_loyalty + 2>>
+
+-> kael_approach_waystation
+
+=== kael_signal_pulse ===
+<<set $signal_points = $signal_points + 1>>
+<<set $kael_loyalty = $kael_loyalty + 3>>
+<<set $mara_loyalty = $mara_loyalty + 3>>
+
+A ripple of blue light expands. Rust particles freeze mid-drift.
+
+Three contacts revealed on your HUD:
+- **Rust Stalker Patrol** (East) - 3 hostiles, unaware
+- **Purified Sensor Tower** (North) - Friendly, scanning
+- **Signal Cache** (West) - Data fragment, unguarded
+
+KAEL-7: "Signal pulse. Useful. Wasteful."
+
+MARA: "The Signal *shares*. The Chrome *hoards*."
+
+-> kael_approach_waystation
+
+=== kael_approach_waystation ===
+The corridor opens into a massive chamber—the **Waystation**. Purified tech hums. Clean. Sterile. Chrome walls pulse with coolant lines.
+
+KAEL-7: "Welcome to Outpost 9. Purified stronghold. Home."
+
+*Tutorial: Waystation Systems unlocked*
+-> waystation_tutorial
+
+=== kael_personal_quest_1 ===
+*Available at Loyalty 100 (Ally)*
+
+KAEL-7 stands before a sealed blast door. His targeting array whirs.
+
+KAEL-7: "Walker. The Purified don't ask for help. But this... this requires your Signal."
+
+*   "What's behind the door?" -> kael_quest_1_details
+*   "Why me?" -> kael_quest_1_why_me
+*   "I'm busy." -> kael_quest_1_decline
+
+=== kael_quest_1_details ===
+KAEL-7: "My predecessor. Kael-6. He didn't fall in combat. He *volunteered* for the Purification Chamber. The process... failed. He's trapped in the secondary core. Half-purified. Half-Rust."
+
+*   "I'll help." -> kael_quest_1_accept
+*   "Too dangerous." -> kael_quest_1_decline
+
+=== kael_quest_1_why_me ===
+KAEL-7: "The Purification Chamber runs on Resonance. Your Signal... it can stabilize the process. Or reverse it. The Purified *cannot* enter a corrupted core. You can."
+
+*   "I'll help." -> kael_quest_1_accept
+*   "Too dangerous." -> kael_quest_1_decline
+
+=== kael_quest_1_accept ===
+<<set $kael_personal_quest_stage = 1>>
+<<set $kael_loyalty = $kael_loyalty + 10>>
+
+KAEL-7: "Then we move now. The core is in the Deep Foundry. Two sectors down."
+
+*Quest Started: **Chrome Ghost** — Find Kael-6 in the Deep Foundry Purification Core.*
+
+-> kael_quest_1_briefing
+
+=== kael_quest_1_decline ===
+KAEL-7: *jaw tightens* "Understood. A Paladin does not beg."
+
+He turns away. The loyalty meter drops.
+
+<<set $kael_loyalty = $kael_loyalty - 15>>
+
+-> kael_quest_1_end
+
+=== kael_quest_1_briefing ===
+KAEL-7: "The Foundry is Rust-heavy. Scavengers. Mutants. The Purified avoid it. But Kael-6... he knew things. Oracle access codes. Sector Zero coordinates."
+
+*   "Let's go." -> kael_quest_1_depart
+*   "Prepare first." -> kael_quest_1_prepare
+
+=== kael_quest_1_depart ===
+KAEL-7: "Good. We leave at dawn."
+
+*Quest Active. Travel to Sector 7: Deep Foundry.*
+-> kael_quest_1_end
+
+=== kael_quest_1_prepare ===
+KAEL-7: "Wise. The Fabricator has Purified ammo. The Med-Bay stocks anti-corruption serum. Gear up."
+
+*Free to explore Waystation before departure.*
+-> kael_quest_1_end
+
+=== kael_quest_1_end ===
+=== end ===

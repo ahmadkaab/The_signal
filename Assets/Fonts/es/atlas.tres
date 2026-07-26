@@ -1,0 +1,16 @@
+[gd_resource type="FontFile" load_steps=3 format=3 uid://font_es]
+
+[ext_resource type="FontFile" path="res://Assets/Fonts/NotoSans/NotoSans-Regular.ttf" id="1_1"]
+
+[resource]
+script = ExtResource("1_1")
+size = 14
+use_mipmaps = true
+generate_mipmaps = true
+resource_name = "NotoSans-Regular"
+data = {
+"antialiasing": 1,
+"compress": true,
+"outline_size": 0,
+"oversampling": 1.0
+}

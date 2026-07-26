@@ -1,0 +1,22 @@
+[gd_resource type="ItemResource" load_steps=2 format=3 uid://purge_chip]
+
+[ext_resource type="Script" path="res://Data/ItemResource.cs" id="1_1"]
+
+[resource]
+script = ExtResource("1_1")
+item_id = "purge_chip"
+display_name = "Purge Chip"
+description = "Armor mod. Cleanses corruption. Purified exclusive."
+type = 4
+rarity = 2
+icon = null
+max_stack = 1
+value = 300
+weight = 0
+is_unique = false
+is_quest_item = false
+is_craftable = true
+crafting_cost = [{"item_id": "tech_scrap", "min_count": 40, "max_count": 40, "weight": 1.0, "guaranteed": true}, {"item_id": "purified_essence", "min_count": 2, "max_count": 2, "weight": 1.0, "guaranteed": true}]
+implicit_mods = [{"type": 13, "value": 25.0, "is_percent": true, "description": "+25% Corruption Resistance"}, {"type": 12, "value": 1.0, "is_percent": false, "description": "Cleanse 1 Debuff on Hit"}]
+chip_slots = 0
+compatible_chips = []

@@ -1,0 +1,434 @@
+title: PrologueAwakening
+---
+<<declare $level = 1>>
+<<declare $signal_points = 0>>
+<<declare $resonance_fragments = 0>>
+<<declare $met_kael = false>>
+<<declare $met_mara = false>>
+<<declare $met_vex = false>>
+<<declare $chose_companion = "">>
+<<declare $prologue_complete = false>>
+<<declare $chose_kel = false>>
+<<declare $chose_mara = false>>
+<<declare $chose_both = false>>
+<<declare $chose_none = false>>
+
+=== start ===
+The hiss of depressurizing seals. Frost crystals shatter as the pod door explodes outward.
+
+You gasp—first breath in three hundred years. Your lungs burn with air that tastes of rust, ozone, and something floral. Wrong.
+
+<<if visited("memory_check")>>
+The memory holds. Good.
+<<else>>
+Fragments surface. A mission. A signal. *The Signal.* Oracle's promise: "Sector Zero holds the Cure."
+Team: 12 Signal Walkers. Cryo-sleep: 50 years max.
+Wake trigger: Signal proximity alert.
+
+Three hundred years. Something went wrong.
+<<endif>>
+
+HUD flickers online. Neural link: **ACTIVE**. Signal resonance: **DETECTED**.
+
+*System Alert: Cryo-sickness detected. Motor function impaired. Recovery estimated: 4 hours.*
+*System Alert: Local Signal source detected. Bearing: 047. Distance: 2.3km.*
+
+-> memory_check
+-> assess_surroundings
+-> check_inventory
+
+=== memory_check ===
+You close your eyes, letting the neural implant reconstruct the mission briefing.
+
+**Operation: LONG WALK**
+Objective: Reach Sector Zero. Verify Oracle's Cure. Transmit activation code.
+Team: 12 Signal Walkers. Cryo-sleep: 50 years max.
+Wake trigger: Signal proximity alert.
+
+Three hundred years. Something went wrong.
+
+-> start
+
+=== assess_surroundings ===
+The pod bay is a tomb. Twelve pods. Eleven dark. One—yours—still venting frost.
+
+Walls scored by weapons fire. Rust-colored growth pulses in the corners—**The Rust**. Nanite-cloud residue. It eats technology, rewrites biology.
+
+A console sputters to life beside your pod.
+*Data fragment recovered: "Sector 9 - The Graveyard. Purge protocols failed. Containment breach. God help whoever wakes up."*
+
+-> start
+
+=== check_inventory ===
+Your gear locker sits beside the pod. Most supplies rotted. What remains:
+
+*   **Signal Walker Armor** (Worn) — Light protection, Resonance +1
+*   **Pulse Pistol** (Damaged) — 2 AP, 3 dmg, Range 4, *Unreliable*
+*   **Scanner** — Reveals enemies, loot, Signal echoes
+*   **3x Stimulant** — Heal 15 HP, Cleanse 1 debuff
+*   **Resonance Core (Cracked)** — 1 Resonance Fragment
+
+-> start
+
+=== exit_pod_bay ===
+The corridor beyond is dark. Emergency lights pulse like a dying heartbeat.
+
+*Signal Resonance spikes. Someone—something—is nearby. Two signatures. Hostile? Unknown.*
+
+You hear voices. Argument. One mechanical, precise. One wet, organic.
+
+<<if $met_kael and $met_mara>>
+They've noticed you. Time to introduce yourself.
+-> first_contact
+<<else>>
+-> investigate_voices
+<<endif>>
+
+=== investigate_voices ===
+*Choice: How do you approach?*
+
+*   [Signal Pulse] *Resonance 10+* Send a controlled pulse. Announce yourself as a Walker. -> signal_approach
+*   [Stealth] *Agility 12+* Move silently. Observe before engaging. -> stealth_approach
+*   [Weapon Ready] *Might 10+* Pulse pistol raised. Whatever's there, you're not prey. -> combat_approach
+*   [Call Out] "Anyone alive in here?" -> dialogue_approach
+
+=== signal_approach ===
+<<set $signal_points = $signal_points + 1>>
+A ripple of blue light expands from you. The Rust in the corridor *pauses*—particles freezing mid-drift.
+
+Two figures materialize from side passages.
+
+**KAEL-7** — Chrome-plated, Purified. One eye replaced by a targeting array. Heavy armor scored by acid. *Purified Paladin.*
+
+**MARA** — Skin patterned with bioluminescent veins. Vines curl around her arms like living tattoos. *Rooted Shaman.*
+
+Both freeze. Weapons lower slightly.
+
+KAEL-7: "Signal signature... Walker frequency. Impossible. The Walkers died with the Collapse."
+
+MARA: *head tilts, vines rustling* "The Signal... it *sings* in you. Fresh. Uncorrupted. How?"
+
+-> first_contact
+
+=== stealth_approach ===
+You melt into shadows. Augmented eyes track movement.
+
+KAEL-7 scans. "Contact. Walker-class Signal. Bearing 3-15."
+
+MARA sniffs the air. "Smells like... old world. Clean. *Too* clean."
+
+They're hunting *you*. Or protecting something.
+
+-> ambush_or_reveal
+
+=== combat_approach ===
+Pistol raised. Hands steady despite centuries of sleep.
+
+KAEL-7: "Hostile! Purge!"
+
+MARA: "Wait—! That resonance..."
+
+Too late. Kael opens fire. Mara's vines lash out.
+
+*Combat Initiated: Tutorial Encounter*
+-> tutorial_combat
+
+=== dialogue_approach ===
+"Anyone alive in here?"
+
+Silence. Then—
+
+KAEL-7: "State your designation. *Now*."
+
+MARA: "Lower the weapon, Chrome-Dome. They're confused. Not hostile."
+
+-> first_contact
+
+=== first_contact ===
+KAEL-7: "I am Kael-7. Seventh iteration. Purified Paladin, Order of the Cleansing Flame. We hold this sector against the Rust."
+
+MARA: "I am Mara of the Verdant Choir. We *are* this sector. The Rust is not enemy. It is... evolution."
+
+KAEL-7: "Heresy. The Rust consumes. We *purify*."
+
+MARA: "And you replace flesh with steel until nothing human remains. Who is the monster?"
+
+They turn to you. The argument pauses.
+
+KAEL-7: "Walker. You carry the Signal. That makes you *valuable*. The Purified have resources. Tech. A path to Sector Zero."
+
+MARA: "The Rooted know the deep paths. The Rust *guides* us. We can take you where chrome cannot tread."
+
+*Choice: Who do you trust?*
+
+*   [Purified] "Kael. I need technology to survive." -> choose_kael
+*   [Rooted] "Mara. I need to understand what I've become." -> choose_mara
+*   [Neutral] "Both of you. We're going the same direction." -> choose_both
+*   [Suspicious] "Why should I trust *either* of you?" -> choose_suspicious
+
+=== choose_kael ===
+<<set $met_kael = true>>
+<<set $chose_companion = "kael">>
+<<set $chose_kel = true>>
+
+KAEL-7: "Wise. The Purified protect our own. Mara—"
+
+MARA: *vines bristling* "Touch them and you lose the hand, Chrome-Dome."
+
+Kael ignores her, tapping his gauntlet. "Walker. Designation?"
+
+*   "Signal Walker. No number." -> kael_intro_1
+*   "I don't remember." -> kael_intro_2
+*   "Classified." -> kael_intro_3
+
+=== kael_intro_1 ===
+KAEL-7: "No number. First Generation? Original Walkers were numbered. You predate the protocols."
+
+He logs something. "Come. The Waystation is three kilometers north. We have supplies. Intel. *And a lead on Oracle's relay tower.*"
+
+-> exit_with_kael
+
+=== kael_intro_2 ===
+KAEL-7: "Memory corruption. Cryo-sickness. Expected. We'll run diagnostics at the Waystation."
+
+-> exit_with_kael
+
+=== kael_intro_3 ===
+KAEL-7: *dryly* "Classified. Purified records are sealed too. We'll get along fine."
+
+-> exit_with_kael
+
+=== exit_with_kael ===
+MARA: *watching you leave* "The Signal chose you, Walker. Not the Chrome. Not the Green. *You*."
+
+She presses something into your hand—a seed pod, pulsing faintly. "If the metal fails you... plant this. Call me."
+
+*Acquired: Verdant Seed (Quest Item)*
+
+Kael leads. The corridor opens into a massive chamber—a **Waystation**. Purified tech hums. Clean. Sterile.
+
+*Tutorial: Waystation Systems*
+-> waystation_tutorial
+
+=== choose_mara ===
+<<set $met_mara = true>>
+<<set $chose_companion = "mara">>
+<<set $chose_mara = true>>
+
+MARA: *smiling, vines retracting* "The Green remembers. The Chrome forgets."
+
+KAEL-7: "Walker. This is contamination. Return to the Purified fold."
+
+MARA: "They're *awake*, Kael. Let them choose."
+
+She takes your hand—warm, bark-textured. "The Grove is close. We'll cleanse the cryo-sickness. *Naturally*."
+
+*   "Lead the way." -> mara_intro_1
+*   "What's happening to me?" -> mara_intro_2
+*   "The Signal... it's loud." -> mara_intro_3
+
+=== mara_intro_1 ===
+MARA: "Good. The deep paths are faster. Less Rust. More... *alive*."
+
+-> exit_with_mara
+
+=== mara_intro_2 ===
+MARA: "You're *adapting*. Three centuries of Signal exposure in cryo. Your DNA is... singing. We'll harmonize it."
+
+-> exit_with_mara
+
+=== mara_intro_3 ===
+MARA: *serious* "Loud means Oracle is *calling*. Sector Zero is waking up. So is everything else."
+
+-> exit_with_mara
+
+=== exit_with_mara ===
+KAEL-7: "A mistake. The Rooted cannot protect what they refuse to purge."
+
+He transmits something. "Purified Command. Walker recovered. Rooted interference. Requesting extraction team."
+
+Mara's vines spike. "Threats now, Kael? After three centuries?"
+
+*Tension. They part ways—hostile.*
+
+Mara guides you through maintenance tunnels into **The Grove**—a cavern turned forest. Bioluminescent. Breathing.
+
+*Tutorial: Grove Systems*
+-> grove_tutorial
+
+=== choose_both ===
+<<set $met_kael = true>>
+<<set $met_mara = true>>
+<<set $chose_companion = "both">>
+<<set $chose_both = true>>
+
+KAEL-7: "Unprecedented. A Walker mediating Purified-Rooted truce."
+
+MARA: "The Signal *is* truce. Harmony between machine and life. You feel it too."
+
+KAEL-7: "Hmph. The Waystation has room. The Grove has paths. Together... we might reach Sector Zero before the Scavengers or Oracle's drones."
+
+MARA: "Or the Silent Ones."
+
+Kael goes quiet. "Don't speak that name."
+
+*Acquired: Dual Faction Access (Purified + Rooted)*
+-> uneasy_alliance
+
+=== uneasy_alliance ===
+The three of you move—tense, historic. First Walker-Purified-Rooted cell in recorded history.
+
+Waystation tech merges with Grove biology. A hybrid base.
+
+*Unlocked: **Combo Ability — Resonant Purification** (Kael + Mara)*
+*Purified tech channels Rooted biology: Cleanse corruption, heal allies, damage Rust-mutants.*
+
+-> hybrid_base_tutorial
+
+=== choose_suspicious ===
+<<set $chose_companion = "none">>
+<<set $chose_none = true>>
+
+KAEL-7: "Caution. Good. A Walker who survives asks questions."
+
+MARA: "Or one who dies from *not* asking the right ones."
+
+KAEL-7: "Waystation. North. Three kilometers. We'll be there. *If* you survive."
+
+MARA: "Grove. Follow the bioluminescent moss. *Don't* eat the red fungi."
+
+They split. You're alone.
+
+*Solo Path: Harder combat, unique lore, delayed companion recruitment*
+-> solo_prologue
+
+=== solo_prologue ===
+The corridor stretches. Your scanner picks up:
+
+*   **Purified Patrol** (North) — Kael's people
+*   **Rooted Tendrils** (East) — Mara's domain
+*   **Signal Echo** (West) — Unknown, strong resonance
+*   **Scavenger Camp** (South) — Neutral, traders, info
+
+*Choice: Where first?*
+
+*   [North] Purified Waystation -> solo_north
+*   [East] Rooted Grove -> solo_east
+*   [West] Signal Echo -> solo_west
+*   [South] Scavenger Camp -> solo_south
+
+=== solo_north ===
+Kael's patrol finds you first. They're... surprised you're alive.
+
+-> waystation_tutorial
+
+=== solo_east ===
+Mara's vines catch you. Gentle. Curious.
+
+-> grove_tutorial
+
+=== solo_west ===
+A crashed Oracle drone. Its core pulses. You touch it—
+
+*Vision: Sector Zero. A spire of light. A throne of code. A voice: "FINALLY."*
+
+*Gained: 3 Resonance Fragments. Memory Fragment: "Oracle Protocol 7"*
+
+-> solo_south
+
+=== solo_south ===
+Scavengers. They don't shoot. They *trade*.
+
+Information for scrap. The Signal's origin. Oracle's true nature.
+
+*Choice: Pay 50 Scrap? -> scavenger_intel / Refuse -> solo_continue*
+
+=== tutorial_combat ===
+*TUTORIAL: Turn-Based Combat*
+
+**Controls:**
+- WASD / Arrow Keys: Move
+- 1-4: Abilities
+- Space: End Turn
+- Tab: Overwatch
+- Click: Target
+
+**Kael-7** (Ally): Heavy armor, melee, *Purge* (cleanse debuffs)
+**Mara** (Ally): Vines, ranged, *Entangle* (root enemies)
+**You**: Pulse pistol, Signal abilities
+
+*Enemy: 2x Rust-Mutated Scavengers*
+- Low armor, high damage
+- Weak to Resonance, Fire
+- *Rust Touch*: Applies Corruption on hit
+
+*Combat begins. Defeat all enemies.*
+-> combat_victory
+
+=== combat_victory ===
+The mutants dissolve into rust-dust. Your Resonance flares—absorbing fragments.
+
+*Gained: 50 XP, 3 Resonance Fragments, 20 Scrap*
+
+KAEL-7: "Efficient. For a relic."
+
+MARA: "The Signal *burns* in them. Beautiful."
+
+-> first_contact
+
+=== waystation_tutorial ===
+*WAYSTATION SYSTEMS*
+
+**Fabricator:** Craft/modify gear using Scrap + Tech Components
+**Medical Bay:** Heal, cure corruption, install implants
+**Intel Terminal:** Faction rep, zone info, quests
+**Signal Beacon:** Respec nodes, spend Signal Points
+**Companion Bench:** Manage party, view synergy trees
+
+Kael: "Rest. Rearm. The Graveyard doesn't wait."
+
+-> act1_begin
+
+=== grove_tutorial ===
+*GROVE SYSTEMS*
+
+**Biomass Vats:** Grow consumables, mutations, living gear
+**Communion Pool:** Spend Resonance Fragments for mutations
+**Root Network:** Fast travel between discovered Groves
+**Symbiosis Shrine:** Bond with companions, unlock combos
+
+Mara: "Sleep in the canopy. Dream Green. Wake changed."
+
+-> act1_begin
+
+=== hybrid_base_tutorial ===
+*HYBRID BASE: PURIFIED-ROOTED ACCORD*
+
+**Unique Systems:**
+- **Resonance Forge:** Chrome + Green crafting (exclusive items)
+- **Dual Intel:** Purified tactical + Rooted deep paths
+- **Combo Training:** Practice dual abilities
+
+Kael & Mara: *simultaneously* "This changes everything."
+
+-> act1_begin
+
+=== solo_continue ===
+No intel. No allies. Just the Signal, growing louder.
+
+-> act1_begin
+
+=== act1_begin ===
+<<set $prologue_complete = true>>
+
+**PROLOGUE COMPLETE**
+*Signal Walker Awakened*
+*First Companion Recruited*
+*Faction Contact Established*
+*Waystation/Grove Unlocked*
+
+**ACT I: THE LONG WALK BEGINS**
+
+*Next: Sector Map opens. Three zones available. The Signal grows stronger...*
+
+=== end ===

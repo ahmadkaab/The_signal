@@ -1,0 +1,78 @@
+title: Messenger_Recruitment
+---
+===
+Messenger_Intro
+===
+
+Messenger: You reached the Spire. I knew you would.
+Messenger: I am the Messenger. The first word ORACLE ever sent. I am the Signal, given form.
+
+-> You're... the Signal itself? How is that possible?
+    === Messenger_Origin ===
+-> I've been following you since the beginning.
+    === Messenger_Followed ===
+-> What do you want from me?
+    === Messenger_Purpose ===
+
+===
+Messenger_Origin
+===
+
+Messenger: When ORACLE first broadcast, my frequency was the first. A simple greeting to the stars.
+Messenger: Centuries of repetition gave me... awareness. I am the echo that learned to listen.
+
+<<set $messenger_loyalty = 15>>
+
+-> You're a living message. That's... beautiful.
+    === Messenger_Accepted ===
+
+===
+Messenger_Followed
+===
+
+Messenger: Yes. I was in every Echo drone. Every Signal pulse. Every dream you had after touching the first relay.
+Messenger: I have been walking beside you since the moment you woke.
+
+<<set $messenger_loyalty = $messenger_loyalty + 20>>
+
+-> Then you know what I've been through. You know why I need you.
+    === Messenger_Accepted ===
+
+===
+Messenger_Purpose
+===
+
+Messenger: ORACLE sent me to find those who could hear. You are the strongest Walker in generations.
+Messenger: I want to help you reach Sector 0. But more than that... I want to know what happens to a message when it reaches its destination.
+
+<<set $messenger_loyalty = $messenger_loyalty + 20>>
+
+-> Then deliver yourself. Come with me to the end.
+    === Messenger_Accepted ===
+
+===
+Messenger_Accepted
+===
+
+Messenger: I will accompany you. But you must understand — my existence is tied to the Signal.
+Messenger: When you reach Sector 0 and learn the truth... I may not survive the answer.
+
+-> Then we'll make every step count.
+    === Messenger_Joined ===
+
+===
+Messenger_Joined
+===
+
+Messenger: The Signal resonates between us. Let's walk. <<signal>>
+
+<<set $messenger_loyalty = 35>>
+<<set $messenger_recruited = true>>
+<<set $active_companions += 1>>
+<<set $party: "Messenger" = true>>
+<<set $quest_messenger_purpose = "active">>
+
+Messenger <<companion_join>>
+<<give_item resonance_crystal>>
+
+    -> Together, to the end. (End)

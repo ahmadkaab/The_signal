@@ -1,0 +1,115 @@
+[gd_resource type="ZoneResource" load_steps=2 format=3 uid://sector_9_scavenger_freeport]
+
+[ext_resource type="Script" path="res://Data/ZoneResource.cs" id="1_1"]
+
+[resource]
+script = ExtResource("1_1")
+zone_id = "sector_9_scavenger_freeport"
+display_name = "Scavenger Freeport"
+description = "Neutral ground. Traders, mercenaries, and information brokers. The Scavengers don't care about your faction—only your scrap. Everything has a price. Everyone has an angle."
+type = 1
+sector = 9
+map_position = Vector2i(1, 2)
+first_discovery_xp = 150
+initially_discovered = false
+required_flags_for_discovery = []
+required_quests_completed = []
+connections = [
+{
+"to_zone_id": "sector_9_graveyard",
+"fuel_cost": 20,
+"scrap_cost": 0,
+"travel_type": 0,
+"initially_locked": false,
+"unlock_flags": [],
+"unlock_quests": [],
+"min_level": 1,
+"required_faction": 2,
+"min_faction_rep": 0,
+"one_way": false,
+"danger_level": 1.0
+},
+{
+"to_zone_id": "sector_8_trade_route",
+"fuel_cost": 30,
+"scrap_cost": 15,
+"travel_type": 0,
+"initially_locked": true,
+"unlock_flags": ["scavenger_trade_pass"],
+"unlock_quests": [],
+"min_level": 2,
+"required_faction": 2,
+"min_faction_rep": 10,
+"one_way": false,
+"danger_level": 1.2
+}
+]
+base_corruption_level = 5.0
+corruption_drift_per_hour = 0.05
+cleanse_rate = 1.0
+corrupt_rate = 1.0
+can_be_cleansed = true
+can_be_corrupted = true
+fixed_encounters = [
+{
+"encounter_id": "freeport_gate",
+"display_name": "Freeport Gate",
+"description": "Scrap-metal archway. Guards check for weapons. Fees are negotiable.",
+"grid_position": Vector2i(1, 1),
+"enemy_ids": [],
+"enemy_count": 0,
+"min_level": 1,
+"max_level": 1,
+"once_only": true,
+"mandatory": true,
+"required_flags": [],
+"rewards": [],
+"pre_combat_dialogue": "freeport_gate_approach",
+"post_combat_dialogue": ""
+},
+{
+"encounter_id": "black_market",
+"display_name": "The Black Market",
+"description": "Sub-level vault. Forbidden tech, xeno-artifacts, memories in jars.",
+"grid_position": Vector2i(3, 2),
+"enemy_ids": [],
+"enemy_count": 0,
+"min_level": 1,
+"max_level": 1,
+"once_only": false,
+"mandatory": false,
+"required_flags": ["scavenger_rep_10"],
+"rewards": [],
+"pre_combat_dialogue": "black_market_enter",
+"post_combat_dialogue": ""
+}
+]
+random_encounter_tables = [
+{
+"table_id": "freeport_encounters",
+"display_name": "Freeport Life",
+"possible_encounters": [
+{"encounter_id": "scavenger_trader", "display_name": "Wandering Trader", "description": "Pack bot in tow. Good prices. Better stories.", "grid_position": Vector2i(0, 0), "enemy_ids": [], "enemy_count": 0, "min_level": 1, "max_level": 1, "once_only": false, "mandatory": false, "required_flags": [], "rewards": [{"item_id": "random_chip", "min_count": 1, "max_count": 1, "weight": 1.0, "guaranteed": true}], "pre_combat_dialogue": "", "post_combat_dialogue": ""},
+{"encounter_id": "mercenary_recruit", "display_name": "Mercenary Recruiter", "description": "Looking for muscle. Pays in scrap or secrets.", "grid_position": Vector2i(0, 0), "enemy_ids": [], "enemy_count": 0, "min_level": 2, "max_level": 5, "once_only": false, "mandatory": false, "required_flags": [], "rewards": [], "pre_combat_dialogue": "mercenary_recruit_dialogue", "post_combat_dialogue": ""},
+{"encounter_id": "turf_war", "display_name": "Turf War", "description": "Two gangs shooting over a salvage claim. Stay out or pick a side.", "grid_position": Vector2i(0, 0), "enemy_ids": ["scavenger_ganger", "scavenger_ganger", "scavenger_sniper"], "enemy_count": 3, "min_level": 2, "max_level": 4, "once_only": false, "mandatory": false, "required_flags": [], "rewards": [], "pre_combat_dialogue": "turf_war_approach", "post_combat_dialogue": ""}
+],
+"weights": [0.5, 0.3, 0.2],
+"min_level": 1,
+"max_level": 5,
+"condition_modifiers": {"scavenger_hostile": 3.0, "scavenger_allied": 0.2}
+}
+]
+random_encounter_chance_per_hour = 0.1
+max_random_encounters_per_visit = 3
+events = []
+discovery_rewards = [
+{"item_id": "freeport_token", "count": 1, "type": 0}
+]
+clear_rewards = []
+local_zone_scene = null
+props = []
+npcs = []
+interactables = []
+ambient_music = "freeport_ambient"
+ambient_light = Color(0.18, 0.18, 0.2, 1)
+environment = null

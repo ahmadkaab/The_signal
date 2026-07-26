@@ -1,0 +1,13 @@
+[gd_resource type="PackedScene" load_steps=2 format=3 uid://model_player]
+
+[ext_resource type="GLTFDocument" path="res://Assets/Models/Characters/player_character.glb" id="1_1"]
+
+[resource]
+import_script = "res://Content/Assets/ImportPipeline.gd"
+generate_lods = true
+lod_count = 3
+lod_distances = [10.0, 25.0, 50.0]
+generate_collision = true
+generate_navmesh = false
+scale = 1.0
+animations = [ "idle", "walk", "run", "jump", "attack", "hit", "death" ]

@@ -1,0 +1,77 @@
+title: Hollow_Recruitment
+---
+===
+Hollow_Intro
+===
+
+Hollow: You feel it too, don't you? The Rust. Calling. Hungry.
+Hollow: I was like you once. Pure. Hopeful. Then the Signal broke me open and the Rust poured in.
+
+-> You survived the corruption. That's rare.
+    === Hollow_Survival ===
+-> The Rust doesn't control me. It won't control you either.
+    === Hollow_Hope ===
+-> I've seen what the Rust does. How are you still standing?
+    === Hollow_Curious ===
+
+===
+Hollow_Survival
+===
+
+Hollow: Survived? No, Walker. I *accepted*. The Rust isn't a disease — it's evolution.
+Hollow: The Purified burn it. The Rooted grow it. But I *became* it.
+
+<<set $hollow_loyalty = $hollow_loyalty + 10>>
+
+-> I need someone who understands the corruption. Join me.
+    === Hollow_Accepted ===
+
+===
+Hollow_Hope
+===
+
+Hollow: ...you sound like I used to.
+Hollow: The Rust always wins, Walker. But if you're walking into the heart of it, I want to see how far you get before it takes you too.
+
+<<set $hollow_loyalty = $hollow_loyalty + 15>>
+
+-> Then walk with me. I'll prove the Rust can be beaten.
+    === Hollow_Accepted ===
+
+===
+Hollow_Curious
+===
+
+Hollow: I stopped fighting. The Rust is not an enemy — it's a symbiote. It amplifies what's already there.
+Hollow: My anger became strength. My fear became armor.
+
+<<set $hollow_loyalty = $hollow_loyalty + 10>>
+
+-> I want to understand. Show me.
+    === Hollow_Accepted ===
+
+===
+Hollow_Accepted
+===
+
+Hollow: You're either the bravest Walker I've met... or the most foolish.
+Hollow: Maybe both. Let's find out which.
+
+<<set $hollow_loyalty = 25>>
+<<set $hollow_recruited = true>>
+<<set $active_companions += 1>>
+<<set $party: "Hollow" = true>>
+<<set $quest_hollow_forgiveness = "active">>
+
+Hollow <<companion_join>>
+<<give_item vine_lash>>
+
+-> Together, we'll find a cure.
+    === Hollow_Joined ===
+
+===
+Hollow_Joined
+===
+
+Hollow: A cure... or acceptance. We'll see which comes first. <<signal>>
+    -> Let's go. (End)

@@ -1,0 +1,39 @@
+[gd_resource type="EnemyResource" load_steps=2 format=3 uid://purified_soldier]
+
+[ext_resource type="Script" path="res://Data/EnemyResource.cs" id="1_1"]
+
+[resource]
+script = ExtResource("1_1")
+enemy_id = "purified_soldier"
+display_name = "Purified Soldier"
+description = "Chrome-clad warrior of the Purified. Flesh replaced by faith. Fights with disciplined precision."
+archetype = 8
+level = 2
+portrait = null
+unit_scene = null
+base_might = 14
+base_agility = 12
+base_constitution = 12
+base_intelligence = 10
+base_willpower = 14
+base_resonance = 6
+base_armor = 4
+base_evasion = 10
+resist_physical = 0.2
+resist_resonance = 0.1
+resist_fire = 0.0
+resist_poison = 0.3
+resist_shock = -0.1
+resist_psychic = 0.2
+behavior_tree = "tactical_cover"
+ability_ids = ["basic_ranged", "purge_shot", "overwatch_protocol"]
+personality = 2
+aggro_range = 10
+preferred_range = 4
+loot_table = [
+{"item_id": "chrome_plating", "min_count": 1, "max_count": 2, "weight": 0.8, "min_level": 2, "max_level": 10},
+{"item_id": "purified_essence", "min_count": 1, "max_count": 1, "weight": 0.2, "min_level": 3, "max_level": 15}
+]
+xp_reward = 120
+scrap_reward = 30
+resonance_fragment_reward = 2

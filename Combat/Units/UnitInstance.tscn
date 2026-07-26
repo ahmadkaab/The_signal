@@ -1,0 +1,75 @@
+[gd_scene load_steps=6 format=3 uid://unitinstance]
+
+[ext_resource type="Script" path="res://Combat/Units/UnitInstance.cs" id="1_1"]
+[ext_resource type="PackedScene" path="res://Combat/VFX/FloatingText.tscn" id="1_2"]
+[ext_resource type="Mesh" path="res://Assets/Models/Units/unit_body.glb" id="1_3"]
+[ext_resource type="StandardMaterial3D" path="res://Assets/Materials/unit_body.tres" id="1_4"]
+[ext_resource type="Animation" path="res://Assets/Animations/unit_idle.tres" id="1_5"]
+[ext_resource type="Animation" path="res://Assets/Animations/unit_walk.tres" id="1_6"]
+[ext_resource type="Animation" path="res://Assets/Animations/unit_attack.tres" id="1_7"]
+[ext_resource type="Animation" path="res://Assets/Animations/unit_death.tres" id="1_8"]
+
+[node name="UnitInstance" type="CharacterBody3D"]
+script = ExtResource("1_1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = ExtResource("3_1")
+
+[node name="BodyMesh" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_3")
+material_override = ExtResource("1_4")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/idle = ExtResource("1_5")
+anims/walk = ExtResource("1_6")
+anims/attack = ExtResource("1_7")
+anims/death = ExtResource("1_8")
+autoplay = "idle"
+
+[node name="NameLabel" type="Label3D" parent="." offset_top=-1.5]
+horizontal_alignment = 2
+custom_minimum_size = Vector2(2, 0.5)
+theme_override_font_sizes/font_size = 14
+
+[node name="HPBar" type="ProgressBar" parent="." offset_top=-1.0 offset_bottom=-0.6 offset_left=-0.5 offset_right=0.5]
+max_value = 100
+value = 100
+
+[node name="SelectionIndicator" type="Node3D" parent="." visible=false]
+
+[node name="SelectionRing" type="CSGPolygon3D" parent="SelectionIndicator"]
+mode = 1
+fill_mode = 1
+polygon = PackedVector2Array(0, 0, 1, 0, 1, 1, 0, 1)
+height = 0.05
+material = ExtResource("4_1")
+
+[node name="APIndicator" type="Node3D" parent="."]
+
+[node name="APContainer" type="HBoxContainer" parent="APIndicator" offset_top=-0.5 offset_bottom=0.5 offset_left=-0.8 offset_right=0.8]
+
+[node name="APContainer/Pip1" type="TextureRect" parent="APContainer"]
+texture = ExtResource("5_1")
+custom_minimum_size = Vector2(16, 16)
+
+[node name="APContainer/Pip2" type="TextureRect" parent="APContainer"]
+texture = ExtResource("5_1")
+custom_minimum_size = Vector2(16, 16)
+
+[node name="APContainer/Pip3" type="TextureRect" parent="APContainer"]
+texture = ExtResource("5_1")
+custom_minimum_size = Vector2(16, 16)
+
+[node name="APContainer/Pip4" type="TextureRect" parent="APContainer"]
+texture = ExtResource("5_1")
+custom_minimum_size = Vector2(16, 16)
+
+[node name="APContainer/Pip5" type="TextureRect" parent="APContainer"]
+texture = ExtResource("5_1")
+custom_minimum_size = Vector2(16, 16)
+
+[node name="APContainer/Pip6" type="TextureRect" parent="APContainer"]
+texture = ExtResource("5_1")
+custom_minimum_size = Vector2(16, 16)
+
+[node name="FloatingTextSpawn" type="Marker3D" parent="." offset_top=-2.0]

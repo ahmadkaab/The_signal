@@ -1,0 +1,51 @@
+[gd_resource type="AbilityResource" load_steps=2 format=3 uid://purge_shot]
+
+[ext_resource type="Script" path="res://Data/AbilityResource.cs" id="1_1"]
+
+[resource]
+script = ExtResource("1_1")
+ability_id = "purge_shot"
+display_name = "Purge Shot"
+description = "Resonant round that cleanses corruption and damages mutated targets."
+type = 1
+damage_type = 3
+ap_cost = 3
+cooldown_turns = 2
+resonance_cost = 2
+max_charges = 0
+target_type = 1
+range = 6
+radius = 0
+requires_line_of_sight = true
+can_target_self = false
+can_target_allies = false
+can_target_enemies = true
+can_target_empty_tile = false
+base_damage = 5
+stat_scaling = 1.2
+scaling_stat = 5
+status_effects = [
+{
+"effect_type": 13,
+"duration": 3,
+"stacks": 1,
+"max_stacks": 1,
+"chance": 1.0,
+"on_hit": true,
+"on_crit": false,
+"on_kill": false
+}
+]
+stat_modifiers = []
+position_effects = []
+resource_effects = []
+summon_effects = []
+field_effects = []
+animation_trigger = "purge_shot"
+vfx_prefab = null
+sound_effect = null
+cast_time = 0.4
+min_level = 2
+required_signal_nodes = ["RES_SIPHON"]
+required_mutations = []
+required_weapon_tags = 64

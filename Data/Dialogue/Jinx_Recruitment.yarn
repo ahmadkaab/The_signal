@@ -1,0 +1,75 @@
+title: Jinx_Recruitment
+---
+===
+Jinx_Intro
+===
+
+Jinx: WHOA! Don't sneak up on me! I almost activated the... wait, is that a Signal-Walker?
+Jinx: Oh this is SO cool. I've read about you! Your frequency, like, sings through the Rust!
+
+-> You're Jinx, the tech genius?
+    === Jinx_Tech ===
+-> You seem... energetic.
+    === Jinx_Energy ===
+-> I need a tech specialist. Interested?
+    === Jinx_Offer ===
+
+===
+Jinx_Tech
+===
+
+Jinx: 'Genius' is a strong word. 'Certified disaster-wrangler' is more accurate.
+Jinx: But yeah, I can make pretty much anything talk. Machines, terminals, even some of the Rust-tech.
+
+<<set $jinx_loyalty = $jinx_loyalty + 10>>
+
+-> I need someone who can handle ancient tech.
+    === Jinx_Offer ===
+
+===
+Jinx_Energy
+===
+
+Jinx: Energy is my MIDDLE NAME. Well, no, it's actually '7-B', but that's a whole thing.
+Jinx: I've been working on something BIG. A device that can, get this, *intercept and translate* ORACLE's raw Signal!
+
+<<set $jinx_loyalty = $jinx_loyalty + 15>>
+
+-> That sounds incredibly dangerous. I love it. You're in.
+    === Jinx_Accepted ===
+
+===
+Jinx_Offer
+===
+
+Jinx: Interested? INCREDIBLY. I've been dying to see what's beyond Sector 8.
+Jinx: But fair warning — I blow things up. Sometimes on purpose. Sometimes not. That's the fun part!
+
+-> I'll take my chances. Welcome aboard.
+    === Jinx_Accepted ===
+
+===
+Jinx_Accepted
+===
+
+Jinx: YES! I'm gonna see the WHOLE wasteland!
+Jinx: Oh, here — I built this thingy. It does... something. Usually helpful!
+
+<<set $jinx_loyalty = 30>>
+<<set $jinx_recruited = true>>
+<<set $active_companions += 1>>
+<<set $party: "Jinx" = true>>
+<<set $quest_jinx_big_score = "active">>
+
+Jinx <<companion_join>>
+<<give_item pulse_pistol>>
+
+-> Welcome to the crew, Jinx. Try not to blow us up.
+    === Jinx_Joined ===
+
+===
+Jinx_Joined
+===
+
+Jinx: No promises! Let's GO! <<signal>>
+    -> Let's roll. (End)

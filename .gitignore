@@ -1,0 +1,63 @@
+# Temp build artifacts
+*.py
+errors_t1f.txt
+plans/
+
+# Godot
+*.import
+*.translation
+*.cfg
+*.uid
+*.tscn.bak
+*.scn.bak
+*.res.bak
+*.tres.bak
+*.csproj.bak
+
+# Build
+bin/
+obj/
+build/
+*.dll
+*.exe
+*.pdb
+
+# IDE
+.vscode/
+.idea/
+*.sln
+*.suo
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+*.mdb
+
+# OS
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Logs
+*.log
+logs/
+
+# Test results
+TestResults/
+
+# NuGet
+packages/
+*.nupkg
+
+# Godot 4 specific
+.godot/
+.mono/
+*.mono.csproj
+
+# Project specific
+user://
+saves/
+autosave.json
+*.bak

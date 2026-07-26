@@ -1,0 +1,26 @@
+[gd_resource type="CompanionResource" load_steps=2 format=3 uid://comp_unit734]
+[ext_resource type="Script" path="res://Data/CompanionResource.cs" id="1_1"]
+
+[resource]
+script = ExtResource("1_1")
+companion_id = "COMP_UNIT734"
+display_name = "Unit 734"
+description = "A pre-Rust military android reactivated by the Scavengers. Silent, efficient, and running on fragmented combat protocols. Searches for its original orders."
+archetype = "Berserker"
+faction = 3
+starting_zone = "S08_ASH_PLANS"
+starting_level = 5
+base_might = 14
+base_agility = 8
+base_constitution = 14
+base_intelligence = 6
+base_willpower = 6
+base_resonance = 5
+starting_abilities = ["basic_attack",
+"overwatch",
+"tactical_reload"]
+starting_weapon = "chrome_rifle"
+personal_quest_id = "QUEST_734_ORIGINS"
+synergy_partners = ["COMP_JINX",
+"COMP_HOLLOW"]
+dialogue_start_node = "Unit734_Recruitment" 

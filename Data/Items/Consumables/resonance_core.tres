@@ -1,0 +1,21 @@
+[gd_resource type="ConsumableResource" load_steps=2 format=3 uid://resonance_core]
+
+[ext_resource type="Script" path="res://Data/ItemResource.cs" id="1_1"]
+
+[resource]
+script = ExtResource("1_1")
+item_id = "resonance_core"
+display_name = "Resonance Core"
+description = "Pure Signal energy. Spend to unlock Signal Nodes or trade for Fragments."
+type = 9
+rarity = 3
+icon = null
+max_stack = 3
+value = 500
+weight = 0
+is_unique = false
+is_quest_item = false
+is_craftable = false
+crafting_cost = []
+effect = 1
+cooldown_turns = 0

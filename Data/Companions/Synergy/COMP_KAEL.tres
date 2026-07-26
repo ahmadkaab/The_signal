@@ -1,0 +1,42 @@
+[gd_resource type="CompanionSynergyResource" load_steps=2 format=3 uid://kael_synergy]
+
+[ext_resource type="Script" path="res://Data/EditorResources.cs" id="1_1"]
+
+[resource]
+script = ExtResource("1_1")
+companion_id = "COMP_KAEL"
+companion_name = "Kael-7"
+loyalty_thresholds = [100, 300, 600, 1000, 1500]
+nodes = [
+{
+"description": "Rank 1: Kael learns to fight alongside you. +10% Accuracy when adjacent. Companions gain +10% Healing Received.",
+"player_effects": [{}],
+"companion_effects": [{}],
+"dual_ability_id": ""
+},
+{
+"description": "Rank 2: Your abilities amplify each other. Player abilities cost -1 AP for Kael, Kael abilities cost -1 AP for player.",
+"player_effects": [{}],
+"companion_effects": [{}],
+"dual_ability_id": ""
+},
+{
+"description": "Rank 3: You move as one. Shared Harmonized when adjacent.",
+"player_effects": [{}],
+"companion_effects": [{}],
+"dual_ability_id": ""
+},
+{
+"description": "Rank 4: Kael can react to your actions. Use ability -> Kael can React (free basic attack).",
+"player_effects": [{}],
+"companion_effects": [{}],
+"dual_ability_id": ""
+},
+{
+"description": "Rank 5: Iron Symphony. Kael: Bastion (Taunt, 90% damage reduction, reflect damage). Player: Orbital Strike (global, 6 damage, Stun). Shared: All allies Steadfast x3.",
+"player_effects": [{}],
+"companion_effects": [{}],
+"dual_ability_id": "iron_symphony"
+}
+]
+unlock_dialogue = "kael_dual_ultimate_unlock"

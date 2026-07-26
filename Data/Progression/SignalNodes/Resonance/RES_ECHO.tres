@@ -1,0 +1,26 @@
+[gd_resource type="SignalNodeResource" load_steps=2 format=3 uid://res_echo]
+
+[ext_resource type="Script" path="res://Data/EditorResources.cs" id="1_1"]
+
+[resource]
+script = ExtResource("1_1")
+node_id = "RES_ECHO"
+display_name = "Echo Chamber"
+description = "Enemies with Resonating take 20% more damage from all sources."
+branch = 0
+tier = 1
+sp_cost = 1
+prerequisites = ["RES_ROOT"]
+synergy_links = []
+is_active = false
+ability_id = ""
+passive_effects = [
+{
+"stat": "ResonatingDamageTaken",
+"flat_bonus": 0.2,
+"percent_bonus": 0.0,
+"duration": -1,
+"source_id": "RES_ECHO"
+}
+]
+icon = null

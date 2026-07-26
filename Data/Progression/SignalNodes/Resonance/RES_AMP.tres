@@ -1,0 +1,33 @@
+[gd_resource type="SignalNodeResource" load_steps=2 format=3 uid://res_amp]
+
+[ext_resource type="Script" path="res://Data/EditorResources.cs" id="1_1"]
+
+[resource]
+script = ExtResource("1_1")
+node_id = "RES_AMP"
+display_name = "Amplify"
+description = "Resonance abilities gain +1 Range. Resonating stacks max 3 (was 1)."
+branch = 0
+tier = 1
+sp_cost = 1
+prerequisites = ["RES_ROOT"]
+synergy_links = []
+is_active = false
+ability_id = ""
+passive_effects = [
+{
+"stat": "ResonanceRange",
+"flat_bonus": 1.0,
+"percent_bonus": 0.0,
+"duration": -1,
+"source_id": "RES_AMP"
+},
+{
+"stat": "ResonatingMaxStacks",
+"flat_bonus": 2.0,
+"percent_bonus": 0.0,
+"duration": -1,
+"source_id": "RES_AMP"
+}
+]
+icon = null

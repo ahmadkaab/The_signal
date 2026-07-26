@@ -1,0 +1,57 @@
+[gd_resource type="CombatEncounter" load_steps=2 format=3 uid://encounter_tutorial_1]
+
+[ext_resource type="Script" path="res://Data/CombatEncounter.cs" id="1_1"]
+
+[resource]
+script = ExtResource("1_1")
+encounter_id = "tutorial_combat_1"
+display_name = "First Contact"
+description = "Two Rust Mutants block your path. Kael-7 and Mara engage."
+difficulty = 1
+recommended_level = 1
+
+player_spawn_positions = [
+Vector2i(2, 7),
+Vector2i(3, 6),
+Vector2i(4, 7)
+]
+
+enemy_spawns = [
+{
+"enemy_id": "rust_mutant_scout",
+"grid_position": Vector2i(8, 7),
+"level": 1
+},
+{
+"enemy_id": "rust_mutant_scout",
+"grid_position": Vector2i(9, 6),
+"level": 1
+}
+]
+
+cover_layout = [
+{"coord": Vector2i(4, 5), "type": 1},
+{"coord": Vector2i(5, 5), "type": 1},
+{"coord": Vector2i(6, 5), "type": 1},
+{"coord": Vector2i(4, 6), "type": 2},
+{"coord": Vector2i(8, 7), "type": 1},
+{"coord": Vector2i(9, 8), "type": 1}
+]
+
+objectives = [
+{"type": 0, "description": "Defeat all enemies"}
+]
+
+rewards = {
+"xp": 100,
+"signal_points": 1,
+"resonance_fragments": 3,
+"scrap": 30,
+"items": [
+{"item_id": "stimulant", "count": 2},
+{"item_id": "rust_scrap", "count": 5}
+]
+}
+
+victory_dialogue = "tutorial_victory"
+defeat_dialogue = "tutorial_defeat"

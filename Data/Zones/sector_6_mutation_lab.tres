@@ -1,0 +1,23 @@
+[gd_resource type="ZoneResource" load_steps=2 format=3 uid://sector_6_mutation_lab]
+[ext_resource type="Script" path="res://Data/ZoneResource.cs" id="1_1"]
+
+[resource]
+script = ExtResource("1_1")
+zone_id = "S06_MUTATION_LAB"
+display_name = "Mutation Lab"
+description = "A Rooted bio-research facility where organic mutations are studied and cultivated. Vines crawl through every corridor."
+zone_type = 1
+faction_controlled = 1
+corruption_trend = 3
+corruption_current = 0
+connections = [{"target_zone_id": "S06_PURIFICATION_FORGE", "direction": 0, "fuel_cost": 12, "required_level": 8, "required_faction_rep": 0, "is_locked": false},
+{"target_zone_id": "S05_THE_BARRIER", "direction": 0, "fuel_cost": 18, "required_level": 9, "required_faction_rep": 3, "is_locked": false}]
+encounters = [{"encounter_id": "RootedDefenders", "chance": 30, "weight": 10, "min_level": 8, "max_level": 9},
+{"encounter_id": "MutantExperiment", "chance": 35, "weight": 10, "min_level": 8, "max_level": 10},
+{"encounter_id": "BioGuardian", "chance": 25, "weight": 10, "min_level": 9, "max_level": 10}]
+events = [{"event_id": "EVT_MUTATION_VAT", "title": "Mutation Vat", "description": "A vat of raw mutation fluid. Exposure could grant a new mutation — at a cost.", "trigger_condition": "submerge", "required_flag": "", "required_level": 10, "choices": [{"id": "opt_accept", "text": "Submerge: gain random mutation (free) +20 Corruption. DC 14 Constitution check halves corruption gain.", "outcomes": [{"type": 0, "value": "event_complete", "description": "Event resolved"}]}]},
+{"event_id": "EVT_ELDER_BLOOM", "title": "Elder Bloom", "description": "A rare flower that only grows in high-corruption environments.", "trigger_condition": "harvest", "required_flag": "", "required_level": 9, "choices": [{"id": "opt_accept", "text": "Harvest: craftable into Purification Serum (3x) or consumed for +5 Willpower permanently.", "outcomes": [{"type": 0, "value": "event_complete", "description": "Event resolved"}]}]}]
+is_discovered = false
+props = []
+npcs = []
+interactables = []

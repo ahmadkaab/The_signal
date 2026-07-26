@@ -1,0 +1,19 @@
+[gd_resource type="VfxTemplate" load_steps=2 format=3 uid://vfx_resonance]
+[ext_resource type="Script" path="res://Content/Assets/AssetStandards.cs" id="1_1"]
+[resource]
+script = ExtResource("1_1")
+vfx_id = "vfx_resonance"
+display_name = "Resonance Wave"
+category = 9
+lifetime = 0.8
+looping = false
+max_instances = 5
+particle_count = 80
+emit_box = "3, 0.5, 3"
+speed_min = 0.5
+speed_max = 3.0
+color_start = "0.3, 0.5, 1, 0.6"
+color_end = "0.3, 0.5, 1, 0"
+scale_min = 0.1
+scale_max = 0.3
+gravity = 0.0

@@ -1,0 +1,164 @@
+[gd_scene load_steps=5 format=3 uid://sectormap]
+
+[ext_resource type="Script" path="res://Scenes/UI/SectorMap.cs" id="1_1"]
+[ext_resource type="PackedScene" path="res://Scenes/UI/ZoneNode.tscn" id="1_2"]
+[ext_resource type="AudioStream" path="res://Assets/Audio/Music/sector_map_theme.ogg" id="1_3"]
+[ext_resource type="Texture2D" path="res://Assets/Art/UI/sector_map_bg.png" id="1_4"]
+
+[node name="SectorMap" type="Control" anchor_right=1.0 anchor_bottom=1.0]
+script = ExtResource("1_1")
+
+[node name="Background" type="TextureRect" parent="." anchor_right=1.0 anchor_bottom=1.0]
+texture = ExtResource("1_4")
+stretch_mode = 2
+
+[node name="MapContainer" type="Control" parent="." anchor_right=1.0 anchor_bottom=1.0 offset_left=100 offset_top=100 offset_right=-100 offset_bottom=-100]
+
+[node name="ZoneNodesContainer" type="Control" parent="MapContainer" anchor_right=1.0 anchor_bottom=1.0]
+
+[node name="ConnectionLines" type="Line2D" parent="MapContainer" anchor_right=1.0 anchor_bottom=1.0]
+default_color = Color(0.4, 0.4, 0.5, 0.6)
+width = 2
+antialiased = true
+
+[node name="UIOverlay" type="Control" parent="." anchor_right=1.0 anchor_bottom=1.0]
+
+[node name="TopBar" type="HBoxContainer" parent="UIOverlay" offset_top=20 offset_left=20 offset_right=-20]
+alignment = 2
+
+[node name="SectorLabel" type="Label" parent="TopBar"]
+text = "SECTOR 9: THE GRAVEYARD"
+horizontal_alignment = 0
+custom_minimum_size = Vector2(300, 40)
+theme_override_font_sizes/font_size = 24
+theme_override_colors/font_color = Color(0.9, 0.85, 0.7, 1)
+
+[node name="Spacer1" type="Control" parent="TopBar"]
+h_size_flags = 3
+
+[node name="FuelContainer" type="HBoxContainer" parent="TopBar"]
+custom_minimum_size = Vector2(200, 40)
+
+[node name="FuelIcon" type="TextureRect" parent="FuelContainer"]
+custom_minimum_size = Vector2(32, 32)
+
+[node name="FuelBar" type="ProgressBar" parent="FuelContainer" h_size_flags=3]
+max_value = 100
+min_value = 0
+value = 100
+
+[node name="FuelText" type="Label" parent="FuelContainer"]
+text = "100/100"
+
+[node name="Spacer2" type="Control" parent="TopBar"]
+h_size_flags = 3
+
+[node name="ScrapContainer" type="HBoxContainer" parent="TopBar"]
+custom_minimum_size = Vector2(150, 40)
+
+[node name="ScrapIcon" type="TextureRect" parent="ScrapContainer"]
+custom_minimum_size = Vector2(24, 24)
+
+[node name="ScrapText" type="Label" parent="ScrapContainer"]
+text = "0 SCRAP"
+
+[node name="BottomBar" type="HBoxContainer" parent="UIOverlay" anchor_bottom=1.0 offset_bottom=-20 offset_left=20 offset_right=-20]
+
+[node name="ZoneInfoPanel" type="PanelContainer" parent="BottomBar"]
+custom_minimum_size = Vector2(400, 120)
+visible = false
+
+[node name="ZoneInfoContent" type="VBoxContainer" parent="ZoneInfoPanel"]
+
+[node name="ZoneNameLabel" type="Label" parent="ZoneInfoContent"]
+text = "Unknown Zone"
+horizontal_alignment = 2
+theme_override_font_sizes/font_size = 20
+
+[node name="ZoneDescLabel" type="Label" parent="ZoneInfoContent"]
+text = "No data available."
+horizontal_alignment = 2
+autowrap_mode = 3
+custom_minimum_size = Vector2(360, 60)
+
+[node name="ZoneStatsContainer" type="HBoxContainer" parent="ZoneInfoContent"]
+alignment = 2
+
+[node name="CorruptionBar" type="ProgressBar" parent="ZoneStatsContainer"]
+custom_minimum_size = Vector2(200, 20)
+min_value = -100
+max_value = 100
+value = 0
+
+[node name="TravelButton" type="Button" parent="ZoneStatsContainer"]
+text = "Travel (10 Fuel)"
+custom_minimum_size = Vector2(150, 40)
+disabled = true
+
+[node name="FastTravelButton" type="Button" parent="ZoneStatsContainer"]
+text = "Fast Travel"
+custom_minimum_size = Vector2(150, 40)
+disabled = true
+
+[node name="LegendPanel" type="PanelContainer" parent="BottomBar" anchor_right=1.0 offset_right=-20]
+custom_minimum_size = Vector2(200, 100)
+
+[node name="LegendContent" type="VBoxContainer" parent="LegendPanel"]
+
+[node name="LegendTitle" type="Label" parent="LegendContent"]
+text = "ZONE STATUS"
+horizontal_alignment = 2
+theme_override_font_sizes/font_size = 14
+theme_override_colors/font_color = Color(0.7, 0.7, 0.8, 1)
+
+[node name="LegendItems" type="VBoxContainer" parent="LegendContent"]
+
+[node name="LegendDiscovered" type="HBoxContainer" parent="LegendItems"]
+alignment = 0
+
+[node name="DiscoveredIcon" type="TextureRect" parent="LegendDiscovered"]
+custom_minimum_size = Vector2(16, 16)
+modulate = Color(0.4, 0.8, 0.4, 1)
+
+[node name="DiscoveredLabel" type="Label" parent="LegendDiscovered"]
+text = "Discovered"
+
+[node name="LegendCleared" type="HBoxContainer" parent="LegendItems"]
+alignment = 0
+
+[node name="ClearedIcon" type="TextureRect" parent="LegendCleared"]
+custom_minimum_size = Vector2(16, 16)
+modulate = Color(0.3, 0.7, 1, 1)
+
+[node name="ClearedLabel" type="Label" parent="LegendCleared"]
+text = "Cleared"
+
+[node name="LegendCleansed" type="HBoxContainer" parent="LegendItems"]
+alignment = 0
+
+[node name="CleansedIcon" type="TextureRect" parent="LegendCleansed"]
+custom_minimum_size = Vector2(16, 16)
+modulate = Color(0.2, 1, 0.3, 1)
+
+[node name="CleansedLabel" type="Label" parent="LegendCleansed"]
+text = "Cleansed"
+
+[node name="LegendCorrupted" type="HBoxContainer" parent="LegendItems"]
+alignment = 0
+
+[node name="CorruptedIcon" type="TextureRect" parent="LegendCorrupted"]
+custom_minimum_size = Vector2(16, 16)
+modulate = Color(1, 0.3, 0.2, 1)
+
+[node name="CorruptedLabel" type="Label" parent="LegendCorrupted"]
+text = "Corrupted"
+
+[node name="CurrentZoneLabel" type="Label" parent="BottomBar" anchor_right=1.0 offset_right=-20]
+text = "Current: Cryo Pod Bay"
+horizontal_alignment = 2
+custom_minimum_size = Vector2(200, 30)
+theme_override_colors/font_color = Color(0.9, 0.9, 0.7, 1)
+
+[node name="SectorMapAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_3")
+autoplay = true

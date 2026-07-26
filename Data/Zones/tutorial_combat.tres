@@ -1,0 +1,59 @@
+[gd_resource type="ZoneResource" load_steps=2 format=3 uid://tutorial_combat_encounter]
+
+[ext_resource type="Script" path="res://Data/ZoneResource.cs" id="1_1"]
+
+[resource]
+script = ExtResource("1_1")
+zone_id = "tutorial_combat"
+display_name = "Tutorial: Cryo Pod Bay"
+description = "First combat encounter. Defeat the Rust-Mutated Scavengers."
+type = 0
+sector = 9
+map_position = Vector2i(0, 0)
+first_discovery_xp = 100
+initially_discovered = false
+required_flags_for_discovery = []
+required_quests_completed = ["prologue_awakening"]
+connections = []
+base_corruption_level = 10.0
+corruption_drift_per_hour = 0.2
+cleanse_rate = 1.0
+corrupt_rate = 1.0
+can_be_cleansed = true
+can_be_corrupted = true
+fixed_encounters = [
+{
+"encounter_id": "tutorial_combat_1",
+"display_name": "Rust Infestation",
+"description": "Two Rust-Mutated Scavengers block the corridor.",
+"grid_position": Vector2i(5, 3),
+"enemy_ids": ["rust_mutated_scavenger", "rust_mutated_scavenger"],
+"enemy_count": 2,
+"min_level": 1,
+"max_level": 1,
+"once_only": true,
+"mandatory": true,
+"required_flags": [],
+"rewards": [
+{"item_id": "stimulant", "min_count": 2, "max_count": 3, "weight": 1.0, "guaranteed": true},
+{"item_id": "tech_scrap", "min_count": 10, "max_count": 20, "weight": 1.0, "guaranteed": true}
+],
+"pre_combat_dialogue": "tutorial_combat_start",
+"post_combat_dialogue": "tutorial_combat_victory"
+}
+]
+random_encounter_tables = []
+random_encounter_chance_per_hour = 0.0
+max_random_encounters_per_visit = 0
+events = []
+discovery_rewards = []
+clear_rewards = [
+{"item_id": "tutorial_complete_flag", "count": 1, "type": 0}
+]
+local_zone_scene = null
+props = []
+npcs = []
+interactables = []
+ambient_music = "combat_ambient"
+ambient_light = Color(0.15, 0.15, 0.2, 1)
+environment = null

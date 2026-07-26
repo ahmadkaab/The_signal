@@ -1,0 +1,22 @@
+[gd_resource type="WeaponResource" load_steps=2 format=3 uid://chrome_rifle]
+
+[ext_resource type="Script" path="res://Data/ItemResource.cs" id="1_1"]
+
+[resource]
+script = ExtResource("1_1")
+item_id = "chrome_rifle"
+display_name = "Purified Chrome Rifle"
+description = "Standard Purified marksman weapon. High velocity, armor-piercing rounds. Requires Purified training."
+type = 1
+rarity = 2
+icon = null
+max_stack = 1
+value = 800
+weight = 5
+is_unique = false
+is_quest_item = false
+is_craftable = true
+crafting_cost = [{"item_id": "chrome_scrap", "min_count": 10, "max_count": 15, "weight": 1.0, "guaranteed": true}, {"item_id": "purified_chip", "min_count": 1, "max_count": 1, "weight": 0.5, "guaranteed": false}]
+implicit_mods = [{"type": 1, "value": 8.0, "is_percent": false, "description": "+8 Base Damage"}, {"type": 2, "value": 15.0, "is_percent": true, "description": "+15% Armor Penetration"}]
+chip_slots = 3
+compatible_chips = ["targeting_chip", "damage_chip", "penetration_chip", "overwatch_chip"]

@@ -1,0 +1,26 @@
+[gd_resource type="CompanionResource" load_steps=2 format=3 uid://comp_sloane]
+[ext_resource type="Script" path="res://Data/CompanionResource.cs" id="1_1"]
+
+[resource]
+script = ExtResource("1_1")
+companion_id = "COMP_SLOANE"
+display_name = "Sloane"
+description = "Leader of the Scavenger faction's most successful salvage crew. Trusts nothing she can't hold, respects results over words."
+archetype = "Vanguard"
+faction = 2
+starting_zone = "S08_SCRAP_MINES"
+starting_level = 5
+base_might = 12
+base_agility = 10
+base_constitution = 12
+base_intelligence = 8
+base_willpower = 8
+base_resonance = 5
+starting_abilities = ["basic_attack",
+"overwatch",
+"tactical_reload"]
+starting_weapon = "chrome_rifle"
+personal_quest_id = "QUEST_SLOANE_PAYBACK"
+synergy_partners = ["COMP_VEX",
+"COMP_JINX"]
+dialogue_start_node = "Sloane_Recruitment" 

@@ -1,0 +1,18 @@
+[gd_resource type="SignalNodeResource" load_steps=2 format=3 uid://res_wave]
+
+[ext_resource type="Script" path="res://Data/EditorResources.cs" id="1_1"]
+
+[resource]
+script = ExtResource("1_1")
+node_id = "RES_WAVE"
+display_name = "Shockwave"
+description = "Active (3 AP, 3 CD): 3-radius burst. 3 Resonance dmg + Stagger. Allies in radius gain Resonant Shield (+2 Armor, 1 turn)."
+branch = 0
+tier = 2
+sp_cost = 2
+prerequisites = ["RES_AMP", "RES_ECHO"]
+synergy_links = []
+is_active = true
+ability_id = "resonance_shockwave"
+passive_effects = []
+icon = null

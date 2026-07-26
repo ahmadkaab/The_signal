@@ -1,0 +1,26 @@
+[gd_resource type="CompanionResource" load_steps=2 format=3 uid://comp_vex]
+[ext_resource type="Script" path="res://Data/CompanionResource.cs" id="1_1"]
+
+[resource]
+script = ExtResource("1_1")
+companion_id = "COMP_VEX"
+display_name = "Vex"
+description = "A Purified assassin who abandoned her order after discovering the truth about ORACLE. Razor-sharp reflexes, no loyalty except to results."
+archetype = "Assassin"
+faction = 0
+starting_zone = "S08_WASTELAND_FORT"
+starting_level = 4
+base_might = 8
+base_agility = 14
+base_constitution = 8
+base_intelligence = 10
+base_willpower = 10
+base_resonance = 6
+starting_abilities = ["basic_attack",
+"overwatch",
+"shadow_step"]
+starting_weapon = "chrome_dagger"
+personal_quest_id = "QUEST_VEX_REDEMPTION"
+synergy_partners = ["COMP_KAEL",
+"COMP_SLOANE"]
+dialogue_start_node = "Vex_Recruitment" 

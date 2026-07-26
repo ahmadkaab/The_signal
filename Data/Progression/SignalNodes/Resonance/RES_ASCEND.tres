@@ -1,0 +1,18 @@
+[gd_resource type="SignalNodeResource" load_steps=2 format=3 uid://res_ascend]
+
+[ext_resource type="Script" path="res://Data/EditorResources.cs" id="1_1"]
+
+[resource]
+script = ExtResource("1_1")
+node_id = "RES_ASCEND"
+display_name = "Signal Ascendancy"
+description = "Ultimate (6 AP, Once/Battle): 5-radius. All enemies: 5 Resonance dmg + Fractured (Resonance resist -50%, 3 turns). All allies: Harmonized (Resonance dmg +50%, AP cost -1, 3 turns). Visual: Character dissolves into pure signal, reforms."
+branch = 0
+tier = 4
+sp_cost = 4
+prerequisites = ["RES_CASCADE", "RES_SILENCE"]
+synergy_links = []
+is_active = true
+ability_id = "signal_ascendancy"
+passive_effects = []
+icon = null

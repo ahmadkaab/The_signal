@@ -1,0 +1,69 @@
+key,text
+DLG_GUARD_INTRO,Der Wächter blockiert das Tor.
+DLG_GUARD_BRIBED,Der Wächter steckt das Geld ein und tritt zur Seite.
+DLG_OPT_BRIBE,50 Gold bieten
+DLG_OPT_LEAVE,Gehen
+DLG_KAEL_001,Ich bin Kael-7. Siebte Iteration. Geläuterter Paladin.
+DLG_KAEL_002,Die Signalsignatur... Walker-Frequenz. Unmöglich.
+DLG_MARA_001,Ich bin Mara vom Grünen Chor.
+DLG_MARA_002,Das Signal... es singt in dir.
+DLG_CHOOSE_COMPANION,Wem vertraust du?
+DLG_CHOOSE_KAEL,Kael. Ich brauche Technologie zum Überleben.
+DLG_CHOOSE_MARA,Mara. Ich muss verstehen, was aus mir geworden ist.
+DLG_CHOOSE_BOTH,Beide. Wir gehen in die gleiche Richtung.
+DLG_CHOOSE_NONE,Warum sollte ich einem von euch vertrauen?
+TUT_MOVE,WASD / Pfeile: Bewegen
+TUT_ABILITY,1-4: Fähigkeiten
+TUT_END_TURN,Leertaste: Zug beenden
+TUT_OVERWATCH,Tab: Überwachen
+TUT_TARGET,Klick: Zielen
+TUT_COMBAT_VICTORY,Sieg! EP erhalten: %d
+TUT_COMBAT_DEFEAT,Du bist gefallen. Das Signal verblasst...
+ITEM_PULSE_PISTOL,Impulspistole
+ITEM_STIMULANT,Stimulans
+ITEM_CHROME_RIFLE,Geläutertes Chromgewehr
+ITEM_VINE_LASH,Rankenpeitsche
+ABILITY_BASIC_ATTACK,Standardangriff
+ABILITY_RESONANCE_PULSE,Resonanzimpuls
+ABILITY_ENTANGLE,Rankenfessel
+ABILITY_OVERWATCH,Überwachen
+STAT_MIGHT,Kraft
+STAT_AGILITY,Beweglichkeit
+STAT_CONSTITUTION,Konstitution
+STAT_INTELLIGENCE,Intelligenz
+STAT_WILLPOWER,Willenskraft
+STAT_RESONANCE,Resonanz
+UI_HP,LP: %d/%d
+UI_AP,AP: %d/%d
+UI_LEVEL,Stufe %d
+UI_XP,EP: %d/%d
+UI_SCRAP,Schrott: %d
+UI_FUEL,Treibstoff: %d/%d
+UI_SAVE,Spiel speichern
+UI_LOAD,Spiel laden
+UI_SETTINGS,Einstellungen
+UI_QUIT,Beenden
+UI_NEW_GAME,Neues Spiel
+UI_RESUME,Fortsetzen
+UI_SAVE_SLOT,Slot %d
+UI_EMPTY_SLOT,Leerer Slot
+UI_DELETE,Löschen
+UI_BACK,Zurück
+UI_CONFIRM,Bestätigen
+UI_CANCEL,Abbrechen
+ZONE_GRAVEYARD,Sektor 9: Der Friedhof
+ZONE_CITADEL,Geläuterte Zitadelle
+ZONE_GROVE,Der Grüne Hain
+ZONE_FREEPORT,Schatzsucher-Freihafen
+ZONE_SECTOR_8,Sektor 8: Die Ödnis
+NOTIF_QUEST_STARTED,Quest begonnen: %s
+NOTIF_QUEST_UPDATED,Quest aktualisiert: %s
+NOTIF_QUEST_COMPLETED,Quest abgeschlossen: %s
+NOTIF_ITEM_OBTAINED,Erhalten: %s x%d
+NOTIF_XP_GAINED,EP erhalten: +%d
+NOTIF_LEVEL_UP,Aufgestiegen! Jetzt Stufe %d
+NOTIF_SAVED,Spiel gespeichert
+NOTIF_LOADED,Spiel geladen
+ERROR_LOAD_FAILED,Spielstand konnte nicht geladen werden
+ERROR_SAVE_FAILED,Spiel konnte nicht gespeichert werden
+ERROR_NO_SAVE,Keine Spielstände gefunden

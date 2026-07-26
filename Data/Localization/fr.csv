@@ -1,0 +1,69 @@
+key,text
+DLG_GUARD_INTRO,Le garde bloque la porte.
+DLG_GUARD_BRIBED,Le garde empoche l'argent et s'écarte.
+DLG_OPT_BRIBE,Proposer 50 pièces d'or
+DLG_OPT_LEAVE,Partir
+DLG_KAEL_001,Je suis Kael-7. Septième itération. Paladin Purifié.
+DLG_KAEL_002,La signature du Signal... fréquence de Marcheur. Impossible.
+DLG_MARA_001,Je suis Mara du Chœur Verdoyant.
+DLG_MARA_002,Le Signal... chante en toi.
+DLG_CHOOSE_COMPANION,À qui fais-tu confiance ?
+DLG_CHOOSE_KAEL,Kael. J'ai besoin de technologie pour survivre.
+DLG_CHOOSE_MARA,Mara. J'ai besoin de comprendre ce que je suis devenu.
+DLG_CHOOSE_BOTH,Les deux. Nous allons dans la même direction.
+DLG_CHOOSE_NONE,Pourquoi devrais-je faire confiance à l'un d'entre vous ?
+TUT_MOVE,ZQSD / Flèches : Déplacer
+TUT_ABILITY,1-4 : Compétences
+TUT_END_TURN,Espace : Fin de tour
+TUT_OVERWATCH,Tab : Guet
+TUT_TARGET,Clic : Cibler
+TUT_COMBAT_VICTORY,Victoire ! XP gagnée : %d
+TUT_COMBAT_DEFEAT,Tu es tombé. Le Signal s'estompe...
+ITEM_PULSE_PISTOL,Pistolet à Impulsions
+ITEM_STIMULANT,Stimulant
+ITEM_CHROME_RIFLE,Fusil Chrome Purifié
+ITEM_VINE_LASH,Fouet de Lianes
+ABILITY_BASIC_ATTACK,Attaque de Base
+ABILITY_RESONANCE_PULSE,Pulsion de Résonance
+ABILITY_ENTANGLE,Lianes Enchevêtrées
+ABILITY_OVERWATCH,Guet
+STAT_MIGHT,Force
+STAT_AGILITY,Agilité
+STAT_CONSTITUTION,Constitution
+STAT_INTELLIGENCE,Intelligence
+STAT_WILLPOWER,Volonté
+STAT_RESONANCE,Résonance
+UI_HP,PV : %d/%d
+UI_AP,PA : %d/%d
+UI_LEVEL,Niveau %d
+UI_XP,XP : %d/%d
+UI_SCRAP,Ferraille : %d
+UI_FUEL,Carburant : %d/%d
+UI_SAVE,Sauvegarder
+UI_LOAD,Charger
+UI_SETTINGS,Paramètres
+UI_QUIT,Quitter
+UI_NEW_GAME,Nouvelle Partie
+UI_RESUME,Reprendre
+UI_SAVE_SLOT,Emplacement %d
+UI_EMPTY_SLOT,Vide
+UI_DELETE,Supprimer
+UI_BACK,Retour
+UI_CONFIRM,Confirmer
+UI_CANCEL,Annuler
+ZONE_GRAVEYARD,Secteur 9 : Le Cimetière
+ZONE_CITADEL,Citadelle Purifiée
+ZONE_GROVE,Le Bosquet Verdoyant
+ZONE_FREEPORT,Port Libre des Charognards
+ZONE_SECTOR_8,Secteur 8 : Les Désolations
+NOTIF_QUEST_STARTED,Quête Commencée : %s
+NOTIF_QUEST_UPDATED,Quête Mise à Jour : %s
+NOTIF_QUEST_COMPLETED,Quête Terminée : %s
+NOTIF_ITEM_OBTAINED,Obtenu : %s x%d
+NOTIF_XP_GAINED,XP Gagnée : +%d
+NOTIF_LEVEL_UP,Passage au Niveau %d !
+NOTIF_SAVED,Sauvegarde Effectuée
+NOTIF_LOADED,Partie Chargée
+ERROR_LOAD_FAILED,Impossible de charger la sauvegarde
+ERROR_SAVE_FAILED,Impossible de sauvegarder
+ERROR_NO_SAVE,Aucune sauvegarde trouvée

@@ -1,0 +1,12 @@
+[gd_resource type="TrophyResource" load_steps=2 format=3 uid://trophy_bio]
+[ext_resource type="Script" path="res://Data/TrophyResource.cs" id="1_1"]
+[resource]
+script = ExtResource("1_1")
+trophy_id = "TROPHY_BIO"
+display_name = "Flesh Weaving"
+description = "Unlock 10 Biology nodes"
+rarity = 1
+is_hidden = false
+has_progress = false
+progress_max = 1
+xbox_gamer_score = 25

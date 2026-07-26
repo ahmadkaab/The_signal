@@ -1,0 +1,23 @@
+[gd_resource type="ArmorResource" load_steps=2 format=3 uid://rooted_chest]
+
+[ext_resource type="Script" path="res://Data/ItemResource.cs" id="1_1"]
+
+[resource]
+script = ExtResource("1_1")
+item_id = "rooted_chest"
+display_name = "Verdant Carapace"
+description = "Living armor grown from heartwood. Breathes. Heals. Remembers."
+type = 3
+rarity = 2
+icon = null
+max_stack = 1
+value = 700
+weight = 5
+is_unique = false
+is_quest_item = false
+is_craftable = true
+crafting_cost = [{"item_id": "heartwood", "min_count": 4, "max_count": 6, "weight": 1.0, "guaranteed": true}, {"item_id": "vital_essence", "min_count": 2, "max_count": 3, "weight": 0.6, "guaranteed": false}]
+base_armor = 8
+armor_type = 1
+set_bonuses = [{"set_name": "Rooted Guardian", "pieces_required": 3, "bonuses": [{"type": 10, "value": 10.0, "is_percent": false, "description": "+10 Max HP"}, {"type": 9, "value": 15.0, "is_percent": true, "description": "+15% Regeneration"}]}]
+allows_stealth = true

@@ -1,0 +1,18 @@
+[gd_resource type="SignalNodeResource" load_steps=2 format=3 uid://res_siphon]
+
+[ext_resource type="Script" path="res://Data/EditorResources.cs" id="1_1"]
+
+[resource]
+script = ExtResource("1_1")
+node_id = "RES_SIPHON"
+display_name = "Siphon Frequency"
+description = "Active (2 AP, 4 CD): Target enemy. Steal 2 AP from them, gain 1 AP. Apply 2 Resonating."
+branch = 0
+tier = 2
+sp_cost = 2
+prerequisites = ["RES_AMP"]
+synergy_links = []
+is_active = true
+ability_id = "resonance_siphon"
+passive_effects = []
+icon = null

@@ -1,0 +1,51 @@
+[gd_resource type="AbilityResource" load_steps=2 format=3 uid://resonance_pulse]
+
+[ext_resource type="Script" path="res://Data/AbilityResource.cs" id="1_1"]
+
+[resource]
+script = ExtResource("1_1")
+ability_id = "resonance_pulse"
+display_name = "Resonance Pulse"
+description = "Release a burst of Signal energy, damaging and resonating nearby enemies."
+type = 1
+damage_type = 1
+ap_cost = 3
+cooldown_turns = 2
+resonance_cost = 2
+max_charges = 0
+target_type = 4
+range = 3
+radius = 2
+requires_line_of_sight = false
+can_target_self = false
+can_target_allies = false
+can_target_enemies = true
+can_target_empty_tile = true
+base_damage = 3
+stat_scaling = 1.5
+scaling_stat = 5
+status_effects = [
+{
+"effect_type": 0,
+"duration": 2,
+"stacks": 1,
+"max_stacks": 3,
+"chance": 1.0,
+"on_hit": true,
+"on_crit": false,
+"on_kill": false
+}
+]
+stat_modifiers = []
+position_effects = []
+resource_effects = []
+summon_effects = []
+field_effects = []
+animation_trigger = "resonance_pulse"
+vfx_prefab = null
+sound_effect = null
+cast_time = 0.5
+min_level = 1
+required_signal_nodes = ["RES_AMP"]
+required_mutations = []
+required_weapon_tags = 0

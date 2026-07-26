@@ -1,0 +1,23 @@
+[gd_resource type="ChipResource" load_steps=2 format=3 uid://damage_chip]
+
+[ext_resource type="Script" path="res://Data/ItemResource.cs" id="1_1"]
+
+[resource]
+script = ExtResource("1_1")
+item_id = "damage_chip"
+display_name = "Damage Chip"
+description = "Overclocks weapon output. Risk of overheating."
+type = 8
+rarity = 2
+icon = null
+max_stack = 1
+value = 200
+weight = 0
+is_unique = false
+is_quest_item = false
+is_craftable = true
+crafting_cost = [{"item_id": "tech_scrap", "min_count": 8, "max_count": 15, "weight": 1.0, "guaranteed": true}, {"item_id": "chrome_scrap", "min_count": 2, "max_count": 3, "weight": 0.6, "guaranteed": false}]
+chip_type = 0
+effect_id = "damage_bonus"
+tier = 1
+compatible_with = ["chrome_rifle", "vine_lash", "pulse_pistol"]

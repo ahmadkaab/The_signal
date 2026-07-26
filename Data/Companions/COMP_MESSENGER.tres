@@ -1,0 +1,26 @@
+[gd_resource type="CompanionResource" load_steps=2 format=3 uid://comp_messenger]
+[ext_resource type="Script" path="res://Data/CompanionResource.cs" id="1_1"]
+
+[resource]
+script = ExtResource("1_1")
+companion_id = "COMP_MESSENGER"
+display_name = "The Messenger"
+description = "A being of pure Signal energy that manifests as a humanoid figure of light. Claims to be the first message ORACLE ever sent — given form by centuries of repetition."
+archetype = "Signal-Avatar"
+faction = 4
+starting_zone = "S05_SIGNAL_SPIRE"
+starting_level = 8
+base_might = 10
+base_agility = 12
+base_constitution = 10
+base_intelligence = 14
+base_willpower = 14
+base_resonance = 18
+starting_abilities = ["resonance_pulse",
+"purge_shot",
+"entangle"]
+starting_weapon = "resonance_crystal"
+personal_quest_id = "QUEST_MESSENGER_PURPOSE"
+synergy_partners = ["COMP_ECHO",
+"COMP_ARIS"]
+dialogue_start_node = "Messenger_Recruitment" 

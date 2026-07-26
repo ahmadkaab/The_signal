@@ -1,0 +1,12 @@
+[gd_resource type="TrophyResource" load_steps=2 format=3 uid://trophy_elite_10]
+[ext_resource type="Script" path="res://Data/TrophyResource.cs" id="1_1"]
+[resource]
+script = ExtResource("1_1")
+trophy_id = "TROPHY_ELITE_10"
+display_name = "Elite Hunter"
+description = "Defeat 10 elite enemies"
+rarity = 0
+is_hidden = false
+has_progress = false
+progress_max = 1
+xbox_gamer_score = 15

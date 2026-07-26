@@ -1,0 +1,191 @@
+title: DualHubArrival
+---
+<<declare $dual_tutorial_shown = false>>
+
+=== dual_hub_arrival ===
+History made. The first Walker-Purified-Rooted cell in recorded history.
+
+The Waystation's chrome corridors now pulse with bioluminescent vines. Purified fabricators grow living components. Rooted biomats feed on tech waste. Med-Bay heals with chrome *and* chlorophyll.
+
+KAEL-7: "Unprecedented. Purified Command is... *perturbed*. Rooted Elders are... *curious*."
+
+MARA: "The Signal *is* unity. Harmony between machine and life. You feel it too."
+
+A JOINT BRIEFING — Purified officers and Rooted elders around a holo-table.
+
+PURIFIED COMMANDER: "The Relay Tower in Sector 8. It's the key. Oracle's signal amplifies there. If we control it..."
+
+ROOTED ELDER: "Control? The Tower *is* a living thing. Chrome and Green fused at the atomic level. You don't *control* it. You *commune*."
+
+KAEL-7: "Walker. You're the bridge. Your resonance... it speaks both languages. Chrome hears order. Green hears growth. *You* hear the Signal."
+
+*   "Then we take the tower together." -> dual_take_tower
+*   "What if they betray each other?" -> dual_betrayal_concern
+*   "I need to understand the tower first." -> dual_understand_tower
+
+=== dual_take_tower ===
+PURIFIED COMMANDER: "Then the Purified provide the firepower. Chrome, ammo, orbital support."
+
+ROOTED ELDER: "And the Green provides the path. The roots. The *access*."
+
+MARA: "But the tower... it *tests*. Every Walker who reached it... failed. The frequency *burned* them."
+
+KAEL-7: "You're different. Your resonance... it's *adaptive*. We saw it in the pod bay."
+
+*   "Let's move." -> dual_route_planning
+*   "What frequency?" -> dual_frequency_details
+
+=== dual_betrayal_concern ===
+KAEL-7: *hand on weapon* "The Purified don't betray. We *purge*."
+
+MARA: *vines bristling* "And the Green doesn't betray. It *outgrows*."
+
+PURIFIED COMMANDER: "This alliance holds... *while the Walker lives*. After? The Chrome and Green have *always* warred."
+
+ROOTED ELDER: "Unless the Walker *changes the equation*. The Signal offers a third path. *Harmony*."
+
+*   "I won't let you war." -> dual_i_wont_let
+*   "Plan for betrayal." -> dual_plan_betrayal
+*   "Focus on the tower." -> dual_route_planning
+
+=== dual_i_wont_let ===
+<<set $dual_unity = true>>
+
+MARA: *smiles* "The Signal chose well."
+
+KAEL-7: *grudging respect* "Then we fight as one. *For now*."
+
+*Unlocked: **Unity Protocol** — Kael & Mara combo abilities cost -1 AP when deployed together.*
+
+-> dual_route_planning
+
+=== dual_plan_betrayal ===
+<<set $dual_pragmatist = true>>
+
+PURIFIED COMMANDER: "Pragmatic. Contingencies drafted. Sector 8 approach: dual-pronged. Chrome assault from north. Green infiltration from below."
+
+ROOTED ELDER: "If one fails... the other *survives*. The Walker *decides* who to save."
+
+*Unlocked: **Contingency Plans** — Can abort one prong mid-mission to reinforce the other.*
+
+-> dual_route_planning
+
+=== dual_understand_tower ===
+PURIFIED COMMANDER: "Oracle Relay Prime. Sector 8. Built *around* a pre-Collapse AI core. The tower *is* the antenna."
+
+ROOTED ELDER: "The World-Tree's deepest root touches its foundation. The frequency... it's *biological* now. Chrome and Green, woven."
+
+MARA: "Every Walker who touched it... their resonance *merged* with the tower. They became part of the signal. *Permanently*."
+
+KAEL-7: "You're the first with *adaptive* resonance. You might... *choose* what to become."
+
+*   "Then I choose the tower." -> dual_route_planning
+*   "What are the risks?" -> dual_tower_risks
+
+=== dual_tower_risks ===
+PURIFIED COMMANDER: "Corruption. The tower's frequency... it *rewrites*. Chrome rusts. Green withers. Minds... *fracture*."
+
+ROOTED ELDER: "The Silent Ones *guard* it. They *are* the tower's immune system. Walkers who answered wrong."
+
+MARA: "And Oracle... *it watches*. Every Walker. Every choice. *Waiting*."
+
+*   "I accept the risk." -> dual_route_planning
+*   "Is there another way?" -> dual_another_way
+
+=== dual_another_way ===
+KAEL-7: "There's always another way. *Scavenger* way. Freeport. Information. Backdoors."
+
+MARA: "Or the *deep* Root Network. Sector 11 Fringe. World-Tree canopy. *Slow*. *Dangerous*. But... *hidden*."
+
+*   "Purified assault." -> dual_choose_purified_assault
+*   "Rooted infiltration." -> dual_choose_rooted_infiltration
+*   "Scavenger backdoor." -> dual_choose_scavenger_backdoor
+*   "Root Network canopy." -> dual_choose_root_canopy
+
+=== dual_choose_purified_assault ===
+<<set $chosen_route = "purified_assault">>
+
+PURIFIED COMMANDER: "Orbital strike on tower defenses. Chrome drop-pods. You secure the core. We hold the perimeter."
+
+*Quest Updated: **The Long Walk** — Sector 8 Relay Tower: Purified Assault.*
+
+-> dual_tutorial
+
+=== dual_choose_rooted_infiltration ===
+<<set $chosen_route = "rooted_infiltration">>
+
+ROOTED ELDER: "Root Maw entrance. Spore camouflage. You reach the core... *diplomatically*. The tower *listens* to Green."
+
+*Quest Updated: **The Long Walk** — Sector 8 Relay Tower: Rooted Infiltration.*
+
+-> dual_tutorial
+
+=== dual_choose_scavenger_backdoor ===
+<<set $chosen_route = "scavenger_backdoor">>
+
+PURIFIED COMMANDER: "Jinx. Freeport. She has... *codes*. Old Oracle maintenance protocols. *Price*: High."
+
+MARA: "Jinx owes me. *Two* favors. I'll collect."
+
+*Quest Updated: **The Long Walk** — Sector 8 Relay Tower: Scavenger Backdoor.*
+
+-> dual_tutorial
+
+=== dual_choose_root_canopy ===
+<<set $chosen_route = "root_canopy">>
+
+ROOTED ELDER: "The Canopy Crown. World-Tree's highest branch. Touches the tower's apex. *Direct communion*. No combat. *Pure resonance*."
+
+MARA: "But the climb... the Spore Caves, the Root Maw, the Canopy Crown. *Three trials*. Many Walkers died."
+
+*Quest Updated: **The Long Walk** — Sector 8 Relay Tower: Root Network Canopy.*
+
+-> dual_tutorial
+
+=== dual_frequency_details ===
+ROOTED ELDER: "The tower broadcasts at **432.7 Hz** — the *harmonic* of pre-Collapse biology. Chrome *reinforces* it. Green *modulates* it."
+
+PURIFIED COMMANDER: "Our sensors show... the frequency *changes* based on who's nearest. Purified: *stabilizing*. Rooted: *evolving*. Scavenger: *scrambling*."
+
+MARA: " *Your* frequency? *Unknown*. That's why you're the key."
+
+*   "Let's move." -> dual_route_planning
+
+=== dual_route_planning ===
+KAEL-7: "Three paths to Sector 8. Choose."
+
+*   **Purified Assault** — Direct. Heavy support. High combat. Chrome path.
+*   **Rooted Infiltration** — Stealth. Diplomatic. Green path.
+*   **Scavenger Backdoor** — Tricky. Expensive. Flexible. Neutral path.
+*   **Root Canopy** — Pure resonance. No combat. *High risk of... transformation.* Hidden path.
+
+*   [Purified] Chrome assault. -> dual_choose_purified_assault
+*   [Rooted] Green infiltration. -> dual_choose_rooted_infiltration
+*   [Scavenger] Jinx's codes. -> dual_choose_scavenger_backdoor
+*   [Resonance] Canopy communion. -> dual_choose_root_canopy
+
+=== dual_tutorial ===
+*DUAL HUB: PURIFIED-ROOTED ACCORD*
+
+**Unique Systems:**
+- **Resonance Forge:** Chrome + Green crafting (exclusive items)
+- **Dual Intel:** Purified tactical + Rooted deep paths
+- **Combo Training:** Practice dual abilities
+- **Unity Protocol:** Kael+Mara combos cost -1 AP together
+
+KAEL & MARA: *simultaneously* "This changes everything."
+
+-> act1_begin
+
+=== act1_begin ===
+**PROLOGUE COMPLETE**
+*Signal Walker Awakened*
+*Dual Companion Recruited*
+*Faction Alliance Forged*
+*Hybrid Base Unlocked*
+
+**ACT I: THE LONG WALK BEGINS**
+
+*Next: Sector Map opens. Three zones available. The Signal grows stronger...*
+
+=== end ===

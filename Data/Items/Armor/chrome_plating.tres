@@ -1,0 +1,22 @@
+[gd_resource type="ItemResource" load_steps=2 format=3 uid://chrome_plating]
+
+[ext_resource type="Script" path="res://Data/ItemResource.cs" id="1_1"]
+
+[resource]
+script = ExtResource("1_1")
+item_id = "chrome_plating"
+display_name = "Chrome Plating"
+description = "Purified armor mod. Reflects damage. Heavy."
+type = 3
+rarity = 2
+icon = null
+max_stack = 1
+value = 500
+weight = 3
+is_unique = false
+is_quest_item = false
+is_craftable = true
+crafting_cost = [{"item_id": "tech_scrap", "min_count": 50, "max_count": 50, "weight": 1.0, "guaranteed": true}, {"item_id": "purified_essence", "min_count": 3, "max_count": 3, "weight": 1.0, "guaranteed": true}]
+implicit_mods = [{"type": 2, "value": 5.0, "is_percent": false, "description": "+5 Armor"}, {"type": 1, "value": -10.0, "is_percent": true, "description": "-10% Move Range"}]
+chip_slots = 1
+compatible_chips = ["Targeting Chip", "Purge Chip", "Shield Chip"]

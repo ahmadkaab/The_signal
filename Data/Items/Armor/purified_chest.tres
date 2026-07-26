@@ -1,0 +1,23 @@
+[gd_resource type="ArmorResource" load_steps=2 format=3 uid://purified_chest]
+
+[ext_resource type="Script" path="res://Data/ItemResource.cs" id="1_1"]
+
+[resource]
+script = ExtResource("1_1")
+item_id = "purified_chest"
+display_name = "Purified Plate"
+description = "Chrome-alloy chest piece. Purified rites etched into the metal. Resists corruption."
+type = 3
+rarity = 2
+icon = null
+max_stack = 1
+value = 800
+weight = 8
+is_unique = false
+is_quest_item = false
+is_craftable = true
+crafting_cost = [{"item_id": "chrome_plating", "min_count": 3, "max_count": 5, "weight": 1.0, "guaranteed": true}, {"item_id": "purified_essence", "min_count": 1, "max_count": 2, "weight": 0.5, "guaranteed": false}]
+base_armor = 12
+armor_type = 1
+set_bonuses = [{"set_name": "Purified Bastion", "pieces_required": 3, "bonuses": [{"type": 2, "value": 5.0, "is_percent": false, "description": "+5 Armor"}, {"type": 14, "value": 25.0, "is_percent": true, "description": "+25% Corruption Resistance"}]}]
+allows_stealth = false

@@ -1,0 +1,7 @@
+[INFO] Placeholder for screenshot_tactical_combat_01.png
+Replace with actual 1920x1080 gameplay screenshot showing:
+- Cover system (half-cover, full-cover icons)
+- Action point bar
+- Ability hotbar
+- 2 player units + 3 enemy units in combat
+- Isometric tactical camera angle

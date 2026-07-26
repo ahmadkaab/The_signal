@@ -1,0 +1,22 @@
+[gd_resource type="WeaponResource" load_steps=2 format=3 uid://vine_lash]
+
+[ext_resource type="Script" path="res://Data/ItemResource.cs" id="1_1"]
+
+[resource]
+script = ExtResource("1_1")
+item_id = "vine_lash"
+display_name = "Vine Lash"
+description = "Living weapon grown from Grove heartwood. Extends and retracts on command. Feeds on blood."
+type = 0
+rarity = 2
+icon = null
+max_stack = 1
+value = 600
+weight = 3
+is_unique = false
+is_quest_item = false
+is_craftable = true
+crafting_cost = [{"item_id": "heartwood", "min_count": 5, "max_count": 8, "weight": 1.0, "guaranteed": true}, {"item_id": "vital_essence", "min_count": 2, "max_count": 3, "weight": 0.7, "guaranteed": false}]
+implicit_mods = [{"type": 0, "value": 6.0, "is_percent": false, "description": "+6 Base Damage"}, {"type": 10, "value": 20.0, "is_percent": true, "description": "+20% Bleed Chance"}]
+chip_slots = 2
+compatible_chips = ["damage_chip", "bleed_chip", "root_chip", "heal_chip"]

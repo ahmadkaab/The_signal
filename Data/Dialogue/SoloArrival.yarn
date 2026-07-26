@@ -1,0 +1,188 @@
+title: SoloArrival
+---
+<<declare $solo_route = "">>
+<<declare $solo_scav_rep = 0>>
+<<declare $solo_purified_rep = 0>>
+<<declare $solo_rooted_rep = 0>>
+
+=== solo_arrival ===
+No companion. No backup. Just you, the Signal, and three hundred years of silence.
+
+The corridor stretches. Your scanner picks up four signatures:
+
+*   **Purified Patrol** (North) — Chrome warriors. Order. Firepower.
+*   **Rooted Tendrils** (East) — Living vines. Mutation. Deep paths.
+*   **Signal Echo** (West) — Strong resonance. Unknown origin.
+*   **Scavenger Camp** (South) — Neutral. Traders. Information.
+
+*Choice: Where first?*
+
+*   [North] Purified Waystation -> solo_north
+*   [East] Rooted Grove -> solo_east
+*   [West] Signal Echo -> solo_west
+*   [South] Scavenger Camp -> solo_south
+
+=== solo_north ===
+Chrome walls gleam. A patrol intercepts—disciplined, silent.
+
+PURIFIED SERGEANT: "Halt. Signal signature detected. Walker-class. State designation."
+
+*   "Signal Walker. No number." -> solo_north_firstgen
+*   "I don't remember." -> solo_north_amnesia
+*   "Classified." -> solo_north_classified
+
+=== solo_north_firstgen ===
+PURIFIED SERGEANT: "No number. First Generation? Original Walkers were numbered. You predate the protocols."
+
+He logs something. "Come. The Waystation has supplies. Intel. *And a lead on Oracle's relay tower.*"
+
+-> solo_waystation
+
+=== solo_north_amnesia ===
+PURIFIED SERGEANT: "Memory corruption. Cryo-sickness. Expected. We'll run diagnostics at the Waystation."
+
+-> solo_waystation
+
+=== solo_north_classified ===
+PURIFIED SERGEANT: *dryly* "Classified. Purified records are sealed too. We'll get along fine."
+
+-> solo_waystation
+
+=== solo_waystation ===
+The Waystation hums. Clean. Sterile.
+
+SERGEANT: "Rest. Rearm. The Graveyard doesn't wait."
+
+*Tutorial: Waystation Systems (Solo)*
+-> solo_act1_begin
+
+=== solo_east ===
+Glowing moss. Maintenance tunnels. The air grows thick, sweet, alive.
+
+MARA'S VOICE: *in your head* "The Green sees you, Walker. The Chrome cannot hear thoughts."
+
+You emerge into **The Grove**—a cavern turned forest. Bioluminescent. Breathing.
+
+MARA: *appearing from vines* "Good. The deep paths are faster. Less Rust. More... *alive*."
+
+*Tutorial: Grove Systems (Solo)*
+-> solo_act1_begin
+
+=== solo_west ===
+The Signal Echo. Strong. Pure. It pulls at something in your chest.
+
+A figure materializes—chrome and vine intertwined. **UNIT 734**.
+
+UNIT 734: "Walker. Designation: Oracle Relay. Status: *Damaged*. Query: *Repair?*"
+
+*   "Repair it." -> solo_repair_unit
+*   "Who are you?" -> solo_who_unit
+*   "Stay back." -> solo_hostile_unit
+
+=== solo_repair_unit ===
+You channel Resonance. The unit's optics flare.
+
+UNIT 734: "Repair complete. Loyalty protocol: *Activated*. Designation: *Echo*. Function: *Signal analysis, Oracle interface*."
+
+*Acquired Companion: **Echo** (Oracle Drone — Support/Intel)*
+-> solo_echo_joins
+
+=== solo_who_unit ===
+UNIT 734: "I am Unit 734. Oracle Relay Node. I have waited 300 years for a Walker. *You* are the first."
+
+*   "Repair it." -> solo_repair_unit
+*   "Leave it." -> solo_leave_unit
+
+=== solo_hostile_unit ===
+UNIT 734: "Hostility noted. *Correction:* You require my data. Sector Zero coordinates. Oracle access codes."
+
+It doesn't attack. It *waits*.
+
+*   "Fine. Talk." -> solo_who_unit
+*   "Leave." -> solo_leave_unit
+
+=== solo_leave_unit ===
+UNIT 734: "Your loss. The Signal does not wait."
+
+It flickers and vanishes. A missed opportunity.
+
+-> solo_continue_alone
+
+=== solo_echo_joins ===
+ECHO: "Query: Destination? Recommendation: **Sector 8 Wastes — Oracle Relay Tower 3 operational**."
+
+*Acquired Unique Companion: **Echo** (Support/Intel/Scan)*
+-> solo_act1_begin
+
+=== solo_south ===
+The Scavenger Camp. Ramshackle. Alive. Traders, mercs, info-brokers.
+
+JINX: *grinning, tech goggles* "Well well. A Walker. Fresh meat. Or fresh creds. *Your* move, chrome-dome."
+
+*   "I need info." -> solo_scav_info
+*   "Trade." -> solo_scav_trade
+*   "Work." -> solo_scav_work
+
+=== solo_scav_info ===
+JINX: "Info costs. Sector Zero? Everyone wants that. Oracle's Cure? Myth. Or trap. *My* sources say..."
+
+She names a price. High.
+
+*   Pay. -> solo_pay_jinx
+*   "Beat it out of her." -> solo_fight_jinx
+*   "Deal." -> solo_deal_jinx
+
+=== solo_pay_jinx ===
+<<set $scrap = $scrap - 500>>
+
+JINX: "Pleasure. Oracle's signal originates from **Sector 0 Relay Prime**. But the path... the path goes through *all three* faction territories. And the Silent Ones patrol the borders."
+
+*Gained: Intel on Sector Zero route*
+-> solo_scav_done
+
+=== solo_fight_jinx ===
+JINX: *laughs* "Feisty. Guards!"
+
+*Combat: 3 Scavengers + Jinx (Boss)*
+-> solo_jinx_combat
+
+=== solo_deal_jinx ===
+JINX: "A job. Steal a Purified encryption key from their patrol route. Bring it here. I'll give you the Sector Zero route *and* a discount."
+
+*Quest Started: **Scavenger's Bargain***
+-> solo_act1_begin
+
+=== solo_scav_done ===
+JINX: "Anytime, Walker. Jinx is the name. Remember it."
+
+-> solo_act1_begin
+
+=== solo_jinx_combat ===
+*Combat victory.*
+
+JINX: *bleeding, grinning* "Okay. You're good. The route... it's yours. And a discount."
+
+*Gained: Sector Zero Intel, Jinx as contact*
+-> solo_act1_begin
+
+=== solo_continue_alone ===
+No companion. No backup. Just you and the Signal.
+
+*Solo Path Bonuses:*
+- +2 Signal Points per level
+- Unique lore entries
+- Delayed but unique companion options later
+
+-> solo_act1_begin
+
+=== solo_act1_begin ===
+**PROLOGUE COMPLETE**
+*Signal Walker Awakened*
+*Solo Path Chosen*
+*Faction Contacts Established*
+
+**ACT I: THE LONG WALK BEGINS**
+
+*Next: Sector Map opens. Three zones available. The Signal grows stronger...*
+
+=== end ===

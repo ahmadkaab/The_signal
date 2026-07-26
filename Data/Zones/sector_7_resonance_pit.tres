@@ -1,0 +1,24 @@
+[gd_resource type="ZoneResource" load_steps=2 format=3 uid://sector_7_resonance_pit]
+[ext_resource type="Script" path="res://Data/ZoneResource.cs" id="1_1"]
+
+[resource]
+script = ExtResource("1_1")
+zone_id = "S07_RESONANCE_PIT"
+display_name = "Resonance Pit"
+description = "A deep sinkhole where the Signal's frequency is amplified to dangerous levels. Strange creatures skitter in the dark."
+zone_type = 2
+faction_controlled = 3
+corruption_trend = 6
+corruption_current = 0
+connections = [{"target_zone_id": "S07_CRYSTAL_CAVERNS", "direction": 0, "fuel_cost": 10, "required_level": 7, "required_faction_rep": 0, "is_locked": false},
+{"target_zone_id": "S07_CRYSTAL_SPIRES", "direction": 0, "fuel_cost": 6, "required_level": 7, "required_faction_rep": 0, "is_locked": false},
+{"target_zone_id": "S06_PURIFICATION_FORGE", "direction": 0, "fuel_cost": 16, "required_level": 8, "required_faction_rep": 2, "is_locked": false}]
+encounters = [{"encounter_id": "PitCrawlers", "chance": 40, "weight": 10, "min_level": 7, "max_level": 8},
+{"encounter_id": "ResonanceElemental", "chance": 25, "weight": 10, "min_level": 8, "max_level": 10},
+{"encounter_id": "CorruptedWalker", "chance": 15, "weight": 10, "min_level": 8, "max_level": 10}]
+events = [{"event_id": "EVT_PIT_DESCENT", "title": "Pit Descent", "description": "Descend into the deepest layer where the Signal echoes strongest.", "trigger_condition": "descend", "required_flag": "", "required_level": 10, "choices": [{"id": "opt_accept", "text": "Descend: massive combat encounter (4 waves) -> gain unique Signal Echo ability. Permits Act II skip option.", "outcomes": [{"type": 0, "value": "event_complete", "description": "Event resolved"}]}]},
+{"event_id": "EVT_SIGNAL_POOL", "title": "Signal Pool", "description": "A pool of liquid Resonance energy.", "trigger_condition": "drink", "required_flag": "", "required_level": 9, "choices": [{"id": "opt_accept", "text": "Drink: +20 Resonance Fragments +10 Corruption. Resist (DC 14 Willpower): gain without corruption.", "outcomes": [{"type": 0, "value": "event_complete", "description": "Event resolved"}]}]}]
+is_discovered = false
+props = []
+npcs = []
+interactables = []

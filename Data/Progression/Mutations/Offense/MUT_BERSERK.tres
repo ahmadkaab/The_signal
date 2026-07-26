@@ -1,0 +1,34 @@
+[gd_resource type="MutationResource" load_steps=2 format=3 uid://mut_berserk]
+
+[ext_resource type="Script" path="res://Data/EditorResources.cs" id="1_1"]
+
+[resource]
+script = ExtResource("1_1")
+mutation_id = "MUT_BERSERK"
+display_name = "Biological Imperative"
+description = "Melee damage +40%. Below 30% HP: +2 AP/turn."
+category = 0
+benefits = [
+{
+"stat": 0,
+"flat_bonus": 0.0,
+"percent_bonus": 0.4,
+"is_percent": true
+},
+{
+"stat": 17,
+"flat_bonus": 2.0,
+"percent_bonus": 0.0,
+"is_percent": false
+}
+]
+corruption_costs = [
+{
+"type": 14,
+"trigger": 3,
+"description": "Feral: Cannot use ranged/tech. Auto-attack nearest enemy if no orders.",
+"severity": 4
+}
+]
+icon = null
+visual_effect = null

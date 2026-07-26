@@ -1,0 +1,22 @@
+[gd_resource type="ItemResource" load_steps=2 format=3 uid://targeting_chip]
+
+[ext_resource type="Script" path="res://Data/ItemResource.cs" id="1_1"]
+
+[resource]
+script = ExtResource("1_1")
+item_id = "targeting_chip"
+display_name = "Targeting Chip"
+description = "Weapon mod. Improves aim. Essential for ranged builds."
+type = 4
+rarity = 1
+icon = null
+max_stack = 1
+value = 150
+weight = 0
+is_unique = false
+is_quest_item = false
+is_craftable = true
+crafting_cost = [{"item_id": "tech_scrap", "min_count": 30, "max_count": 30, "weight": 1.0, "guaranteed": true}, {"item_id": "data_fragment", "min_count": 2, "max_count": 2, "weight": 1.0, "guaranteed": true}]
+implicit_mods = [{"type": 8, "value": 1.0, "is_percent": false, "description": "+1 Range"}, {"type": 7, "value": 10.0, "is_percent": true, "description": "+10% Crit Chance"}]
+chip_slots = 0
+compatible_chips = []

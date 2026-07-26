@@ -1,0 +1,19 @@
+[gd_resource type="ItemResource" load_steps=2 format=3 uid://tech_scrap]
+
+[ext_resource type="Script" path="res://Data/ItemResource.cs" id="1_1"]
+
+[resource]
+script = ExtResource("1_1")
+item_id = "tech_scrap"
+display_name = "Tech Scrap"
+description = "Salvaged technology. Universal crafting currency."
+type = 10
+rarity = 0
+icon = null
+max_stack = 999
+value = 5
+weight = 1
+is_unique = false
+is_quest_item = false
+is_craftable = false
+crafting_cost = []

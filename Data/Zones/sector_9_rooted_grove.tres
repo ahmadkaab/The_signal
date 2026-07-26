@@ -1,0 +1,117 @@
+[gd_resource type="ZoneResource" load_steps=2 format=3 uid://sector_9_rooted_grove]
+
+[ext_resource type="Script" path="res://Data/ZoneResource.cs" id="1_1"]
+
+[resource]
+script = ExtResource("1_1")
+zone_id = "sector_9_rooted_grove"
+display_name = "The Verdant Grove"
+description = "Where the Rust became life. Massive trees grown from server racks. The Rooted tend this garden of silicon and chlorophyll. They say the Grove remembers every hand that tended it."
+type = 2
+sector = 9
+map_position = Vector2i(-2, 1)
+first_discovery_xp = 200
+initially_discovered = false
+required_flags_for_discovery = []
+required_quests_completed = []
+connections = [
+{
+"to_zone_id": "sector_9_graveyard",
+"fuel_cost": 15,
+"scrap_cost": 0,
+"travel_type": 0,
+"initially_locked": false,
+"unlock_flags": [],
+"unlock_quests": [],
+"min_level": 1,
+"required_faction": 1,
+"min_faction_rep": 0,
+"one_way": false,
+"danger_level": 1.0
+},
+{
+"to_zone_id": "sector_8_rooted_heartland",
+"fuel_cost": 25,
+"scrap_cost": 5,
+"travel_type": 0,
+"initially_locked": true,
+"unlock_flags": ["rooted_allied"],
+"unlock_quests": [],
+"min_level": 3,
+"required_faction": 1,
+"min_faction_rep": 25,
+"one_way": false,
+"danger_level": 1.3
+}
+]
+base_corruption_level = 40.0
+corruption_drift_per_hour = 0.15
+cleanse_rate = 0.5
+corrupt_rate = 1.5
+can_be_cleansed = true
+can_be_corrupted = true
+fixed_encounters = [
+{
+"encounter_id": "grove_entrance",
+"display_name": "Grove Entrance",
+"description": "Living vines part for those the Grove accepts. Others... feed the roots.",
+"grid_position": Vector2i(1, 1),
+"enemy_ids": [],
+"enemy_count": 0,
+"min_level": 1,
+"max_level": 1,
+"once_only": true,
+"mandatory": true,
+"required_flags": [],
+"rewards": [],
+"pre_combat_dialogue": "grove_entrance_approach",
+"post_combat_dialogue": ""
+},
+{
+"encounter_id": "world_tree_heart",
+"display_name": "World Tree Heart",
+"description": "The oldest tree. Its roots touch the planet's core. Mara communes here.",
+"grid_position": Vector2i(3, 3),
+"enemy_ids": ["rooted_elder", "rooted_guardian", "rooted_guardian"],
+"enemy_count": 3,
+"min_level": 3,
+"max_level": 4,
+"once_only": true,
+"mandatory": false,
+"required_flags": ["rooted_hostile", "mara_companion"],
+"rewards": [
+{"item_id": "heartwood", "min_count": 1, "max_count": 1, "weight": 1.0, "guaranteed": true},
+{"item_id": "vital_essence", "min_count": 2, "max_count": 4, "weight": 1.0, "guaranteed": true}
+],
+"pre_combat_dialogue": "",
+"post_combat_dialogue": ""
+}
+]
+random_encounter_tables = [
+{
+"table_id": "grove_denizens",
+"display_name": "Grove Denizens",
+"possible_encounters": [
+{"encounter_id": "vine_stalker", "display_name": "Vine Stalker", "description": "Ambush predator. Part plant, part machine.", "grid_position": Vector2i(0, 0), "enemy_ids": ["vine_stalker", "vine_stalker"], "enemy_count": 2, "min_level": 2, "max_level": 4, "once_only": false, "mandatory": false, "required_flags": [], "rewards": [], "pre_combat_dialogue": "", "post_combat_dialogue": ""},
+{"encounter_id": "spore_cloud", "display_name": "Spore Cloud", "description": "Hallucinogenic spores. Breathe deep. See the truth.", "grid_position": Vector2i(0, 0), "enemy_ids": [], "enemy_count": 0, "min_level": 1, "max_level": 5, "once_only": false, "mandatory": false, "required_flags": [], "rewards": [{"item_id": "hallucinogen_spores", "min_count": 1, "max_count": 3, "weight": 1.0, "guaranteed": true}], "pre_combat_dialogue": "", "post_combat_dialogue": ""}
+],
+"weights": [0.6, 0.4],
+"min_level": 2,
+"max_level": 5,
+"condition_modifiers": {"rooted_hostile": 2.0, "rooted_allied": 0.1}
+}
+]
+random_encounter_chance_per_hour = 0.12
+max_random_encounters_per_visit = 2
+events = []
+discovery_rewards = [
+{"item_id": "verdant_seed", "count": 1, "type": 0}
+]
+clear_rewards = []
+local_zone_scene = null
+props = []
+npcs = []
+interactables = []
+ambient_music = "grove_ambient"
+ambient_light = Color(0.1, 0.25, 0.15, 1)
+environment = null

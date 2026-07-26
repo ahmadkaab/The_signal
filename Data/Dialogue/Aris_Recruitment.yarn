@@ -1,0 +1,77 @@
+title: Aris_Recruitment
+---
+===
+Aris_Intro
+===
+
+Aris: A Walker, in my archives. I had hoped you would come.
+Aris: I am Aris, the Rooted's archivist. I have preserved what remains of human knowledge — before the Rust, before the Signal, before everything.
+
+-> You remember the old world? That's invaluable.
+    === Aris_Knowledge ===
+-> The Rooted keep you locked in here with old books?
+    === Aris_Choice ===
+-> I need to understand the Signal. Can you help?
+    === Aris_Signal ===
+
+===
+Aris_Knowledge
+===
+
+Aris: I was born before the Rust. I have seen civilization rise, fall, and rise again in fragments.
+Aris: My body is weak, but my mind holds the blueprint of humanity.
+
+<<set $aris_loyalty = $aris_loyalty + 10>>
+
+-> I'll protect you. Share what you know.
+    === Aris_Accepted ===
+
+===
+Aris_Choice
+===
+
+Aris: I choose preservation over destruction. The Rooted understand that knowledge outlives any war.
+Aris: But I confess... I grow tired of walls. I want to see the world I've only read about.
+
+<<set $aris_loyalty = $aris_loyalty + 15>>
+
+-> Then come with me. See it for real.
+    === Aris_Accepted ===
+
+===
+Aris_Signal
+===
+
+Aris: The Signal predates ORACLE. I have records from before the fall — transmissions that match its frequency.
+Aris: Something sent the Signal long before ORACLE was built. I believe... the Signal is calling to something. Not warning. Calling.
+
+<<set $aris_loyalty = $aris_loyalty + 20>>
+
+-> That changes everything. You need to come with me.
+    === Aris_Accepted ===
+
+===
+Aris_Accepted
+===
+
+Aris: Very well. I will accompany you. My legs are slow, but my mind is swift.
+Aris: Let us discover what the Signal truly is.
+
+<<set $aris_loyalty = 30>>
+<<set $aris_recruited = true>>
+<<set $active_companions += 1>>
+<<set $party: "Aris" = true>>
+<<set $quest_aris_library = "active">>
+
+Aris <<companion_join>>
+<<give_item bio_gel>>
+
+-> Welcome, archivist. Let's write history together.
+    === Aris_Joined ===
+
+===
+Aris_Joined
+===
+
+Aris: History is written by those who survive. Let us survive. <<signal>>
+    -> Agreed. (End)

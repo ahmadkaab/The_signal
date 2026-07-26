@@ -1,0 +1,51 @@
+[gd_resource type="AbilityResource" load_steps=2 format=3 uid://entangle]
+
+[ext_resource type="Script" path="res://Data/AbilityResource.cs" id="1_1"]
+
+[resource]
+script = ExtResource("1_1")
+ability_id = "entangle"
+display_name = "Entangling Vines"
+description = "Root vines erupt, rooting enemies in an area."
+type = 1
+damage_type = 5
+ap_cost = 3
+cooldown_turns = 3
+resonance_cost = 1
+max_charges = 0
+target_type = 4
+range = 5
+radius = 2
+requires_line_of_sight = true
+can_target_self = false
+can_target_allies = false
+can_target_enemies = true
+can_target_empty_tile = true
+base_damage = 2
+stat_scaling = 1.0
+scaling_stat = 4
+status_effects = [
+{
+"effect_type": 22,
+"duration": 2,
+"stacks": 1,
+"max_stacks": 1,
+"chance": 1.0,
+"on_hit": true,
+"on_crit": false,
+"on_kill": false
+}
+]
+stat_modifiers = []
+position_effects = []
+resource_effects = []
+summon_effects = []
+field_effects = []
+animation_trigger = "entangle"
+vfx_prefab = null
+sound_effect = null
+cast_time = 0.4
+min_level = 2
+required_signal_nodes = ["BIO_SWARM"]
+required_mutations = []
+required_weapon_tags = 0

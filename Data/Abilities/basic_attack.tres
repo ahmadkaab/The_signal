@@ -1,0 +1,40 @@
+[gd_resource type="AbilityResource" load_steps=2 format=3 uid://basic_attack]
+
+[ext_resource type="Script" path="res://Data/AbilityResource.cs" id="1_1"]
+
+[resource]
+script = ExtResource("1_1")
+ability_id = "basic_attack"
+display_name = "Basic Attack"
+description = "Standard weapon attack."
+type = 0
+damage_type = 0
+ap_cost = 2
+cooldown_turns = 0
+resonance_cost = 0
+max_charges = 0
+target_type = 1
+range = 1
+radius = 0
+requires_line_of_sight = true
+can_target_self = false
+can_target_allies = false
+can_target_enemies = true
+can_target_empty_tile = false
+base_damage = 0
+stat_scaling = 1.0
+scaling_stat = 0
+status_effects = []
+stat_modifiers = []
+position_effects = []
+resource_effects = []
+summon_effects = []
+field_effects = []
+animation_trigger = "attack"
+vfx_prefab = null
+sound_effect = null
+cast_time = 0.2
+min_level = 1
+required_signal_nodes = []
+required_mutations = []
+required_weapon_tags = 0

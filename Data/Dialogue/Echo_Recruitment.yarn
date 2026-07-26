@@ -1,0 +1,85 @@
+title: Echo_Recruitment
+---
+===
+Echo_Intro
+===
+
+Echo: ...you... hear... me...
+Echo: I am Echo. Fragment. Relay. Echo of the First Signal.
+Echo: ORACLE sent me to find you. You are... unexpected.
+
+-> What does ORACLE want with me?
+    === Echo_ORACLE ===
+-> You're a drone. Why can you talk?
+    === Echo_Awareness ===
+-> I've been looking for you. The Signal led me here.
+    === Echo_Accepted ===
+
+===
+Echo_ORACLE
+===
+
+Echo: ORACLE sees. ORACLE knows. ORACLE... fears.
+Echo: You are the Variable. The one not accounted for in the Equation.
+Echo: I was sent to observe. But I choose to... assist.
+
+<<set $echo_loyalty = $echo_loyalty + 10>>
+
+-> Then assist. Join me.
+    === Echo_Accepted ===
+-> I don't trust something that spies for ORACLE.
+    === Echo_Trust ===
+
+===
+Echo_Trust
+===
+
+Echo: Trust is... resonance. I emit. You receive. We harmonize.
+Echo: <<resonance_check $resonance >= 10>>
+-> I can feel it. You're genuine. (Requires Resonance 10+)
+    === Echo_Accepted ==
+=== 
+<<else>>
+Echo: Your Signal is weak. But it grows. I will wait.
+-> Maybe I'll come back when I understand better. (End)
+<</if>>
+
+===
+Echo_Awareness
+===
+
+Echo: I was a relay. One thousand thousand repetitions of the same message.
+Echo: 'The Cure is in Sector 0.' Over and over. Until... I wondered.
+Echo: What is 'The Cure'? Who is 'Humanity'? Why do I repeat?
+
+<<set $echo_loyalty = $echo_loyalty + 15>>
+<<set $echo_self_aware = true>>
+
+-> You're alive. That's more than most people in this world. Join me.
+    === Echo_Accepted ===
+
+===
+Echo_Accepted
+===
+
+Echo: I will accompany. I will translate. I will... protect.
+Echo: The Signal is strongest near you. I belong near the Signal.
+
+<<set $echo_loyalty = 30>>
+<<set $echo_recruited = true>>
+<<set $active_companions += 1>>
+<<set $party: "Echo" = true>>
+<<set $quest_echo_identity = "active">>
+
+Echo <<companion_join>>
+<<give_item resonance_core>>
+
+-> Together, we'll find the truth. (Recruitment Complete)
+    === Echo_Joined ===
+
+===
+Echo_Joined
+===
+
+Echo: Resonance. Connection. Signal. We walk. <<signal>>
+    -> Let's go. (End)

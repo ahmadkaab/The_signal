@@ -1,0 +1,208 @@
+title: WaystationArrival
+---
+<<declare $waystation_tutorial_done = false>>
+
+=== waystation_arrival ===
+The Waystation hums. Purified tech—clean, precise, sterile. Chrome walls pulse with coolant lines. The air smells of ozone and antiseptic.
+
+KAEL-7: "Welcome to Outpost 9. Purified stronghold. Home."
+
+A Purified officer approaches—chrome faceplate, rank insignia glowing.
+
+PURIFIED COMMANDER: "Walker. Designation?"
+
+*   "Signal Walker. No number." -> waystation_firstgen
+*   "I don't remember." -> waystation_amnesia
+*   "Classified." -> waystation_classified
+
+=== waystation_firstgen ===
+PURIFIED COMMANDER: "No number. First Generation? Original Walkers were numbered. You predate the protocols."
+
+He transmits something. "Medical Bay. Diagnostics. *Then* briefing."
+
+KAEL-7: "Come. I'll show you the systems."
+
+-> waystation_systems_intro
+
+=== waystation_amnesia ===
+PURIFIED COMMANDER: "Memory corruption. Cryo-sickness. Expected. Medical Bay. Diagnostics. *Then* briefing."
+
+KAEL-7: "Come. I'll show you the systems."
+
+-> waystation_systems_intro
+
+=== waystation_classified ===
+PURIFIED COMMANDER: *dryly* "Classified. Purified records are sealed too. We'll get along fine."
+
+KAEL-7: "Come. I'll show you the systems."
+
+-> waystation_systems_intro
+
+=== waystation_systems_intro ===
+Kael leads you through the chrome corridors. Holographic displays. Fabricators humming. Med-bays glowing.
+
+KAEL-7: "Five systems. Learn them. Live by them."
+
+*   [Fabricator] Crafting, mods, gear -> waystation_fabricator
+*   [Medical Bay] Healing, corruption, implants -> waystation_medbay
+*   [Intel Terminal] Factions, zones, quests -> waystation_intel
+*   [Signal Beacon] Respec, spend points -> waystation_beacon
+*   [Companion Bench] Party, synergy, combos -> waystation_companion
+*   "Enough. Let me explore." -> waystation_free_explore
+
+=== waystation_fabricator ===
+A massive 3D printer. Chrome powder. Energy beams.
+
+KAEL-7: "**Fabricator.** Scrap + Tech Components = Gear. Weapons. Armor. Chips. Mods."
+
+*   "Show me crafting." -> waystation_crafting_demo
+*   "Show me mods." -> waystation_mods_demo
+*   "Next." -> waystation_medbay
+
+=== waystation_crafting_demo ===
+KAEL-7: "Select blueprint. Insert materials. Wait. *Done*."
+
+*Demo: Craft **Chrome Plating** (Armor Mod) — 50 Scrap, 5 Tech Components*
+
+*Crafted: Chrome Plating — +3 Armor, -1 Move Range*
+
+-> waystation_fabricator
+
+=== waystation_mods_demo ===
+KAEL-7: "Chips. Slots in gear. Damage. Defense. Utility. Resonance."
+
+*Demo: Install **Targeting Chip** (Weapon) — +1 Range, +10% Crit*
+
+*Installed: Targeting Chip on Pulse Pistol*
+
+-> waystation_fabricator
+
+=== waystation_medbay ===
+Sterile white. Auto-docs. Tanks of blue fluid.
+
+KAEL-7: "**Medical Bay.** Heal. Cure corruption. Install implants. *Purify*."
+
+*   "Show me corruption cure." -> waystation_corruption_cure
+*   "Show me implants." -> waystation_implants
+*   "Next." -> waystation_intel
+
+=== waystation_corruption_cure ===
+KAEL-7: "The Rust rewrites biology. Tech. *You*."
+
+*Demo: **Purification Serum** — Cleanse 50 Corruption, 30-min immunity*
+
+*Acquired: Purification Serum x2*
+
+-> waystation_medbay
+
+=== waystation_implants ===
+KAEL-7: "Chrome replaces flesh. Stronger. Faster. *Purified*."
+
+*Demo: **Targeting Array** (Eye) — +15% Accuracy, +1 Range*
+
+*Implant installed: Targeting Array (Right Eye)*
+
+-> waystation_medbay
+
+=== waystation_intel ===
+Holo-table. Sector map. Faction territories pulsing.
+
+KAEL-7: "**Intel Terminal.** Faction rep. Zone data. Quests. Bounties."
+
+*   "Show faction rep." -> waystation_faction_rep
+*   "Show zone data." -> waystation_zone_data
+*   "Show quests." -> waystation_quests
+*   "Next." -> waystation_beacon
+
+=== waystation_faction_rep ===
+KAEL-7: "Purified: **Allied** (You). Rooted: **Hostile** (Mara). Scavengers: **Neutral**."
+
+*   "How to improve Rooted?" -> waystation_improve_rooted
+*   "How to improve Scavengers?" -> waystation_improve_scavengers
+*   "Next." -> waystation_intel
+
+=== waystation_improve_rooted ===
+KAEL-7: "Help the Green. Cleanse corruption *their* way. Don't purge. *Harmonize*."
+
+-> waystation_faction_rep
+
+=== waystation_improve_scavengers ===
+KAEL-7: "Trade. Jobs. Information. They respect *cred*, not creed."
+
+-> waystation_faction_rep
+
+=== waystation_zone_data ===
+KAEL-7: "Sector 9: Graveyard (Here). Purified Citadel (North). Rooted Grove (East). Freeport (South). Sector 8: Wastes (East). Purified Stronghold (North). Rooted Heartland (East)."
+
+-> waystation_intel
+
+=== waystation_quests ===
+KAEL-7: "Available: **Chrome Ghost** (Kael-6, Deep Foundry). **Signal Echo** (West Corridor). **Rust Purge** (Maintenance Tunnels)."
+
+-> waystation_intel
+
+=== waystation_beacon ===
+A pillar of light. Signal energy contained.
+
+KAEL-7: "**Signal Beacon.** Respec nodes. Spend Signal Points. Unlock mutations. *Reconnect* to Oracle."
+
+*   "Respec demo." -> waystation_respec_demo
+*   "Signal nodes." -> waystation_signal_nodes
+*   "Next." -> waystation_companion
+
+=== waystation_respec_demo ===
+KAEL-7: "One Resonance Core + 1000 Scrap. Full reset. Or partial."
+
+*Demo: Refund **RES_AMP** (1 SP returned)*
+
+*SP refunded: 1*
+
+-> waystation_beacon
+
+=== waystation_signal_nodes ===
+KAEL-7: "Five branches. Resonance. Biology. Tech. Stealth. Leadership. Capstones at Tier 3."
+
+-> waystation_beacon
+
+=== waystation_companion ===
+A bench with linked stations. Holographic companions.
+
+KAEL-7: "**Companion Bench.** Manage party. View synergy. Unlock combos. *Bond*."
+
+*   "View Kael's synergy." -> waystation_kael_synergy
+*   "View Mara's synergy." -> waystation_mara_synergy
+*   "Next." -> waystation_free_explore
+
+=== waystation_kael_synergy ===
+KAEL-7: *to himself* "Synergy Rank 1. Trust. +10% Accuracy when adjacent."
+
+*Synergy Tree: Trust -> Resonance -> Harmony -> Synchronization -> **Iron Symphony*** (Dual Ultimate)
+
+-> waystation_companion
+
+=== waystation_mara_synergy ===
+KAEL-7: "The Green one. Rank 1. *Noted*."
+
+*Synergy Tree: Trust -> Resonance -> Harmony -> Synchronization -> **Primal Chorus*** (Dual Ultimate)
+
+-> waystation_companion
+
+=== waystation_free_explore ===
+KAEL-7: "Rest. Rearm. The Graveyard doesn't wait."
+
+*Waystation unlocked. Free exploration enabled.*
+
+-> act1_begin
+
+=== act1_begin ===
+**PROLOGUE COMPLETE**
+*Signal Walker Awakened*
+*First Companion Recruited*
+*Faction Contact Established*
+*Waystation Unlocked*
+
+**ACT I: THE LONG WALK BEGINS**
+
+*Next: Sector Map opens. Three zones available. The Signal grows stronger...*
+
+=== end ===

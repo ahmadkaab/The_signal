@@ -1,0 +1,26 @@
+[gd_resource type="CompanionResource" load_steps=2 format=3 uid://comp_jinx]
+[ext_resource type="Script" path="res://Data/CompanionResource.cs" id="1_1"]
+
+[resource]
+script = ExtResource("1_1")
+companion_id = "COMP_JINX"
+display_name = "Jinx"
+description = "A Scavenger tech-savant whose inventions either save lives or cause catastrophic explosions. Brilliant, hyperactive, and cursed with terrible luck."
+archetype = "Engineer"
+faction = 2
+starting_zone = "S08_SCRAP_MINES"
+starting_level = 3
+base_might = 6
+base_agility = 10
+base_constitution = 8
+base_intelligence = 15
+base_willpower = 10
+base_resonance = 7
+starting_abilities = ["basic_attack",
+"tactical_reload",
+"entangle"]
+starting_weapon = "pulse_pistol"
+personal_quest_id = "QUEST_JINX_BIG_SCORE"
+synergy_partners = ["COMP_SLOANE",
+"COMP_UNIT734"]
+dialogue_start_node = "Jinx_Recruitment" 

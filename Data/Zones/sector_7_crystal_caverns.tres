@@ -1,0 +1,24 @@
+[gd_resource type="ZoneResource" load_steps=2 format=3 uid://sector_7_crystal_caverns]
+[ext_resource type="Script" path="res://Data/ZoneResource.cs" id="1_1"]
+
+[resource]
+script = ExtResource("1_1")
+zone_id = "S07_CRYSTAL_CAVERNS"
+display_name = "Crystal Caverns"
+description = "A vast underground network where the Rust has crystallized into towering formations. The crystals pulse with a dim blue light."
+zone_type = 2
+faction_controlled = 3
+corruption_trend = 5
+corruption_current = 0
+connections = [{"target_zone_id": "S08_WASTELAND_FORT", "direction": 0, "fuel_cost": 14, "required_level": 7, "required_faction_rep": 1, "is_locked": false},
+{"target_zone_id": "S07_CRYSTAL_SPIRES", "direction": 0, "fuel_cost": 8, "required_level": 8, "required_faction_rep": 0, "is_locked": false},
+{"target_zone_id": "S07_RESONANCE_PIT", "direction": 0, "fuel_cost": 10, "required_level": 7, "required_faction_rep": 0, "is_locked": false}]
+encounters = [{"encounter_id": "CrystalGuardians", "chance": 30, "weight": 10, "min_level": 7, "max_level": 9},
+{"encounter_id": "RustCrawlers", "chance": 35, "weight": 10, "min_level": 7, "max_level": 8},
+{"encounter_id": "ResonanceShades", "chance": 25, "weight": 10, "min_level": 8, "max_level": 9}]
+events = [{"event_id": "EVT_CRYSTAL_HEART", "title": "Crystal Heart", "description": "The largest crystal formation emits a pure Resonance frequency.", "trigger_condition": "attune", "required_flag": "", "required_level": 9, "choices": [{"id": "opt_accept", "text": "Attune to the crystal: gain +5 Resonance permanently OR trigger a hostile Resonance Shade combat (hard).", "outcomes": [{"type": 0, "value": "event_complete", "description": "Event resolved"}]}]},
+{"event_id": "EVT_LOST_EXPLORER", "title": "Lost Explorer", "description": "A Rooted explorer trapped in a crystal collapse.", "trigger_condition": "rescue", "required_flag": "", "required_level": 8, "choices": [{"id": "opt_accept", "text": "Free the explorer (DC 12 Might). Reward: +15 Rooted rep, Rooted-exclusive item.", "outcomes": [{"type": 0, "value": "event_complete", "description": "Event resolved"}]}]}]
+is_discovered = false
+props = []
+npcs = []
+interactables = []

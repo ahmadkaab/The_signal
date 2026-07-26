@@ -1,0 +1,26 @@
+[gd_resource type="SignalNodeResource" load_steps=2 format=3 uid://res_cascade]
+
+[ext_resource type="Script" path="res://Data/EditorResources.cs" id="1_1"]
+
+[resource]
+script = ExtResource("1_1")
+node_id = "RES_CASCADE"
+display_name = "Cascade Failure"
+description = "Killing a Resonating enemy triggers Resonance Pulse at their position (free, no AP). Chain reaction possible."
+branch = 0
+tier = 3
+sp_cost = 3
+prerequisites = ["RES_WAVE", "RES_SIPHON"]
+synergy_links = []
+is_active = false
+ability_id = ""
+passive_effects = [
+{
+"stat": "CascadeTrigger",
+"flat_bonus": 1.0,
+"percent_bonus": 0.0,
+"duration": -1,
+"source_id": "RES_CASCADE"
+}
+]
+icon = null

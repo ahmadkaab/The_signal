@@ -1,0 +1,19 @@
+[gd_resource type="VfxTemplate" load_steps=2 format=3 uid://vfx_smoke]
+[ext_resource type="Script" path="res://Content/Assets/AssetStandards.cs" id="1_1"]
+[resource]
+script = ExtResource("1_1")
+vfx_id = "vfx_smoke"
+display_name = "Smoke Cloud"
+category = 7
+lifetime = 3.0
+looping = false
+max_instances = 5
+particle_count = 32
+emit_box = "1, 2, 1"
+speed_min = 0.2
+speed_max = 1.0
+color_start = "0.5, 0.5, 0.5, 0.5"
+color_end = "0.5, 0.5, 0.5, 0"
+scale_min = 0.2
+scale_max = 0.5
+gravity = 0.5

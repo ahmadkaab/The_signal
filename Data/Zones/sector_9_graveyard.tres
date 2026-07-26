@@ -1,0 +1,165 @@
+[gd_resource type="ZoneResource" load_steps=2 format=3 uid://sector_9_graveyard]
+
+[ext_resource type="Script" path="res://Data/ZoneResource.cs" id="1_1"]
+
+[resource]
+script = ExtResource("1_1")
+zone_id = "sector_9_graveyard"
+display_name = "Sector 9: The Graveyard"
+description = "A vast cryo-facility complex where thousands slept. Only you woke up. The Purified hold the upper levels; the Rooted have claimed the hydroponics. Rust-stalkers prowl the maintenance tunnels."
+type = 0
+sector = 9
+map_position = Vector2i(0, 0)
+first_discovery_xp = 150
+initially_discovered = true
+required_flags_for_discovery = []
+required_quests_completed = []
+connections = [
+{
+"to_zone_id": "sector_9_purified_citadel",
+"fuel_cost": 15,
+"scrap_cost": 0,
+"travel_type": 0,
+"initially_locked": false,
+"unlock_flags": [],
+"unlock_quests": [],
+"min_level": 1,
+"required_faction": 0,
+"min_faction_rep": 0,
+"one_way": false,
+"danger_level": 1.0
+},
+{
+"to_zone_id": "sector_9_rooted_grove",
+"fuel_cost": 15,
+"scrap_cost": 0,
+"travel_type": 0,
+"initially_locked": false,
+"unlock_flags": [],
+"unlock_quests": [],
+"min_level": 1,
+"required_faction": 1,
+"min_faction_rep": 0,
+"one_way": false,
+"danger_level": 1.0
+},
+{
+"to_zone_id": "sector_9_scavenger_freeport",
+"fuel_cost": 20,
+"scrap_cost": 0,
+"travel_type": 0,
+"initially_locked": false,
+"unlock_flags": [],
+"unlock_quests": [],
+"min_level": 1,
+"required_faction": 2,
+"min_faction_rep": 0,
+"one_way": false,
+"danger_level": 1.2
+},
+{
+"to_zone_id": "sector_8_wastes",
+"fuel_cost": 30,
+"scrap_cost": 10,
+"travel_type": 0,
+"initially_locked": true,
+"unlock_flags": ["prologue_complete"],
+"unlock_quests": [],
+"min_level": 2,
+"required_faction": 3,
+"min_faction_rep": 0,
+"one_way": false,
+"danger_level": 1.5
+}
+]
+base_corruption_level = 10.0
+corruption_drift_per_hour = 0.2
+cleanse_rate = 1.0
+corrupt_rate = 1.0
+can_be_cleansed = true
+can_be_corrupted = true
+fixed_encounters = [
+{
+"encounter_id": "cryo_pod_bay",
+"display_name": "Cryo Pod Bay",
+"description": "Rows of frozen sleepers. One pod is opening...",
+"grid_position": Vector2i(2, 1),
+"enemy_ids": ["rust_stalker", "rust_stalker"],
+"enemy_count": 2,
+"min_level": 1,
+"max_level": 2,
+"once_only": true,
+"mandatory": true,
+"required_flags": [],
+"rewards": [],
+"pre_combat_dialogue": "prologue_awakening",
+"post_combat_dialogue": ""
+},
+{
+"encounter_id": "medical_wing",
+"display_name": "Medical Wing",
+"description": "Auto-docs still humming. Supplies remain.",
+"grid_position": Vector2i(4, 3),
+"enemy_ids": [],
+"enemy_count": 0,
+"min_level": 1,
+"max_level": 1,
+"once_only": true,
+"mandatory": false,
+"required_flags": [],
+"rewards": [
+{"item_id": "stimulant", "min_count": 3, "max_count": 5, "weight": 1.0, "guaranteed": true},
+{"item_id": "tech_scrap", "min_count": 10, "max_count": 20, "weight": 1.0, "guaranteed": true}
+],
+"pre_combat_dialogue": "",
+"post_combat_dialogue": ""
+},
+{
+"encounter_id": "server_core",
+"display_name": "Server Core",
+"description": "Ancient data banks. Oracle's signal originates from here.",
+"grid_position": Vector2i(1, 4),
+"enemy_ids": ["purified_sentry", "purified_sentry"],
+"enemy_count": 2,
+"min_level": 2,
+"max_level": 3,
+"once_only": true,
+"mandatory": false,
+"required_flags": ["met_kael"],
+"rewards": [
+{"item_id": "resonance_fragment", "min_count": 1, "max_count": 1, "weight": 1.0, "guaranteed": true},
+{"item_id": "data_fragment", "min_count": 2, "max_count": 4, "weight": 1.0, "guaranteed": false}
+],
+"pre_combat_dialogue": "server_core_approach",
+"post_combat_dialogue": "server_core_clear"
+}
+]
+random_encounter_tables = [
+{
+"table_id": "graveyard_patrols",
+"display_name": "Patrol Encounters",
+"possible_encounters": [
+{"encounter_id": "rust_patrol", "display_name": "Rust Patrol", "description": "Scavengers mutated by the Rust.", "grid_position": Vector2i(0, 0), "enemy_ids": ["rust_stalker", "rust_stalker", "rust_stalker"], "enemy_count": 3, "min_level": 1, "max_level": 3, "once_only": false, "mandatory": false, "required_flags": [], "rewards": [], "pre_combat_dialogue": "", "post_combat_dialogue": ""},
+{"encounter_id": "purified_scout", "display_name": "Purified Scout", "description": "Chrome warrior scanning for corruption.", "grid_position": Vector2i(0, 0), "enemy_ids": ["purified_scout"], "enemy_count": 1, "min_level": 2, "max_level": 3, "once_only": false, "mandatory": false, "required_flags": [], "rewards": [], "pre_combat_dialogue": "", "post_combat_dialogue": ""},
+{"encounter_id": "rooted_watcher", "display_name": "Rooted Watcher", "description": "Vine-covered sentinel. It does not blink.", "grid_position": Vector2i(0, 0), "enemy_ids": ["rooted_watcher"], "enemy_count": 1, "min_level": 2, "max_level": 3, "once_only": false, "mandatory": false, "required_flags": [], "rewards": [], "pre_combat_dialogue": "", "post_combat_dialogue": ""}
+],
+"weights": [0.5, 0.3, 0.2],
+"min_level": 1,
+"max_level": 4,
+"condition_modifiers": {}
+}
+]
+random_encounter_chance_per_hour = 0.15
+max_random_encounters_per_visit = 3
+events = []
+discovery_rewards = []
+clear_rewards = [
+{"item_id": "sector_9_keycard", "count": 1, "type": 0}
+]
+local_zone_scene = null
+props = []
+npcs = []
+interactables = []
+ambient_music = "graveyard_ambient"
+ambient_light = Color(0.15, 0.15, 0.2, 1)
+environment = null

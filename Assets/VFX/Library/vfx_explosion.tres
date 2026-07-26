@@ -1,0 +1,19 @@
+[gd_resource type="VfxTemplate" load_steps=2 format=3 uid://vfx_explosion]
+[ext_resource type="Script" path="res://Content/Assets/AssetStandards.cs" id="1_1"]
+[resource]
+script = ExtResource("1_1")
+vfx_id = "vfx_explosion"
+display_name = "Explosion"
+category = 1
+lifetime = 1.0
+looping = false
+max_instances = 10
+particle_count = 64
+emit_box = "1, 1, 1"
+speed_min = 3.0
+speed_max = 8.0
+color_start = "1, 0.5, 0, 1"
+color_end = "1, 0, 0, 0"
+scale_min = 0.1
+scale_max = 0.3
+gravity = -1.0

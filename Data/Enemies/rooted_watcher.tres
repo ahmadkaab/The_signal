@@ -1,0 +1,39 @@
+[gd_resource type="EnemyResource" load_steps=2 format=3 uid://rooted_watcher]
+
+[ext_resource type="Script" path="res://Data/EnemyResource.cs" id="1_1"]
+
+[resource]
+script = ExtResource("1_1")
+enemy_id = "rooted_watcher"
+display_name = "Rooted Watcher"
+description = "Silent sentinel of the Grove. Vines pulse with data. It sees without eyes."
+archetype = 9
+level = 2
+portrait = null
+unit_scene = null
+base_might = 10
+base_agility = 14
+base_constitution = 14
+base_intelligence = 12
+base_willpower = 12
+base_resonance = 10
+base_armor = 2
+base_evasion = 15
+resist_physical = 0.1
+resist_resonance = 0.2
+resist_fire = -0.3
+resist_poison = 0.4
+resist_shock = 0.0
+resist_psychic = 0.1
+behavior_tree = "support_control"
+ability_ids = ["basic_ranged", "entangling_vines", "healing_spores", "root_network"]
+personality = 4
+aggro_range = 12
+preferred_range = 5
+loot_table = [
+{"item_id": "vibrant_seed", "min_count": 1, "max_count": 2, "weight": 0.7, "min_level": 2, "max_level": 10},
+{"item_id": "rooted_essence", "min_count": 1, "max_count": 1, "weight": 0.25, "min_level": 3, "max_level": 15}
+]
+xp_reward = 100
+scrap_reward = 20
+resonance_fragment_reward = 2

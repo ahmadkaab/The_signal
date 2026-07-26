@@ -1,0 +1,49 @@
+[gd_resource type="AbilityResource" load_steps=2 format=3 uid://overwatch]
+
+[ext_resource type="Script" path="res://Data/AbilityResource.cs" id="1_1"]
+
+[resource]
+script = ExtResource("1_1")
+ability_id = "overwatch"
+display_name = "Overwatch"
+description = "Enter overwatch: automatically attack the first enemy that moves into range."
+type = 3
+damage_type = 0
+ap_cost = 2
+cooldown_turns = 0
+resonance_cost = 0
+max_charges = 0
+target_type = 6
+range = 0
+radius = 0
+requires_line_of_sight = false
+can_target_self = true
+can_target_allies = false
+can_target_enemies = false
+can_target_empty_tile = false
+base_damage = 0
+stat_scaling = 0.0
+scaling_stat = 0
+status_effects = []
+stat_modifiers = [
+{
+"stat": 17,
+"flat_bonus": 0.0,
+"percent_bonus": 0.0,
+"duration": 1,
+"source_id": "overwatch",
+"is_debuff": false
+}
+]
+position_effects = []
+resource_effects = []
+summon_effects = []
+field_effects = []
+animation_trigger = "overwatch"
+vfx_prefab = null
+sound_effect = null
+cast_time = 0.0
+min_level = 1
+required_signal_nodes = []
+required_mutations = []
+required_weapon_tags = 0

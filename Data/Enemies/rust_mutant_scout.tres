@@ -1,0 +1,58 @@
+[gd_resource type="EnemyUnitData" load_steps=2 format=3 uid://enemy_rust_mutant_scout]
+
+[ext_resource type="Script" path="res://Data/UnitData.cs" id="1_1"]
+
+[resource]
+script = ExtResource("1_1")
+unit_id = "rust_mutant_scout"
+display_name = "Rust Mutant Scout"
+type = 2
+enemy_id = "rust_mutant_scout"
+max_hp = 45
+current_hp = 45
+max_ap = 5
+current_ap = 5
+armor = 0
+evasion = 15
+accuracy = 70
+crit_chance = 5
+crit_damage = 25
+initiative = 14
+move_range = 4
+weapon_damage = 4
+weapon_damage_type = 0
+resist_physical = 0.0
+resist_resonance = -0.2
+resist_fire = 0.1
+resist_poison = 0.3
+resist_shock = -0.1
+resist_psychic = 0.0
+ability_ids = ["basic_melee", "rust_slash", "skitter"]
+grid_position = Vector2i(0, 0)
+level = 1
+xp_reward = 35
+scrap_reward = 8
+resonance_fragment_reward = 1
+loot_table = [
+{
+"item_id": "rust_scrap",
+"min_count": 1,
+"max_count": 2,
+"weight": 1.0,
+"min_level": 1,
+"max_level": 10
+},
+{
+"item_id": "mutant_gland",
+"min_count": 0,
+"max_count": 1,
+"weight": 0.3,
+"min_level": 1,
+"max_level": 10
+}
+]
+is_boss = false
+behavior_tree = "res://Combat/AI/BehaviorTrees/Flanker.tres"
+personality = 6
+aggro_range = 8
+preferred_range = 1

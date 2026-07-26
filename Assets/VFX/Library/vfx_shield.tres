@@ -1,0 +1,19 @@
+[gd_resource type="VfxTemplate" load_steps=2 format=3 uid://vfx_shield]
+[ext_resource type="Script" path="res://Content/Assets/AssetStandards.cs" id="1_1"]
+[resource]
+script = ExtResource("1_1")
+vfx_id = "vfx_shield"
+display_name = "Shield Bubble"
+category = 6
+lifetime = 2.0
+looping = true
+max_instances = 5
+particle_count = 48
+emit_box = "1.5, 1.5, 1.5"
+speed_min = 0.5
+speed_max = 2.0
+color_start = "0.3, 0.6, 1, 0.6"
+color_end = "0.3, 0.6, 1, 0"
+scale_min = 0.05
+scale_max = 0.15
+gravity = 0.0

@@ -1,0 +1,12 @@
+[gd_resource type="TrophyResource" load_steps=2 format=3 uid://trophy_all_faction]
+[ext_resource type="Script" path="res://Data/TrophyResource.cs" id="1_1"]
+[resource]
+script = ExtResource("1_1")
+trophy_id = "TROPHY_ALL_FACTION"
+display_name = "Diplomat"
+description = "Achieve Friend with all three factions"
+rarity = 2
+is_hidden = false
+has_progress = false
+progress_max = 1
+xbox_gamer_score = 50

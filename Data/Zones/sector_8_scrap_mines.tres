@@ -1,0 +1,23 @@
+[gd_resource type="ZoneResource" load_steps=2 format=3 uid://sector_8_scrap_mines]
+[ext_resource type="Script" path="res://Data/ZoneResource.cs" id="1_1"]
+
+[resource]
+script = ExtResource("1_1")
+zone_id = "S08_SCRAP_MINES"
+display_name = "Scrap Mines"
+description = "An open-pit mining operation where Scavengers extract pre-Rust technology. Tunnels spider through the canyon walls."
+zone_type = 2
+faction_controlled = 2
+corruption_trend = -1
+corruption_current = 0
+connections = [{"target_zone_id": "S08_SCORCHED_FOREST", "direction": 0, "fuel_cost": 8, "required_level": 5, "required_faction_rep": 0, "is_locked": false},
+{"target_zone_id": "S08_WASTELAND_FORT", "direction": 0, "fuel_cost": 6, "required_level": 6, "required_faction_rep": 0, "is_locked": false}]
+encounters = [{"encounter_id": "ScavengerGuards", "chance": 35, "weight": 10, "min_level": 4, "max_level": 6},
+{"encounter_id": "TunnelCrawlers", "chance": 30, "weight": 10, "min_level": 5, "max_level": 7},
+{"encounter_id": "MutantHorde", "chance": 25, "weight": 10, "min_level": 4, "max_level": 6}]
+events = [{"event_id": "EVT_PRE_RUST_VAULT", "title": "Pre-Rust Vault", "description": "A sealed vault door with Purified and Rooted insignias side by side.", "trigger_condition": "unlock", "required_flag": "", "required_level": 8, "choices": [{"id": "opt_accept", "text": "Force open (DC 12 Might) or hack (DC 14 Tech). Contains Rare Weapon + 30 Tech Scrap.", "outcomes": [{"type": 0, "value": "event_complete", "description": "Event resolved"}]}]},
+{"event_id": "EVT_SCAVENGER_AUCTION", "title": "Scavenger Auction", "description": "A black-market auction is underway. Rare items on display.", "trigger_condition": "participate", "required_flag": "", "required_level": 6, "choices": [{"id": "opt_accept", "text": "Bid 50 Scrap (random Rare item), intimidate (DC 10 Might), or report to Purified (rep +10).", "outcomes": [{"type": 0, "value": "event_complete", "description": "Event resolved"}]}]}]
+is_discovered = false
+props = []
+npcs = []
+interactables = []

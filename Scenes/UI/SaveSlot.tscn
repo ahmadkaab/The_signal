@@ -1,0 +1,49 @@
+[gd_scene load_steps=3 format=3 uid://uid_saveslot]
+
+[ext_resource type="Script" path="res://Scenes/UI/SaveSlot.cs" id="1_1"]
+[ext_resource type="Texture2D" path="res://Assets/Art/UI/save_slot_bg.png" id="1_2"]
+
+[node name="SaveSlot" type="PanelContainer"]
+script = ExtResource("1_1")
+custom_minimum_size = Vector2(0, 100)
+
+[node name="MainContainer" type="HBoxContainer" parent="." anchor_right=1.0 anchor_bottom=1.0]
+
+[node name="InfoContainer" type="VBoxContainer" parent="MainContainer" h_size_flags=3]
+
+[node name="SaveName" type="Label" parent="InfoContainer"]
+text = "Save Slot 1"
+horizontal_alignment = 0
+
+[node name="DetailsContainer" type="HBoxContainer" parent="InfoContainer"]
+
+[node name="PlaytimeLabel" type="Label" parent="DetailsContainer"]
+text = "0h 0m"
+autowrap_mode = 1
+
+[node name="Separator1" type="Label" parent="DetailsContainer"]
+text = " | "
+autowrap_mode = 1
+
+[node name="LevelLabel" type="Label" parent="DetailsContainer"]
+text = "Lv. 1"
+autowrap_mode = 1
+
+[node name="Separator2" type="Label" parent="DetailsContainer"]
+text = " | "
+autowrap_mode = 1
+
+[node name="ZoneLabel" type="Label" parent="DetailsContainer"]
+text = "Unknown Zone"
+autowrap_mode = 1
+
+[node name="ButtonContainer" type="HBoxContainer" parent="MainContainer"]
+
+[node name="LoadButton" type="Button" parent="ButtonContainer"]
+text = "Load"
+custom_minimum_size = Vector2(80, 40)
+
+[node name="DeleteButton" type="Button" parent="ButtonContainer"]
+text = "Delete"
+custom_minimum_size = Vector2(80, 40)
+theme_override_colors/font_color = Color(1, 0.3, 0.3, 1)

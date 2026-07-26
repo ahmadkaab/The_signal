@@ -1,0 +1,39 @@
+[gd_resource type="EnemyResource" load_steps=2 format=3 uid://rust_mutated_scavenger]
+
+[ext_resource type="Script" path="res://Data/EnemyResource.cs" id="1_1"]
+
+[resource]
+script = ExtResource("1_1")
+enemy_id = "rust_mutated_scavenger"
+display_name = "Rust-Mutated Scavenger"
+description = "A scavenger consumed by the Rust. Metal grows through flesh. Mindless aggression."
+archetype = 6
+level = 1
+portrait = null
+unit_scene = null
+base_might = 12
+base_agility = 10
+base_constitution = 10
+base_intelligence = 8
+base_willpower = 8
+base_resonance = 5
+base_armor = 1
+base_evasion = 5
+resist_physical = 0.1
+resist_resonance = -0.2
+resist_fire = 0.0
+resist_poison = 0.3
+resist_shock = 0.0
+resist_psychic = 0.0
+behavior_tree = "aggressive_melee"
+ability_ids = ["basic_melee", "rust_slash"]
+personality = 3
+aggro_range = 8
+preferred_range = 1
+loot_table = [
+{"item_id": "rust_scrap", "min_count": 1, "max_count": 3, "weight": 1.0, "min_level": 1, "max_level": 5},
+{"item_id": "corroded_chip", "min_count": 1, "max_count": 1, "weight": 0.3, "min_level": 1, "max_level": 10}
+]
+xp_reward = 50
+scrap_reward = 15
+resonance_fragment_reward = 1

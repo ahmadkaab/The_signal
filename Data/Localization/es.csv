@@ -1,0 +1,69 @@
+key,text
+DLG_GUARD_INTRO,El guardia bloquea la puerta.
+DLG_GUARD_BRIBED,El guardia guarda el soborno y se aparta.
+DLG_OPT_BRIBE,Ofrecer 50 de oro
+DLG_OPT_LEAVE,Irse
+DLG_KAEL_001,Soy Kael-7. Séptima iteración. Paladín Purificado.
+DLG_KAEL_002,La firma de la Señal... frecuencia de Caminante. Imposible.
+DLG_MARA_001,Soy Mara del Coro Verde.
+DLG_MARA_002,La Señal... canta en ti.
+DLG_CHOOSE_COMPANION,¿En quién confías?
+DLG_CHOOSE_KAEL,Kael. Necesito tecnología para sobrevivir.
+DLG_CHOOSE_MARA,Mara. Necesito entender en qué me he convertido.
+DLG_CHOOSE_BOTH,Ambos. Vamos en la misma dirección.
+DLG_CHOOSE_NONE,¿Por qué debería confiar en alguno?
+TUT_MOVE,WASD / Flechas: Mover
+TUT_ABILITY,1-4: Habilidades
+TUT_END_TURN,Espacio: Terminar turno
+TUT_OVERWATCH,Tabulador: Vigilancia
+TUT_TARGET,Clic: Objetivo
+TUT_COMBAT_VICTORY,¡Victoria! XP ganada: %d
+TUT_COMBAT_DEFEAT,Has caído. La Señal se desvanece...
+ITEM_PULSE_PISTOL,Pistola de Pulso
+ITEM_STIMULANT,Estimulante
+ITEM_CHROME_RIFLE,Fusil de Cromo Purificado
+ITEM_VINE_LASH,Látigo de Vid
+ABILITY_BASIC_ATTACK,Ataque Básico
+ABILITY_RESONANCE_PULSE,Pulso de Resonancia
+ABILITY_ENTANGLE,Enredaderas
+ABILITY_OVERWATCH,Vigilancia
+STAT_MIGHT,Poder
+STAT_AGILITY,Agilidad
+STAT_CONSTITUTION,Constitución
+STAT_INTELLIGENCE,Inteligencia
+STAT_WILLPOWER,Fuerza de Voluntad
+STAT_RESONANCE,Resonancia
+UI_HP,PG: %d/%d
+UI_AP,PA: %d/%d
+UI_LEVEL,Nivel %d
+UI_XP,PX: %d/%d
+UI_SCRAP,Chatarra: %d
+UI_FUEL,Combustible: %d/%d
+UI_SAVE,Guardar Partida
+UI_LOAD,Cargar Partida
+UI_SETTINGS,Opciones
+UI_QUIT,Salir
+UI_NEW_GAME,Nueva Partida
+UI_RESUME,Continuar
+UI_SAVE_SLOT,Ranura %d
+UI_EMPTY_SLOT,Ranura Vacía
+UI_DELETE,Eliminar
+UI_BACK,Volver
+UI_CONFIRM,Confirmar
+UI_CANCEL,Cancelar
+ZONE_GRAVEYARD,Sector 9: El Cementerio
+ZONE_CITADEL,Ciudadela Purificada
+ZONE_GROVE,La Arboleda Verde
+ZONE_FREEPORT,Puerto Libre Carroñero
+ZONE_SECTOR_8,Sector 8: Los Yermos
+NOTIF_QUEST_STARTED,Misión Iniciada: %s
+NOTIF_QUEST_UPDATED,Misión Actualizada: %s
+NOTIF_QUEST_COMPLETED,Misión Completada: %s
+NOTIF_ITEM_OBTAINED,Obtenido: %s x%d
+NOTIF_XP_GAINED,PX Ganados: +%d
+NOTIF_LEVEL_UP,¡Subiste de Nivel! Ahora Nivel %d
+NOTIF_SAVED,Partida Guardada
+NOTIF_LOADED,Partida Cargada
+ERROR_LOAD_FAILED,Error al cargar la partida
+ERROR_SAVE_FAILED,Error al guardar la partida
+ERROR_NO_SAVE,No hay datos guardados

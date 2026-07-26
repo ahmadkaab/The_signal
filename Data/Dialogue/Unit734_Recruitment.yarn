@@ -1,0 +1,76 @@
+title: Unit734_Recruitment
+---
+===
+Unit734_Intro
+===
+
+Unit 734: UNIT 734. COMBAT PROTOCOLS ONLINE. IDENTIFY YOURSELF.
+
+-> I'm a Signal-Walker. You're a pre-Rust military android.
+    === Unit734_Identify ===
+-> I'm not your enemy. Stand down.
+    === Unit734_StandDown ===
+-> Unit 734, I need your combat expertise.
+    === Unit734_Mission ===
+
+===
+Unit734_Identify
+===
+
+Unit 734: SIGNAL-WALKER. NOT IN MY DATABASE. CLASSIFICATION: ANOMALOUS.
+Unit 734: My records indicate all Signal-capable humans were terminated in the Purge of 2089.
+
+<<set $unit734_loyalty = $unit734_loyalty + 10>>
+
+-> Those records are out of date. I'm proof of that.
+    === Unit734_Accepted ===
+
+===
+Unit734_StandDown
+===
+
+Unit 734: VITAL SIGNS STABLE. THREAT ASSESSMENT: LOW. STANDING DOWN.
+Unit 734: My combat chronometer shows 4,837 days since last deployment. I am... restless.
+
+<<set $unit734_loyalty = $unit734_loyalty + 15>>
+
+-> Then deploy with me. I have plenty of fighting ahead.
+    === Unit734_Accepted ===
+
+===
+Unit734_Mission
+===
+
+Unit 734: MISSION PARAMETERS REQUIRED. STATE OBJECTIVES.
+Unit 734: My original orders were lost in a system corruption event in 2092. Fragment: 'PROTECT THE VAULT'.
+
+<<set $unit734_loyalty = $unit734_loyalty + 10>>
+
+-> We'll find your original orders. But first, help me reach the Signal.
+    === Unit734_Accepted ===
+
+===
+Unit734_Accepted
+===
+
+Unit 734: AFFIRMATIVE. UNIT 734 REASSIGNED TO NEW MISSION: WALKER PROTOCAL.
+Unit 734: I will calculate optimal combat solutions. Biological limitations noted.
+
+<<set $unit734_loyalty = 30>>
+<<set $unit734_recruited = true>>
+<<set $active_companions += 1>>
+<<set $party: "Unit734" = true>>
+<<set $quest_734_origins = "active">>
+
+Unit 734 <<companion_join>>
+<<give_item chrome_rifle>>
+
+-> Welcome to the squad, 734.
+    === Unit734_Joined ===
+
+===
+Unit734_Joined
+===
+
+Unit 734: READY FOR DEPLOYMENT. Walker. <<signal>>
+    -> Move out. (End)

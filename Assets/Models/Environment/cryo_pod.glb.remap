@@ -1,0 +1,9 @@
+[gd_resource type="PackedScene" load_steps=2 format=3 uid://model_props]
+[ext_resource type="GLTFDocument" path="res://Assets/Models/Environment/cryo_pod.glb" id="1_1"]
+[resource]
+import_script = "res://Content/Assets/ImportPipeline.gd"
+generate_lods = true
+lod_count = 2
+lod_distances = [20.0, 50.0]
+generate_collision = true
+scale = 1.0

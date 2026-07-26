@@ -1,0 +1,23 @@
+[gd_resource type="ArmorResource" load_steps=2 format=3 uid://scavenger_chest]
+
+[ext_resource type="Script" path="res://Data/ItemResource.cs" id="1_1"]
+
+[resource]
+script = ExtResource("1_1")
+item_id = "scavenger_chest"
+display_name = "Scavenger Mesh"
+description = "Patchwork armor. Scrap metal, Kevlar, luck. Surprisingly effective."
+type = 3
+rarity = 1
+icon = null
+max_stack = 1
+value = 300
+weight = 4
+is_unique = false
+is_quest_item = false
+is_craftable = true
+crafting_cost = [{"item_id": "tech_scrap", "min_count": 15, "max_count": 25, "weight": 1.0, "guaranteed": true}, {"item_id": "random_chip", "min_count": 1, "max_count": 1, "weight": 0.3, "guaranteed": false}]
+base_armor = 5
+armor_type = 0
+set_bonuses = []
+allows_stealth = true

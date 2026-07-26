@@ -1,0 +1,19 @@
+[gd_resource type="VfxTemplate" load_steps=2 format=3 uid://vfx_beam]
+[ext_resource type="Script" path="res://Content/Assets/AssetStandards.cs" id="1_1"]
+[resource]
+script = ExtResource("1_1")
+vfx_id = "vfx_beam"
+display_name = "Energy Beam"
+category = 2
+lifetime = 0.3
+looping = false
+max_instances = 5
+particle_count = 32
+emit_box = "0.1, 2, 0.1"
+speed_min = 10.0
+speed_max = 20.0
+color_start = "0.3, 0.5, 1, 1"
+color_end = "0.3, 0.5, 1, 0"
+scale_min = 0.05
+scale_max = 0.1
+gravity = 0.0

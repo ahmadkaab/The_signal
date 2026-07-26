@@ -1,0 +1,69 @@
+key,text
+DLG_GUARD_INTRO,警備員が門を塞いでいる。
+DLG_GUARD_BRIBED,警備員は金を受け取り脇へ退いた。
+DLG_OPT_BRIBE,50ゴールドを渡す
+DLG_OPT_LEAVE,立ち去る
+DLG_KAEL_001,私はケイル-7。第七世代。浄化の聖騎士。
+DLG_KAEL_002,信号の署名…歩行者の周波数…ありえない。
+DLG_MARA_001,私は緑の聖歌隊のマラ。
+DLG_MARA_002,信号が…あなたの中で歌っている。
+DLG_CHOOSE_COMPANION,誰を信じる？
+DLG_CHOOSE_KAEL,ケイル。生き残るには技術が必要だ。
+DLG_CHOOSE_MARA,マラ。自分が何になったのか理解したい。
+DLG_CHOOSE_BOTH,二人とも。同じ方向へ進むんだ。
+DLG_CHOOSE_NONE,なぜ君たちを信じる必要がある？
+TUT_MOVE,WASD/矢印キー: 移動
+TUT_ABILITY,1-4: アビリティ
+TUT_END_TURN,スペース: ターン終了
+TUT_OVERWATCH,タブ: 待機
+TUT_TARGET,クリック: ターゲット
+TUT_COMBAT_VICTORY,戦闘勝利! 獲得XP: %d
+TUT_COMBAT_DEFEAT,倒れた…信号が消えていく…
+ITEM_PULSE_PISTOL,パルスピストル
+ITEM_STIMULANT,興奮剤
+ITEM_CHROME_RIFLE,浄化クロームライフル
+ITEM_VINE_LASH,蔦の鞭
+ABILITY_BASIC_ATTACK,通常攻撃
+ABILITY_RESONANCE_PULSE,共鳴パルス
+ABILITY_ENTANGLE,絡め取る蔦
+ABILITY_OVERWATCH,待機
+STAT_MIGHT,筋力
+STAT_AGILITY,敏捷性
+STAT_CONSTITUTION,体力
+STAT_INTELLIGENCE,知性
+STAT_WILLPOWER,意志力
+STAT_RESONANCE,共鳴
+UI_HP,HP: %d/%d
+UI_AP,AP: %d/%d
+UI_LEVEL,レベル%d
+UI_XP,XP: %d/%d
+UI_SCRAP,スクラップ: %d
+UI_FUEL,燃料: %d/%d
+UI_SAVE,セーブ
+UI_LOAD,ロード
+UI_SETTINGS,設定
+UI_QUIT,終了
+UI_NEW_GAME,ニューゲーム
+UI_RESUME,続ける
+UI_SAVE_SLOT,スロット%d
+UI_EMPTY_SLOT,空きスロット
+UI_DELETE,削除
+UI_BACK,戻る
+UI_CONFIRM,確認
+UI_CANCEL,キャンセル
+ZONE_GRAVEYARD,セクター9: 墓場
+ZONE_CITADEL,浄化の城塞
+ZONE_GROVE,緑の聖林
+ZONE_FREEPORT,スカベンジャーの自由港
+ZONE_SECTOR_8,セクター8: 廃土
+NOTIF_QUEST_STARTED,クエスト開始: %s
+NOTIF_QUEST_UPDATED,クエスト更新: %s
+NOTIF_QUEST_COMPLETED,クエスト完了: %s
+NOTIF_ITEM_OBTAINED,入手: %s x%d
+NOTIF_XP_GAINED,獲得XP: +%d
+NOTIF_LEVEL_UP,レベルアップ! レベル%dに
+NOTIF_SAVED,セーブ完了
+NOTIF_LOADED,ロード完了
+ERROR_LOAD_FAILED,セーブデータの読み込みに失敗
+ERROR_SAVE_FAILED,セーブに失敗
+ERROR_NO_SAVE,セーブデータがありません

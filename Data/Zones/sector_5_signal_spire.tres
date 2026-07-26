@@ -1,0 +1,21 @@
+[gd_resource type="ZoneResource" load_steps=2 format=3 uid://sector_5_signal_spire]
+[ext_resource type="Script" path="res://Data/ZoneResource.cs" id="1_1"]
+
+[resource]
+script = ExtResource("1_1")
+zone_id = "S05_SIGNAL_SPIRE"
+display_name = "Signal Spire"
+description = "The origin point of the broadcast in Sector 5. A tower of pure crystal that pierces the Barrier itself."
+zone_type = 2
+faction_controlled = 3
+corruption_trend = 8
+corruption_current = 0
+connections = [{"target_zone_id": "S05_THE_BARRIER", "direction": 0, "fuel_cost": 10, "required_level": 10, "required_faction_rep": 0, "is_locked": false}]
+encounters = [{"encounter_id": "SpireGuardians", "chance": 40, "weight": 10, "min_level": 10, "max_level": 12},
+{"encounter_id": "ResonanceElemental", "chance": 30, "weight": 10, "min_level": 10, "max_level": 11}]
+events = [{"event_id": "EVT_SPIRE_TOP", "title": "Spire Summit", "description": "The top of the Spire offers a clear broadcast to anywhere in the sector.", "trigger_condition": "transmit", "required_flag": "", "required_level": 11, "choices": [{"id": "opt_accept", "text": "Transmit your own message: call for allies (arrive in Act II), warn other Walkers, or amplify ORACLE's signal (advance Act I ending).", "outcomes": [{"type": 0, "value": "event_complete", "description": "Event resolved"}]}]},
+{"event_id": "EVT_SIGNAL_NEXUS", "title": "Signal Nexus", "description": "The Spire's core is a nexus of pure Signal energy.", "trigger_condition": "absorb", "required_flag": "", "required_level": 12, "choices": [{"id": "opt_accept", "text": "Absorb the energy: +20 Max Resonance, +5 Signal Points. Permanent choice — locks Act II progression path.", "outcomes": [{"type": 0, "value": "event_complete", "description": "Event resolved"}]}]}]
+is_discovered = false
+props = []
+npcs = []
+interactables = []

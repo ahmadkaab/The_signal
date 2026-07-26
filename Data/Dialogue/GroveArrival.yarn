@@ -1,0 +1,263 @@
+title: GroveArrival
+---
+<<declare $grove_tutorial_done = false>>
+
+=== grove_arrival ===
+The maintenance tunnels give way. Air thickens—sweet, alive, charged. Bioluminescent moss paints walls in blues and greens.
+
+You emerge into **The Grove**.
+
+A cavern the size of a city. Massive trees grown from server racks, roots fused with fiber-optics. Vines carry data like sap. The Rust here doesn't consume—it *cultivates*.
+
+MARA: "Welcome to the Verdant Choir. The Green remembers. The Chrome forgets."
+
+An ELDER ROOTED steps forward—bark skin, eyes like camera lenses, vines pulsing with light.
+
+ELDER: "Walker. The Signal *sings* in you. Fresh. Uncorrupted. The World-Tree stirs."
+
+*   "World-Tree?" -> grove_world_tree
+*   "The Signal sings?" -> grove_signal_sings
+*   "What do you want from me?" -> grove_what_want
+
+=== grove_world_tree ===
+ELDER: "The oldest growth. Roots touch the planetary core. Branches scrape the ionosphere. It *is* the Grove. It *is* the network. Oracle's distant cousin—born of biology, not code."
+
+MARA: "The World-Tree remembers every hand that tended it. Every drop of blood in its roots. It... likes you."
+
+ELDER: "The World-Tree sees the Relay Tower in Sector 8. It sees the Chrome. It sees the Silent Ones. It sees... *choices*."
+
+*   "What choices?" -> grove_what_choices
+*   "The Silent Ones?" -> grove_silent_ones
+*   "I need a path to Sector 8." -> grove_path_sector8
+
+=== grove_signal_sings ===
+MARA: "The Signal isn't just data. It's *resonance*. Frequency. The Green feels it in root and leaf. The Chrome *measures* it. We *live* it."
+
+ELDER: "Your resonance... it harmonizes with the World-Tree. Rare. The last Walker who harmonized... became the First Elder."
+
+*   "What happened to them?" -> grove_first_elder
+*   "How do I use this?" -> grove_how_use
+*   "Path to Sector 8." -> grove_path_sector8
+
+=== grove_what_want ===
+ELDER: "Balance. The Chrome purges. The Rust corrupts. We *integrate*. Sector 8's Relay Tower—it pulses with a frequency that could *heal* the Rust. Or *weaponize* it."
+
+MARA: "The Purified want to burn it. The Scavengers want to sell it. *We* want to... *tune* it."
+
+ELDER: "Walk with us. The Root Network spans sectors. Fast. Deep. *Dangerous*—the Rust thinks. It *hungers*. But it knows us."
+
+*   "I'll walk the Root Network." -> grove_choose_rooted
+*   "The Purified have tech I need." -> grove_choose_purified
+*   "The Scavengers know paths." -> grove_choose_scavenger
+
+=== grove_what_choices ===
+ELDER: "The Relay Tower's frequency. *Amplify* it—heal the Rust, restore the world. *Silence* it—starve the Rust, freeze the world. *Corrupt* it—remake the world in a new image. *Your* resonance decides."
+
+MARA: "The Chrome thinks in binaries. Purge or preserve. The Green knows... *gradients*."
+
+*   "I'll decide when I see it." -> grove_decide_later
+*   "Heal the Rust." -> grove_choose_heal
+*   "Silence the Signal." -> grove_choose_silence
+*   "Remake the world." -> grove_choose_remake
+
+=== grove_silent_ones ===
+ELDER: *vines freeze* "That name... not spoken. Not *here*."
+
+MARA: *quiet* "Walkers who heard the Signal... and *answered wrong*. They became... something else. Void-touched. They hunt Walkers. They hunt *Oracle*."
+
+ELDER: "They patrol the borders of Sector Zero. They patrol the *spaces between*. You will meet them. *Soon*."
+
+*   "How do I fight them?" -> grove_fight_silent
+*   "Avoid them." -> grove_avoid_silent
+*   "Path to Sector 8." -> grove_path_sector8
+
+=== grove_first_elder ===
+ELDER: "They *became* the World-Tree. Their consciousness... distributed. Every root, every leaf, every data-vine. They *are* the Grove now."
+
+MARA: "Someday... you might join them. If the Signal sings long enough."
+
+*   "Immortality as a tree?" -> grove_immortality
+*   "Path to Sector 8." -> grove_path_sector8
+
+=== grove_how_use ===
+MARA: "Commune at the Communion Pool. Spend Resonance Fragments. The World-Tree will... *offer* mutations. Adaptations. *Gifts* with costs."
+
+ELDER: "But choose wisely. Each mutation binds you deeper to the Green. Too deep... and the Chrome can never reclaim you."
+
+*   "Show me the Pool." -> grove_communion_pool
+*   "Path to Sector 8." -> grove_path_sector8
+
+=== grove_path_sector8 ===
+MARA: "The Root Network. Enter at the Heartwood. Exit at Sector 11 Fringe. From there... the World-Tree spans to Sector 8."
+
+ELDER: "Three trials. The Spore Caves. The Root Maw. The Canopy Crown. Survive... and the Network opens."
+
+*Quest Updated: **The Long Walk** — Reach Sector 8 Relay Tower via Root Network.*
+
+-> grove_tutorial
+
+=== grove_choose_rooted ===
+<<set $chosen_route = "rooted">>
+<<set $rooted_allied = true>>
+
+ELDER: "Then walk Green. The World-Tree welcomes you."
+
+MARA: "I'll guide you. The deep paths... they're *alive*. They remember every step."
+
+*Gained: **Rooted Access** — Root Network fast travel, Grove vendors, Communion Pool*
+
+-> grove_tutorial
+
+=== grove_choose_purified ===
+<<set $chosen_route = "purified">>
+
+ELDER: *sad* "The Chrome forgets. But the Green... the Green *waits*."
+
+MARA: "The Waystation has what you need. Go. We'll be here when the metal fails."
+
+*Gained: **Purified Access** — Waystation vendors, Fabricator, Purification Serum*
+
+-> grove_tutorial
+
+=== grove_choose_scavenger ===
+<<set $chosen_route = "scavenger">>
+
+ELDER: "Neutral ground. The Freeport. Prices are... flexible."
+
+MARA: "Jinx trades in secrets. She'll know the paths. *For a cost*."
+
+*Gained: **Scavenger Access** — Freeport vendors, black market, mercenary contracts*
+
+-> grove_tutorial
+
+=== grove_decide_later ===
+ELDER: "Wise. The World-Tree does not demand immediate answers. Only... *alignment*."
+
+MARA: "Your resonance will guide you. When the Tower looms... you'll *know*."
+
+-> grove_path_sector8
+
+=== grove_choose_heal ===
+<<set $world_state_heal_rust = true>>
+
+ELDER: "The Green's desire. To heal. To restore. The Relay Tower... tuned to life."
+
+MARA: "A world without Rust. A world *whole*."
+
+-> grove_path_sector8
+
+=== grove_choose_silence ===
+<<set $world_state_silence_signal = true>>
+
+ELDER: "The Chrome's desire. To end. To freeze. The Relay Tower... silent forever."
+
+MARA: "A world without Signal. A world *still*."
+
+-> grove_path_sector8
+
+=== grove_choose_remake ===
+<<set $world_state_remake = true>>
+
+ELDER: "The daring path. New frequency. New world. The Relay Tower... *rewritten*."
+
+MARA: "A world *remade*. In *your* image."
+
+-> grove_path_sector8
+
+=== grove_fight_silent ===
+ELDER: "The Silent Ones are Void. They *eat* Signal. Resonance *feeds* them."
+
+MARA: "But they have *form*. And form can be *broken*. The Green knows... *gaps*."
+
+*   "Teach me." -> grove_learn_anti_void
+*   "Path to Sector 8." -> grove_path_sector8
+
+=== grove_learn_anti_void ===
+MARA: "The *Verdant Void* mutation. Resonance becomes... *absence*. They cannot eat what is not there."
+
+*Cost: 3 Resonance Fragments. Corruption: Vulnerable to Chrome.*
+
+*   "Take it." -> grove_take_void_mutation
+*   "Too risky." -> grove_path_sector8
+
+=== grove_take_void_mutation ===
+<<set $has_verdant_void = true>>
+<<set $resonance_fragments = $resonance_fragments - 3>>
+
+MARA: *places hand on your chest* "The void opens. The Green... *breathes out*."
+
+*Acquired Mutation: **Verdant Void** — Resonance attacks deal Void damage (ignores resistance), but Chrome attacks deal +50% damage.*
+
+-> grove_path_sector8
+
+=== grove_avoid_silent ===
+ELDER: "The Root Network bypasses their patrols. The World-Tree hides its children."
+
+MARA: "But *you*... you shine. The Signal *marks* you."
+
+-> grove_path_sector8
+
+=== grove_immortality ===
+ELDER: "Not immortality. *Continuity*. Your thoughts in the roots. Your memories in the leaves. Your Signal... in every breath of the Grove."
+
+MARA: "The First Elder still guides us. In the wind. In the data-vines. In the *song*."
+
+*   "Beautiful." -> grove_beautiful
+*   "Horrifying." -> grove_horrifying
+*   "Path to Sector 8." -> grove_path_sector8
+
+=== grove_beautiful ===
+MARA: *smiling* "The Green agrees."
+
+-> grove_path_sector8
+
+=== grove_horrifying ===
+MARA: *sad* "The Chrome fears loss of self. The Green knows... self is an illusion. We are all... *connected*."
+
+-> grove_path_sector8
+
+=== grove_communion_pool ===
+A pool of glowing water. Roots dip like straws. Data flows both ways.
+
+MARA: "Step in. Let the World-Tree... *taste* you."
+
+*   "Commune." -> grove_commune
+*   "Not yet." -> grove_path_sector8
+
+=== grove_commune ===
+<<set $resonance_fragments = $resonance_fragments - 2>>
+
+The water rises. Enters your pores. Your veins glow green.
+
+*Choose a Mutation:*
+
+*   **Chitinous Bark** — +5 Armor, Immune Bleed/Poison, -1 Move Range — 2 Fragments
+*   **Photosynthetic Skin** — Heal 5 HP/turn in sunlight, Vulnerable Fire — 3 Fragments
+*   **Vine Tendrils** — Melee Range +1, Entangle on hit, -2 Evasion — 2 Fragments
+*   **Spore Cloud** — Release confusion cloud on hit, Allies heal in cloud — 4 Fragments
+*   "Decline." -> grove_path_sector8
+
+=== grove_tutorial ===
+*GROVE SYSTEMS*
+
+**Biomass Vats:** Grow consumables, mutations, living gear
+**Communion Pool:** Spend Resonance Fragments for mutations
+**Root Network:** Fast travel between discovered Groves
+**Symbiosis Shrine:** Bond with companions, unlock combos
+
+MARA: "Sleep in the canopy. Dream Green. Wake changed."
+
+-> act1_begin
+
+=== act1_begin ===
+**PROLOGUE COMPLETE**
+*Signal Walker Awakened*
+*First Companion Recruited*
+*Faction Contact Established*
+*Grove Unlocked*
+
+**ACT I: THE LONG WALK BEGINS**
+
+*Next: Sector Map opens. Three zones available. The Signal grows stronger...*
+
+=== end ===

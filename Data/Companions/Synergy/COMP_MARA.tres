@@ -1,0 +1,42 @@
+[gd_resource type="CompanionSynergyResource" load_steps=2 format=3 uid://mara_synergy]
+
+[ext_resource type="Script" path="res://Data/EditorResources.cs" id="1_1"]
+
+[resource]
+script = ExtResource("1_1")
+companion_id = "COMP_MARA"
+companion_name = "Mara"
+loyalty_thresholds = [100, 300, 600, 1000, 1500]
+nodes = [
+{
+"description": "Rank 1: Mara trusts you. +10% Accuracy when adjacent. Companions gain +10% Healing Received.",
+"player_effects": [{}],
+"companion_effects": [{}],
+"dual_ability_id": ""
+},
+{
+"description": "Rank 2: Symbiotic Frequency. Player abilities cost -1 AP for Mara, Mara abilities cost -1 AP for player.",
+"player_effects": [{}],
+"companion_effects": [{}],
+"dual_ability_id": ""
+},
+{
+"description": "Rank 3: Rooted in Green. Shared Harmonized when adjacent.",
+"player_effects": [{}],
+"companion_effects": [{}],
+"dual_ability_id": ""
+},
+{
+"description": "Rank 4: Vines maintain connection. Use ability -> Mara can React (free basic attack).",
+"player_effects": [{}],
+"companion_effects": [{}],
+"dual_ability_id": ""
+},
+{
+"description": "Rank 5: Primal Chorus. Mara: Metamorphosis (Instant, 5 turns, no AP). Player: Resonance Cascade (Free, centered on Mara). Shared: All Bleed/Poison -> Fractured.",
+"player_effects": [{}],
+"companion_effects": [{}],
+"dual_ability_id": "primal_chorus"
+}
+]
+unlock_dialogue = "mara_dual_ultimate_unlock"

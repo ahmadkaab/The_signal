@@ -1,0 +1,23 @@
+[gd_resource type="ZoneResource" load_steps=2 format=3 uid://sector_7_crystal_spires]
+[ext_resource type="Script" path="res://Data/ZoneResource.cs" id="1_1"]
+
+[resource]
+script = ExtResource("1_1")
+zone_id = "S07_CRYSTAL_SPIRES"
+display_name = "Crystal Spires"
+description = "Giant crystal formations that pierce the cavern ceiling. The air hums with barely contained energy."
+zone_type = 2
+faction_controlled = 1
+corruption_trend = 4
+corruption_current = 0
+connections = [{"target_zone_id": "S07_CRYSTAL_CAVERNS", "direction": 0, "fuel_cost": 8, "required_level": 8, "required_faction_rep": 0, "is_locked": false},
+{"target_zone_id": "S07_RESONANCE_PIT", "direction": 0, "fuel_cost": 6, "required_level": 7, "required_faction_rep": 0, "is_locked": false}]
+encounters = [{"encounter_id": "RootedDefenders", "chance": 30, "weight": 10, "min_level": 8, "max_level": 9},
+{"encounter_id": "ResonanceShades", "chance": 25, "weight": 10, "min_level": 7, "max_level": 8},
+{"encounter_id": "CrystalElemental", "chance": 15, "weight": 10, "min_level": 8, "max_level": 10}]
+events = [{"event_id": "EVT_SPIRE_CLIMB", "title": "Spire Climb", "description": "Climb the tallest spire for a view of the entire sector.", "trigger_condition": "climb", "required_flag": "", "required_level": 8, "choices": [{"id": "opt_accept", "text": "Success (DC 10 Agility): reveals secret zone entrance. Failure: fall damage, lose 20% HP.", "outcomes": [{"type": 0, "value": "event_complete", "description": "Event resolved"}]}]},
+{"event_id": "EVT_CRYSTAL_SONG", "title": "Crystal Song", "description": "The spires emit a harmonic frequency that matches your Signal resonance.", "trigger_condition": "harmonize", "required_flag": "", "required_level": 9, "choices": [{"id": "opt_accept", "text": "Harmonize: unlock Resonance Mutation (free). Costs -10 Corruption.", "outcomes": [{"type": 0, "value": "event_complete", "description": "Event resolved"}]}]}]
+is_discovered = false
+props = []
+npcs = []
+interactables = []

@@ -1,0 +1,23 @@
+[gd_resource type="ZoneResource" load_steps=2 format=3 uid://sector_6_purification_forge]
+[ext_resource type="Script" path="res://Data/ZoneResource.cs" id="1_1"]
+
+[resource]
+script = ExtResource("1_1")
+zone_id = "S06_PURIFICATION_FORGE"
+display_name = "Purification Forge"
+description = "A massive industrial complex where the Purified 'reclaim' corrupted technology. Fires burn day and night."
+zone_type = 1
+faction_controlled = 0
+corruption_trend = -5
+corruption_current = 0
+connections = [{"target_zone_id": "S07_RESONANCE_PIT", "direction": 0, "fuel_cost": 16, "required_level": 8, "required_faction_rep": 2, "is_locked": false},
+{"target_zone_id": "S06_MUTATION_LAB", "direction": 0, "fuel_cost": 12, "required_level": 8, "required_faction_rep": 0, "is_locked": false}]
+encounters = [{"encounter_id": "PurifiedElite", "chance": 35, "weight": 10, "min_level": 8, "max_level": 10},
+{"encounter_id": "ForgedGuardian", "chance": 25, "weight": 10, "min_level": 9, "max_level": 10},
+{"encounter_id": "TechPriest", "chance": 20, "weight": 10, "min_level": 8, "max_level": 10}]
+events = [{"event_id": "EVT_FORGE_CORE", "title": "Forge Core", "description": "The heart of the forge — a massive furnace that purifies corrupted materials.", "trigger_condition": "activate", "required_flag": "", "required_level": 10, "choices": [{"id": "opt_accept", "text": "Activate the core: -50 Corruption for all party members. Requires 3 Purification Serums or Purified rep >= Friendly.", "outcomes": [{"type": 0, "value": "event_complete", "description": "Event resolved"}]}]},
+{"event_id": "EVT_SUPPRESSED_SIGNAL", "title": "Suppressed Signal", "description": "The Purified are jamming the Signal here. You detect a hidden transmitter.", "trigger_condition": "disable", "required_flag": "", "required_level": 10, "choices": [{"id": "opt_accept", "text": "Disable the jammer: unlock fast travel to this zone. Combat vs 4 Purified Soldiers.", "outcomes": [{"type": 0, "value": "event_complete", "description": "Event resolved"}]}]}]
+is_discovered = false
+props = []
+npcs = []
+interactables = []

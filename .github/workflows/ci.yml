@@ -1,0 +1,131 @@
+name: CI
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main, develop]
+
+env:
+  DOTNET_VERSION: '8.0.x'
+  GODOT_VERSION: '4.3'
+
+jobs:
+  build:
+    name: Build & Test
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: ${{ env.DOTNET_VERSION }}
+
+      - name: Cache NuGet
+        uses: actions/cache@v4
+        with:
+          path: ~/.nuget/packages
+          key: ${{ runner.os }}-nuget-${{ hashFiles('**/*.csproj') }}
+          restore-keys: |
+            ${{ runner.os }}-nuget-
+
+      - name: Restore
+        run: dotnet restore TheSignal.csproj
+
+      - name: Build
+        run: dotnet build TheSignal.csproj --configuration Release --no-restore
+
+      - name: Test
+        run: dotnet test TheSignal.csproj --configuration Release --no-build --verbosity normal
+
+  godot-headless:
+    name: Godot Headless Validation
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install Godot
+        uses: firebelley/godot-export@v6.0.0
+        with:
+          godot_version: ${{ env.GODOT_VERSION }}
+          template_version: ${{ env.GODOT_VERSION }}
+          relative_project_path: ./
+          cache: true
+
+      - name: Validate Project
+        run: |
+          godot --headless --quit --script /dev/stdin << 'EOF'
+          var err = ProjectSettings.load_resource_pack("res://project.godot")
+          if err != OK:
+              print("Project load failed: ", err)
+              OS.exit(1)
+          print("Project validation passed")
+          OS.exit(0)
+          EOF
+
+  export-windows:
+    name: Export Windows
+    needs: [build, godot-headless]
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    if: github.event_name == 'push' && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/develop')
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install Godot
+        uses: firebelley/godot-export@v6.0.0
+        with:
+          godot_version: ${{ env.GODOT_VERSION }}
+          template_version: ${{ env.GODOT_VERSION }}
+          relative_project_path: ./
+          cache: true
+
+      - name: Export Windows
+        run: |
+          godot --headless --export-release "Windows Desktop" build/TheSignal_Windows/TheSignal.exe
+
+      - name: Upload Windows Build
+        uses: actions/upload-artifact@v4
+        with:
+          name: TheSignal-Windows
+          path: build/TheSignal_Windows/
+          retention-days: 7
+
+  export-linux:
+    name: Export Linux
+    needs: [build, godot-headless]
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    if: github.event_name == 'push' && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/develop')
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install Godot
+        uses: firebelley/godot-export@v6.0.0
+        with:
+          godot_version: ${{ env.GODOT_VERSION }}
+          template_version: ${{ env.GODOT_VERSION }}
+          relative_project_path: ./
+          cache: true
+
+      - name: Export Linux
+        run: |
+          godot --headless --export-release "Linux/X11" build/TheSignal_Linux/TheSignal.x86_64
+
+      - name: Upload Linux Build
+        uses: actions/upload-artifact@v4
+        with:
+          name: TheSignal-Linux
+          path: build/TheSignal_Linux/
+          retention-days: 7

@@ -1,0 +1,34 @@
+[gd_resource type="MutationResource" load_steps=2 format=3 uid://mut_overload]
+
+[ext_resource type="Script" path="res://Data/EditorResources.cs" id="1_1"]
+
+[resource]
+script = ExtResource("1_1")
+mutation_id = "MUT_OVERLOAD"
+display_name = "Signal Overload"
+description = "Resonance damage +30%. Crits apply Fractured."
+category = 0
+benefits = [
+{
+"stat": 5,
+"flat_bonus": 0.0,
+"percent_bonus": 0.3,
+"is_percent": true
+},
+{
+"stat": 18,
+"flat_bonus": 0.0,
+"percent_bonus": 0.0,
+"is_percent": false
+}
+]
+corruption_costs = [
+{
+"type": 12,
+"trigger": 0,
+"description": "Feedback: Taking Resonance damage -> Stunned 1 turn",
+"severity": 3
+}
+]
+icon = null
+visual_effect = null

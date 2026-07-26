@@ -1,0 +1,26 @@
+[gd_resource type="CompanionResource" load_steps=2 format=3 uid://comp_echo]
+[ext_resource type="Script" path="res://Data/CompanionResource.cs" id="1_1"]
+
+[resource]
+script = ExtResource("1_1")
+companion_id = "COMP_ECHO"
+display_name = "Echo"
+description = "A rogue ORACLE relay drone that achieved self-awareness. Can interface with any Signal-capable system. Speaks in fragmented poetry."
+archetype = "Signal-Weaver"
+faction = 4
+starting_zone = "S07_RESONANCE_PIT"
+starting_level = 3
+base_might = 5
+base_agility = 10
+base_constitution = 7
+base_intelligence = 14
+base_willpower = 12
+base_resonance = 14
+starting_abilities = ["basic_attack",
+"resonance_pulse",
+"purge_shot"]
+starting_weapon = "resonance_core"
+personal_quest_id = "QUEST_ECHO_IDENTITY"
+synergy_partners = ["COMP_MARA",
+"COMP_ARIS"]
+dialogue_start_node = "Echo_Recruitment" 

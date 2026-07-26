@@ -1,0 +1,18 @@
+[gd_resource type="SignalNodeResource" load_steps=2 format=3 uid://res_silence]
+
+[ext_resource type="Script" path="res://Data/EditorResources.cs" id="1_1"]
+
+[resource]
+script = ExtResource("1_1")
+node_id = "RES_SILENCE"
+display_name = "White Noise"
+description = "Active (4 AP, 5 CD): 4-radius zone, 3 turns. Enemies inside: -50% Accuracy, cannot use abilities (>2 range). Allies: +1 AP/turn inside."
+branch = 0
+tier = 3
+sp_cost = 3
+prerequisites = ["RES_WAVE"]
+synergy_links = []
+is_active = true
+ability_id = "white_noise"
+passive_effects = []
+icon = null

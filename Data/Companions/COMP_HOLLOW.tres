@@ -1,0 +1,26 @@
+[gd_resource type="CompanionResource" load_steps=2 format=3 uid://comp_hollow]
+[ext_resource type="Script" path="res://Data/CompanionResource.cs" id="1_1"]
+
+[resource]
+script = ExtResource("1_1")
+companion_id = "COMP_HOLLOW"
+display_name = "Hollow"
+description = "A former Signal-Walker who was consumed by the Rust and survived. Treats corruption as a tool, not a curse. Haunted by what she became."
+archetype = "Corruption-Knight"
+faction = 1
+starting_zone = "S07_CRYSTAL_CAVERNS"
+starting_level = 5
+base_might = 12
+base_agility = 8
+base_constitution = 14
+base_intelligence = 8
+base_willpower = 10
+base_resonance = 8
+starting_abilities = ["basic_attack",
+"overwatch",
+"resonance_pulse"]
+starting_weapon = "vine_lash"
+personal_quest_id = "QUEST_HOLLOW_FORGIVENESS"
+synergy_partners = ["COMP_MARA",
+"COMP_VEX"]
+dialogue_start_node = "Hollow_Recruitment" 

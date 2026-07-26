@@ -1,0 +1,19 @@
+[gd_resource type="ItemResource" load_steps=2 format=3 uid://data_fragment]
+
+[ext_resource type="Script" path="res://Data/ItemResource.cs" id="1_1"]
+
+[resource]
+script = ExtResource("1_1")
+item_id = "data_fragment"
+display_name = "Data Fragment"
+description = "Pre-Collapse knowledge. Research material. Intel currency."
+type = 10
+rarity = 1
+icon = null
+max_stack = 999
+value = 100
+weight = 1
+is_unique = false
+is_quest_item = false
+is_craftable = false
+crafting_cost = []

@@ -1,0 +1,21 @@
+[gd_resource type="ItemResource" load_steps=2 format=3 uid://stimulant]
+
+[ext_resource type="Script" path="res://Data/ItemResource.cs" id="1_1"]
+
+[resource]
+script = ExtResource("1_1")
+item_id = "stimulant"
+display_name = "Stimulant"
+description = "Combat drug. Heals. Cleanses. Addictive if abused."
+type = 9
+rarity = 0
+icon = null
+max_stack = 10
+value = 50
+weight = 1
+is_unique = false
+is_quest_item = false
+is_craftable = true
+crafting_cost = [{"item_id": "tech_scrap", "min_count": 10, "max_count": 10, "weight": 1.0, "guaranteed": true}, {"item_id": "bio_gel", "min_count": 2, "max_count": 2, "weight": 1.0, "guaranteed": true}]
+effect = 0
+cooldown_turns = 2

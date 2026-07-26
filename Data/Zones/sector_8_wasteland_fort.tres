@@ -1,0 +1,24 @@
+[gd_resource type="ZoneResource" load_steps=2 format=3 uid://sector_8_wasteland_fort]
+[ext_resource type="Script" path="res://Data/ZoneResource.cs" id="1_1"]
+
+[resource]
+script = ExtResource("1_1")
+zone_id = "S08_WASTELAND_FORT"
+display_name = "Wasteland Fort"
+description = "A fortified outpost built by the Purified to control Sector 8. Chrome banners hang from rusted walls."
+zone_type = 1
+faction_controlled = 0
+corruption_trend = -3
+corruption_current = 0
+connections = [{"target_zone_id": "S08_SCORCHED_FOREST", "direction": 0, "fuel_cost": 10, "required_level": 6, "required_faction_rep": 0, "is_locked": false},
+{"target_zone_id": "S08_SCRAP_MINES", "direction": 0, "fuel_cost": 6, "required_level": 6, "required_faction_rep": 0, "is_locked": false},
+{"target_zone_id": "S07_CRYSTAL_CAVERNS", "direction": 0, "fuel_cost": 14, "required_level": 7, "required_faction_rep": 1, "is_locked": false}]
+encounters = [{"encounter_id": "PurifiedElite", "chance": 30, "weight": 10, "min_level": 6, "max_level": 8},
+{"encounter_id": "ScavengerRaid", "chance": 25, "weight": 10, "min_level": 5, "max_level": 7},
+{"encounter_id": "Assassin", "chance": 15, "weight": 10, "min_level": 6, "max_level": 8}]
+events = [{"event_id": "EVT_COMMANDER_BRIEFING", "title": "Commander's Briefing", "description": "The Purified commander has intel on the Signal source.", "trigger_condition": "talk", "required_flag": "", "required_level": 6, "choices": [{"id": "opt_accept", "text": "Listen to briefing -> reveals Act II direction. Requires Purified rep >= Neutral.", "outcomes": [{"type": 0, "value": "event_complete", "description": "Event resolved"}]}]},
+{"event_id": "EVT_ARMORY_ACCESS", "title": "Armory Access", "description": "The fort's armory is locked but contains chrome weaponry.", "trigger_condition": "break_in", "required_flag": "", "required_level": 8, "choices": [{"id": "opt_accept", "text": "Pick lock (DC 13), convince quartermaster (DC 12 Charisma), or raid (combat vs 3 Purified Soldiers).", "outcomes": [{"type": 0, "value": "event_complete", "description": "Event resolved"}]}]}]
+is_discovered = false
+props = []
+npcs = []
+interactables = []

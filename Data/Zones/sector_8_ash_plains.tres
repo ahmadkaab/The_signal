@@ -1,0 +1,24 @@
+[gd_resource type="ZoneResource" load_steps=2 format=3 uid://sector_8_ash_plains]
+[ext_resource type="Script" path="res://Data/ZoneResource.cs" id="1_1"]
+
+[resource]
+script = ExtResource("1_1")
+zone_id = "S08_ASH_PLAINS"
+display_name = "Ash Plains"
+description = "A flat expanse of volcanic ash stretching to the horizon. The remains of a pre-Rust highway lie buried beneath grey sediment."
+zone_type = 2
+faction_controlled = 3
+corruption_trend = 2
+corruption_current = 0
+connections = [{"target_zone_id": "S08_SCORCHED_FOREST", "direction": 0, "fuel_cost": 12, "required_level": 4, "required_faction_rep": 0, "is_locked": false},
+{"target_zone_id": "S09_GRAVEYARD", "direction": 0, "fuel_cost": 15, "required_level": 5, "required_faction_rep": 0, "is_locked": false}]
+encounters = [{"encounter_id": "AshWalkerPack", "chance": 30, "weight": 10, "min_level": 4, "max_level": 6},
+{"encounter_id": "RustStorm", "chance": 20, "weight": 10, "min_level": 5, "max_level": 7},
+{"encounter_id": "ScavengerPatrol", "chance": 40, "weight": 10, "min_level": 4, "max_level": 6},
+{"encounter_id": "PurifiedRecon", "chance": 10, "weight": 10, "min_level": 5, "max_level": 7}]
+events = [{"event_id": "EVT_ASH_TEMPLE", "title": "Ash Temple", "description": "A half-buried temple emerges from the ash. Signal resonance is strong here.", "trigger_condition": "scan", "required_flag": "", "required_level": 7, "choices": [{"id": "opt_accept", "text": "Enter the temple? May reveal Signal lore, may trigger trap.", "outcomes": [{"type": 0, "value": "event_complete", "description": "Event resolved"}]}]},
+{"event_id": "EVT_RUST_GEYSER", "title": "Rust Geyser Field", "description": "Corruption vents sporadically. Dangerous but rich in Resonance fragments.", "trigger_condition": "collect", "required_flag": "", "required_level": 8, "choices": [{"id": "opt_accept", "text": "Risk corruption exposure for +15 Resonance Fragments?", "outcomes": [{"type": 0, "value": "event_complete", "description": "Event resolved"}]}]}]
+is_discovered = false
+props = []
+npcs = []
+interactables = []

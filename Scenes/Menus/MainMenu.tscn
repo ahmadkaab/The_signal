@@ -1,0 +1,62 @@
+[gd_scene load_steps=4 format=3 uid://uid_mainmenu]
+
+[ext_resource type="Script" path="res://Scenes/UI/MainMenu.cs" id="1_1"]
+[ext_resource type="PackedScene" path="res://Scenes/UI/SaveSlot.tscn" id="1_2"]
+[ext_resource type="AudioStream" path="res://Assets/Audio/Music/main_theme.ogg" id="1_3"]
+
+[node name="MainMenu" type="Control" anchor_right=1.0 anchor_bottom=1.0]
+script = ExtResource("1_1")
+
+[node name="Background" type="TextureRect" parent="." anchor_right=1.0 anchor_bottom=1.0]
+texture = ExtResource("2_1")
+
+[node name="TitleContainer" type="VBoxContainer" parent="." anchor_right=1.0 anchor_bottom=1.0 offset_right=-400 offset_bottom=-300 offset_left=400 offset_top=300]
+alignment = 3
+
+[node name="GameTitle" type="Label" parent="TitleContainer"]
+text = "THE SIGNAL"
+horizontal_alignment = 3
+autowrap_mode = 3
+
+[node name="Subtitle" type="Label" parent="TitleContainer"]
+text = "A Post-Apocalyptic Tactical RPG"
+horizontal_alignment = 3
+
+[node name="ButtonContainer" type="VBoxContainer" parent="TitleContainer"]
+alignment = 3
+
+[node name="NewGameButton" type="Button" parent="ButtonContainer"]
+text = "New Game"
+custom_minimum_size = Vector2(300, 60)
+
+[node name="LoadGameButton" type="Button" parent="ButtonContainer"]
+text = "Load Game"
+custom_minimum_size = Vector2(300, 60)
+
+[node name="SettingsButton" type="Button" parent="ButtonContainer"]
+text = "Settings"
+custom_minimum_size = Vector2(300, 60)
+
+[node name="QuitButton" type="Button" parent="ButtonContainer"]
+text = "Quit"
+custom_minimum_size = Vector2(300, 60)
+
+[node name="LoadMenu" type="Control" parent="." visible=false anchor_right=1.0 anchor_bottom=1.0]
+
+[node name="LoadPanel" type="PanelContainer" parent="LoadMenu" anchor_right=1.0 anchor_bottom=1.0 offset_right=-200 offset_bottom=-150 offset_left=200 offset_top=150]
+
+[node name="LoadTitle" type="Label" parent="LoadPanel"]
+text = "Load Game"
+horizontal_alignment = 3
+
+[node name="SaveSlots" type="VBoxContainer" parent="LoadPanel" offset_top=60 offset_bottom=-60 offset_left=20 offset_right=-20]
+
+[node name="BackButton" type="Button" parent="LoadPanel" anchor_bottom=1.0 offset_bottom=-20]
+text = "Back"
+custom_minimum_size = Vector2(100, 40)
+
+[node name="SettingsMenu" type="Control" parent="." visible=false anchor_right=1.0 anchor_bottom=1.0]
+
+[node name="MainMenuAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_3")
+autoplay = true

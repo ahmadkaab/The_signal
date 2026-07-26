@@ -1,0 +1,12 @@
+[gd_resource type="TrophyResource" load_steps=2 format=3 uid://trophy_purified_friend]
+[ext_resource type="Script" path="res://Data/TrophyResource.cs" id="1_1"]
+[resource]
+script = ExtResource("1_1")
+trophy_id = "TROPHY_PURIFIED_FRIEND"
+display_name = "Chrome Ally"
+description = "Reach Friend reputation with Purified"
+rarity = 0
+is_hidden = false
+has_progress = false
+progress_max = 1
+xbox_gamer_score = 15

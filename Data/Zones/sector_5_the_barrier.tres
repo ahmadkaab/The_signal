@@ -1,0 +1,23 @@
+[gd_resource type="ZoneResource" load_steps=2 format=3 uid://sector_5_the_barrier]
+[ext_resource type="Script" path="res://Data/ZoneResource.cs" id="1_1"]
+
+[resource]
+script = ExtResource("1_1")
+zone_id = "S05_THE_BARRIER"
+display_name = "The Barrier"
+description = "A massive wall of crystalline Rust that blocks passage to Sector 4. The Signal is strongest here — ORACLE's broadcast punches through the corruption."
+zone_type = 0
+faction_controlled = 3
+corruption_trend = 7
+corruption_current = 0
+connections = [{"target_zone_id": "S06_MUTATION_LAB", "direction": 0, "fuel_cost": 18, "required_level": 9, "required_faction_rep": 3, "is_locked": false},
+{"target_zone_id": "S05_SIGNAL_SPIRE", "direction": 0, "fuel_cost": 10, "required_level": 10, "required_faction_rep": 0, "is_locked": false}]
+encounters = [{"encounter_id": "BarrierGuardians", "chance": 35, "weight": 10, "min_level": 9, "max_level": 11},
+{"encounter_id": "CorruptedWalker", "chance": 30, "weight": 10, "min_level": 9, "max_level": 10},
+{"encounter_id": "ResonanceElemental", "chance": 25, "weight": 10, "min_level": 10, "max_level": 11}]
+events = [{"event_id": "EVT_BARRIER_BREACH", "title": "Barrier Breach", "description": "The Barrier is weakest here. ORACLE's voice is almost deafening.", "trigger_condition": "breach", "required_flag": "", "required_level": 11, "choices": [{"id": "opt_accept", "text": "Attempt to breach (DC 14 Resonance OR 3 Purification Serums). Success: Act II unlocked. Failure: take 50% HP damage + -30 Corruption.", "outcomes": [{"type": 0, "value": "event_complete", "description": "Event resolved"}]}]},
+{"event_id": "EVT_ORACLE_VISION", "title": "Oracle Vision", "description": "ORACLE projects a vision directly into your mind — the truth about the Signal.", "trigger_condition": "receive", "required_flag": "", "required_level": 10, "choices": [{"id": "opt_accept", "text": "Receive the vision: reveals Act II main quest, unlocks 'The Truth' ending branch.", "outcomes": [{"type": 0, "value": "event_complete", "description": "Event resolved"}]}]}]
+is_discovered = false
+props = []
+npcs = []
+interactables = []

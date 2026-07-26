@@ -1,0 +1,12 @@
+[gd_resource type="TrophyResource" load_steps=2 format=3 uid://trophy_no_damage]
+[ext_resource type="Script" path="res://Data/TrophyResource.cs" id="1_1"]
+[resource]
+script = ExtResource("1_1")
+trophy_id = "TROPHY_NO_DAMAGE"
+display_name = "Untouchable"
+description = "Win a combat with no party member taking damage"
+rarity = 1
+is_hidden = false
+has_progress = false
+progress_max = 1
+xbox_gamer_score = 25

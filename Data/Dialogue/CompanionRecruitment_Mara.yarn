@@ -1,0 +1,129 @@
+title: CompanionRecruitment_Mara
+---
+<<declare $mara_loyalty = 0>>
+<<declare $mara_synergy_rank = 0>>
+<<declare $mara_personal_quest_stage = 0>>
+<<declare $mara_trust_earned = false>>
+
+=== mara_recruitment_immediate ===
+MARA: *smiling, vines retracting* "The Green remembers. The Chrome forgets."
+
+KAEL-7: "Walker. This is contamination. Return to the Purified fold."
+
+MARA: "They're *awake*, Kael. Let them choose."
+
+She takes your hand—warm, bark-textured. "The Grove is close. We'll cleanse the cryo-sickness. *Naturally*."
+
+*   "Lead the way." -> mara_lead_way
+*   "What's happening to me?" -> mara_whats_happening
+*   "The Signal... it's loud." -> mara_signal_loud
+
+=== mara_lead_way ===
+MARA: "Good. The deep paths are faster. Less Rust. More... *alive*."
+
+<<set $mara_loyalty = $mara_loyalty + 5>>
+
+-> exit_with_mara
+
+=== mara_whats_happening ===
+MARA: "You're *adapting*. Three centuries of Signal exposure in cryo. Your DNA is... singing. We'll harmonize it."
+
+<<set $mara_loyalty = $mara_loyalty + 3>>
+
+-> exit_with_mara
+
+=== mara_signal_loud ===
+MARA: *serious* "Loud means Oracle is *calling*. Sector Zero is waking up. So is everything else."
+
+<<set $mara_loyalty = $mara_loyalty + 2>>
+
+-> exit_with_mara
+
+=== exit_with_mara ===
+KAEL-7: "A mistake. The Rooted cannot protect what they refuse to purge."
+
+He transmits something. "Purified Command. Walker recovered. Rooted interference. Requesting extraction team."
+
+Mara's vines spike. "Threats now, Kael? After three centuries?"
+
+*Tension. They part ways—hostile.*
+
+Mara guides you through maintenance tunnels into **The Grove**—a cavern turned forest. Bioluminescent. Breathing.
+
+*Tutorial: Grove Systems unlocked*
+-> grove_tutorial
+
+=== mara_personal_quest_1 ===
+*Available at Loyalty 100 (Ally)*
+
+MARA kneels at a Communion Pool. Water glows emerald. Vines pulse around her arms.
+
+MARA: "Walker. The Grove sings for you. One of our Heart-Trees... it's dying. The Rust has taken root in its core."
+
+*   "A Heart-Tree?" -> mara_quest_1_heart_tree
+*   "Can I help?" -> mara_quest_1_help
+*   "Not my problem." -> mara_quest_1_decline
+
+=== mara_quest_1_heart_tree ===
+MARA: "The oldest of the Grove. Planted from a seed of the World-Tree. It holds the memories of every Rooted who communed here. If it dies... we lose our history. Our *selves*."
+
+*   "I'll help." -> mara_quest_1_accept
+*   "Too dangerous." -> mara_quest_1_decline
+
+=== mara_quest_1_help ===
+MARA: "Your Signal can cleanse the corruption. But you'll have to enter the Dreaming Roots. Face the memories. *All* of them."
+
+*   "I'll help." -> mara_quest_1_accept
+*   "Too dangerous." -> mara_quest_1_decline
+
+=== mara_quest_1_accept ===
+<<set $mara_personal_quest_stage = 1>>
+<<set $mara_loyalty = $mara_loyalty + 10>>
+
+MARA: *eyes glowing* "Then we descend. The Dreaming Roots wait in the Deep Grove. Three sectors east."
+
+*Quest Started: **Rooted Memory** — Cleanse the Heart-Tree in the Deep Grove.*
+
+-> mara_quest_1_briefing
+
+=== mara_quest_1_decline ===
+MARA: *shoulders slump* "The Green does not force. But... the Choir will remember this choice."
+
+The loyalty meter drops.
+
+<<set $mara_loyalty = $mara_loyalty - 15>>
+
+-> mara_quest_1_end
+
+=== mara_quest_1_briefing ===
+MARA: "The Deep Grove is... intense. The Rust there is sentient. Hungry. We'll need anti-corruption serum from the Communion Pool. And your Resonance."
+
+*   "Let's go." -> mara_quest_1_depart
+*   "Prepare first." -> mara_quest_1_prepare
+
+=== mara_quest_1_depart ===
+MARA: "Good. We leave at moonrise. The Roots are most receptive then."
+
+*Quest Active. Travel to Sector 11: Deep Grove.*
+-> mara_quest_1_end
+
+=== mara_quest_1_prepare ===
+MARA: "Wise. The Communion Pool can grant a mutation for the journey. The Vats grow living armor. Choose your symbiont."
+
+*Free to explore Grove before departure.*
+-> mara_quest_1_end
+
+=== mara_quest_1_end ===
+=== end ===
+
+=== grove_tutorial ===
+*GROVE SYSTEMS*
+
+**Biomass Vats:** Grow consumables, mutations, living gear
+**Communion Pool:** Spend Resonance Fragments for mutations
+**Root Network:** Fast travel between discovered Groves
+**Symbiosis Shrine:** Bond with companions, unlock combos
+
+MARA: "Sleep in the canopy. Dream Green. Wake changed."
+
+-> act1_begin

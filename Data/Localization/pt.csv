@@ -1,0 +1,69 @@
+key,text
+DLG_GUARD_INTRO,O guarda bloqueia o portão.
+DLG_GUARD_BRIBED,O guarda guarda o suborno e se afasta.
+DLG_OPT_BRIBE,Oferecer 50 de ouro
+DLG_OPT_LEAVE,Sair
+DLG_KAEL_001,Sou Kael-7. Sétima iteração. Paladino Purificado.
+DLG_KAEL_002,A assinatura do Sinal... frequência de Andarilho. Impossível.
+DLG_MARA_001,Sou Mara do Coro Verdejante.
+DLG_MARA_002,O Sinal... canta em você.
+DLG_CHOOSE_COMPANION,Em quem você confia?
+DLG_CHOOSE_KAEL,Kael. Preciso de tecnologia para sobreviver.
+DLG_CHOOSE_MARA,Mara. Preciso entender no que me tornei.
+DLG_CHOOSE_BOTH,Ambos. Estamos indo na mesma direção.
+DLG_CHOOSE_NONE,Por que eu confiaria em qualquer um de vocês?
+TUT_MOVE,WASD / Setas: Mover
+TUT_ABILITY,1-4: Habilidades
+TUT_END_TURN,Espaço: Finalizar turno
+TUT_OVERWATCH,Tab: Vigilância
+TUT_TARGET,Clique: Mirar
+TUT_COMBAT_VICTORY,Victoria! XP ganho: %d
+TUT_COMBAT_DEFEAT,Você caiu. O Sinal desaparece...
+ITEM_PULSE_PISTOL,Pistola de Pulso
+ITEM_STIMULANT,Estimulante
+ITEM_CHROME_RIFLE,Fuzil de Cromo Purificado
+ITEM_VINE_LASH,Chicote de Vinhas
+ABILITY_BASIC_ATTACK,Ataque Básico
+ABILITY_RESONANCE_PULSE,Pulso de Ressonância
+ABILITY_ENTANGLE,Vinhas Emaranhadas
+ABILITY_OVERWATCH,Vigilância
+STAT_MIGHT,Poder
+STAT_AGILITY,Agilidade
+STAT_CONSTITUTION,Constituição
+STAT_INTELLIGENCE,Inteligência
+STAT_WILLPOWER,Força de Vontade
+STAT_RESONANCE,Ressonância
+UI_HP,PV: %d/%d
+UI_AP,PA: %d/%d
+UI_LEVEL,Nível %d
+UI_XP,XP: %d/%d
+UI_SCRAP,Sucata: %d
+UI_FUEL,Combustível: %d/%d
+UI_SAVE,Salvar Jogo
+UI_LOAD,Carregar Jogo
+UI_SETTINGS,Configurações
+UI_QUIT,Sair
+UI_NEW_GAME,Novo Jogo
+UI_RESUME,Continuar
+UI_SAVE_SLOT,Slot %d
+UI_EMPTY_SLOT,Slot Vazio
+UI_DELETE,Excluir
+UI_BACK,Voltar
+UI_CONFIRM,Confirmar
+UI_CANCEL,Cancelar
+ZONE_GRAVEYARD,Setor 9: O Cemitério
+ZONE_CITADEL,Cidadela Purificada
+ZONE_GROVE,O Bosque Verdejante
+ZONE_FREEPORT,Porto Livre dos Sucateiros
+ZONE_SECTOR_8,Setor 8: Os Ermos
+NOTIF_QUEST_STARTED,Missão Iniciada: %s
+NOTIF_QUEST_UPDATED,Missão Atualizada: %s
+NOTIF_QUEST_COMPLETED,Missão Completada: %s
+NOTIF_ITEM_OBTAINED,Obtido: %s x%d
+NOTIF_XP_GAINED,XP Ganho: +%d
+NOTIF_LEVEL_UP,Subiu de Nível! Agora Nível %d
+NOTIF_SAVED,Jogo Salvo
+NOTIF_LOADED,Jogo Carregado
+ERROR_LOAD_FAILED,Falha ao carregar o save
+ERROR_SAVE_FAILED,Falha ao salvar o jogo
+ERROR_NO_SAVE,Nenhum save encontrado

@@ -1,0 +1,69 @@
+key,text
+DLG_GUARD_INTRO,경비병이 문을 막고 있다.
+DLG_GUARD_BRIBED,경비병은 돈을 받고 비켜섰다.
+DLG_OPT_BRIBE,50골드를 건네다
+DLG_OPT_LEAVE,떠난다
+DLG_KAEL_001,나는 케일-7이다. 일곱 번째 개체. 정화된 성기사.
+DLG_KAEL_002,신호... 워커 주파수. 말도 안 돼.
+DLG_MARA_001,나는 푸른 합창단의 마라다.
+DLG_MARA_002,신호가... 너 안에서 노래하고 있어.
+DLG_CHOOSE_COMPANION,누구를 신뢰하겠는가?
+DLG_CHOOSE_KAEL,케일. 생존을 위해 기술이 필요해.
+DLG_CHOOSE_MARA,마라. 내가 무엇이 되었는지 이해해야 해.
+DLG_CHOOSE_BOTH,둘 다. 우린 같은 방향으로 가고 있어.
+DLG_CHOOSE_NONE,왜 너희를 믿어야 하지?
+TUT_MOVE,WASD/방향키: 이동
+TUT_ABILITY,1-4: 능력
+TUT_END_TURN,스페이스바: 턴 종료
+TUT_OVERWATCH,Tab: 경계
+TUT_TARGET,클릭: 대상 지정
+TUT_COMBAT_VICTORY,전투 승리! 획득 경험치: %d
+TUT_COMBAT_DEFEAT,넌 쓰러졌다. 신호가 사라진다...
+ITEM_PULSE_PISTOL,펄스 권총
+ITEM_STIMULANT,자극제
+ITEM_CHROME_RIFLE,정화 크롬 소총
+ITEM_VINE_LASH,덩굴 채찍
+ABILITY_BASIC_ATTACK,기본 공격
+ABILITY_RESONANCE_PULSE,공명 펄스
+ABILITY_ENTANGLE,휘감는 덩굴
+ABILITY_OVERWATCH,경계
+STAT_MIGHT,힘
+STAT_AGILITY,민첩
+STAT_CONSTITUTION,체력
+STAT_INTELLIGENCE,지능
+STAT_WILLPOWER,의지력
+STAT_RESONANCE,공명
+UI_HP,HP: %d/%d
+UI_AP,AP: %d/%d
+UI_LEVEL,레벨 %d
+UI_XP,경험치: %d/%d
+UI_SCRAP,고철: %d
+UI_FUEL,연료: %d/%d
+UI_SAVE,저장
+UI_LOAD,불러오기
+UI_SETTINGS,설정
+UI_QUIT,종료
+UI_NEW_GAME,새 게임
+UI_RESUME,계속
+UI_SAVE_SLOT,슬롯 %d
+UI_EMPTY_SLOT,빈 슬롯
+UI_DELETE,삭제
+UI_BACK,뒤로
+UI_CONFIRM,확인
+UI_CANCEL,취소
+ZONE_GRAVEYARD,섹터 9: 묘지
+ZONE_CITADEL,정화된 성채
+ZONE_GROVE,푸른 숲
+ZONE_FREEPORT,청소부 자유항
+ZONE_SECTOR_8,섹터 8: 황무지
+NOTIF_QUEST_STARTED,퀘스트 시작: %s
+NOTIF_QUEST_UPDATED,퀘스트 갱신: %s
+NOTIF_QUEST_COMPLETED,퀘스트 완료: %s
+NOTIF_ITEM_OBTAINED,획득: %s x%d
+NOTIF_XP_GAINED,경험치 획득: +%d
+NOTIF_LEVEL_UP,레벨 업! 현재 레벨 %d
+NOTIF_SAVED,게임 저장됨
+NOTIF_LOADED,게임 불러오기 완료
+ERROR_LOAD_FAILED,저장 데이터를 불러올 수 없음
+ERROR_SAVE_FAILED,게임 저장 실패
+ERROR_NO_SAVE,저장된 데이터 없음

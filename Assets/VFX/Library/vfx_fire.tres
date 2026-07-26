@@ -1,0 +1,19 @@
+[gd_resource type="VfxTemplate" load_steps=2 format=3 uid://vfx_fire]
+[ext_resource type="Script" path="res://Content/Assets/AssetStandards.cs" id="1_1"]
+[resource]
+script = ExtResource("1_1")
+vfx_id = "vfx_fire"
+display_name = "Fire Burst"
+category = 8
+lifetime = 1.5
+looping = false
+max_instances = 10
+particle_count = 40
+emit_box = "0.8, 0.8, 0.8"
+speed_min = 2.0
+speed_max = 6.0
+color_start = "1, 0.6, 0, 1"
+color_end = "0.5, 0, 0, 0"
+scale_min = 0.1
+scale_max = 0.25
+gravity = -3.0

@@ -1,0 +1,91 @@
+title: Vex_Recruitment
+---
+===
+Vex_Intro
+===
+
+Vex: Another Walker. The Purified said you were coming.
+Vex: I'm Vex. Formerly of the Chrome Guard. Now... I'm something else.
+
+-> I need someone who can handle the shadows.
+    === Vex_Accepted ===
+-> The Purified don't speak highly of you.
+    === Vex_Purified_Tension ===
+-> What did you do to earn their anger?
+    === Vex_Backstory ===
+
+===
+Vex_Backstory
+===
+
+Vex: I was their best. Kill on command. No questions.
+Vex: Then ORACLE showed me the truth — the Purified are just another cult. They don't want to save humanity, they want to control what's left.
+
+<<set $vex_loyalty = $vex_loyalty + 10>>
+<<set $vex_trust = 1>>
+
+-> That takes courage. I want you with me.
+    === Vex_Accepted ===
+-> Show me what you can do first.
+    === Vex_Trial ===
+
+===
+Vex_Trial
+===
+
+Vex: Fine. There's a Purified patrol outside the fort. Three soldiers. I'll handle two, you take one.
+Vex: Don't slow me down.
+
+<<jump Vex_Combat_Test>>
+
+===
+Vex_Combat_Test
+===
+<<if $vex_trial_complete>>
+    Vex: Not bad, Walker. You earned the right to stand beside me.
+    <<set $vex_loyalty = 25>>
+    <<jump Vex_Accepted>>
+<<else>>
+    Vex: You're still alive. Good enough for me.
+    <<jump Vex_Accepted>>
+<</if>>
+
+===
+Vex_Purified_Tension
+===
+
+Vex: They told you I was a traitor. They're not wrong.
+Vex: But the only thing I betrayed was blind obedience.
+
+<<set $vex_loyalty = $vex_loyalty + 5>>
+
+-> I need people who think for themselves. Welcome aboard.
+    === Vex_Accepted ===
+-> Trust is earned. Show me. 
+    === Vex_Trial ===
+
+===
+Vex_Accepted
+===
+
+Vex: Then we have an understanding. I don't do friendship. I do results.
+Vex: But I'll admit... the Signal chose well. You're not like the others.
+
+<<set $vex_loyalty = 30>>
+<<set $vex_recruited = true>>
+<<set $active_companions += 1>>
+<<set $party: "Vex" = true>>
+<<set $quest_vex_redemption = "active">>
+
+Vex <<companion_join>>
+<<give_item chrome_dagger>>
+
+-> Welcome to the crew, Vex. (Vex Recruitment Complete)
+    === Vex_Joined ===
+
+===
+Vex_Joined
+===
+
+Vex: Don't make me regret this, Walker. <<signal>>
+    -> Let's move. (End)
